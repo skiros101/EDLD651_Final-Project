@@ -1,0 +1,49 @@
+---
+title: "EDLD 651 Final Project"
+author: "Sara Kiros, Ohnmar Khine Min, Chen Su"
+format: 
+  html:
+    highlight-style: espresso
+    code-fold: true
+execute: 
+  eval: true
+  echo: true
+  warning: false
+fig-width: 6.5
+fig-height: 8
+---
+
+
+### 0. Loading Packages and Data
+
+```{r}
+#| label: load-packages-raw-data
+
+library(tidyverse)
+library(here)
+library(rio)
+library(janitor)
+library(ggplot2)
+
+pwave5 <- import(here("data", "pwave5.xpt")) |>
+  characterize() |>
+  clean_names() 
+
+```
+
+
+```{r}
+#| label: select-variables
+
+wave5_raw <- pwave5 |>
+     select(aid, imonth5, iyear5, h5od1m, h5od1y,
+            h5od2a, h5od3, h5od4a, h5od4b, h5od4c,
+            h5od4d, h5od4e, h5od4f, h5od4g, h5od8,
+            h5lm5, h5lm6, h5lm7, h5lm9, h5ec1, h5ec2,
+            h5id9, h5id10a, h5id10b, h5id10c, h5id10d)
+
+```
+
+
+
+### 1. 
