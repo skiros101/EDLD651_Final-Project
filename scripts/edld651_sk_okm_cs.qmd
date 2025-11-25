@@ -157,8 +157,7 @@ wave5_clean <- wave5_raw %>%
 
 
 ```{r}
-
-
+#Renaming Column names 
 wave5_clean <- wave5_raw %>%
   rename(
     insurance_status = h5id9,
@@ -173,6 +172,36 @@ wave5_clean <- wave5_raw %>%
 ```
 
 
+**Data Exploratory visualization for Household Income Count**
+```{r}
+wave5_clean %>%
+  filter(!is.na(household_income)) %>%
+  group_by(household_income) %>%
+  summarise(count = n()) %>%
+  ggplot(aes(x = factor(household_income,
+                        levels = 1:13,
+                        labels = c(
+                          "Less than $5,000",
+                          "$5,000 to $9,999",
+                          "$10,000 to $14,999",
+                          "$15,000 to $19,999",
+                          "$20,000 to $24,999",
+                          "$25,000 to $29,999",
+                          "$30,000 to $39,999",
+                          "$40,000 to $49,999",
+                          "$50,000 to $74,999",
+                          "$75,000 to $99,999",
+                          "$100,000 to $149,999",
+                          "$150,000 to $199,999",
+                          "$200,000 or more"
+                        )),
+                 y = count)) +
+  geom_col() +
+  labs(title = "Count by Income Level", x = "Household Income Level", y = "Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+```
 
 
 

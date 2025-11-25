@@ -1,5 +1,5 @@
 ---
-title: "Seperate working file"
+title: "EDLD 651 Final Project"
 author: "Sara Kiros, Ohnmar Khine Min, Chen Su"
 format: 
   html:
@@ -46,16 +46,51 @@ wave5_raw <- pwave5 |>
 ```
 
 
-### 1. 
-**Health Insurance Status**
+### 1. Cleaning Employment variables
 ```{r}
-#Factoring 
+#| label: clean-employment
+
+#Job Type
+job_labels <- c(
+  "1" = "Military", 
+  "2" = "Private for-profit", 
+  "3" = "Private nonprofit",
+  "4" = "Local government",
+  "5" = "State government", 
+  "6" = "Federal government", 
+  "7" = "Self-employed (non-inc)",
+  "8" = "Self-employed (inc)",
+  "9" = "Unpaid family worker"
+  )
 
 
-library(dplyr)
+wave5_clean <- wave5_raw |> 
+    mutate(
+    employed = ifelse(h5lm5 == 1, "Employed",
+                      ifelse(h5lm5 %in% c(2, 3), "Not employed", NA)),
+    num_jobs = ifelse(h5lm6 %in% 1:4, h5lm6, NA),
+    hours_work = ifelse(h5lm7 >= 5 & h5lm7 <= 90, h5lm7, NA),
+     job_type = job_labels[as.character(h5lm9)]
+)
+  
+```
 
-# Factor: Health insurance status (Q9)
-wave5_raw <- wave5_raw %>%
+### 2. Cleaning Gender Variables
+```{r}
+
+wave5_clean <- wave5_clean |> 
+  mutate(
+    gender = ifelse(h5od2a == 1, "Male", 
+                    ifelse(h5od2a == 2, "Female", NA))
+  )
+```
+
+### 3. Cleaning Insurance status and reasons variables 
+```{r}
+
+
+#Health insurance status (h5id9 & h5id10a,b,c,d)
+wave5_clean <- wave5_raw %>%
   mutate(
     h5id9 = factor(
       h5id9,
@@ -79,24 +114,22 @@ wave5_raw <- wave5_raw %>%
   )
 
 # Factor: Q10 reasons (0 = no, 1 = yes, 97 = legitimate skip)
-wave5_raw <- wave5_raw %>%
+wave5_clean <- wave5_raw %>%
   mutate(across(
     c(h5id10a, h5id10b, h5id10c, h5id10d),
     ~ factor(.,
              levels = c(0, 1, 97),
              labels = c("no", "yes", "legitimate skip"))
   ))
-
-
-
-
 ```
 
 
-
+### 4. Cleaning Household income variables 
 ```{r}
 
-wave5_raw <- wave5_raw %>%
+#Household Income in the last calendar year (h5ec2)
+
+wave5_clean <- wave5_raw %>%
   mutate(
     h5ec2 = factor(
       h5ec2,
@@ -122,9 +155,8 @@ wave5_raw <- wave5_raw %>%
 
 ```
 
-#Renaming Columns 
-```{r}
 
+```{r}
 
 
 wave5_clean <- wave5_raw %>%
@@ -138,24 +170,38 @@ wave5_clean <- wave5_raw %>%
   )
 
 #colnames(wave5_raw)
-
 ```
 
-
-
+**Data Exploratory visualization for Household Income Count**
 ```{r}
-
-geom_col
+wave5_clean %>%
+  filter(!is.na(household_income)) %>%
+  group_by(household_income) %>%
+  summarise(count = n()) %>%
+  ggplot(aes(x = factor(household_income,
+                        levels = 1:13,
+                        labels = c(
+                          "Less than $5,000",
+                          "$5,000 to $9,999",
+                          "$10,000 to $14,999",
+                          "$15,000 to $19,999",
+                          "$20,000 to $24,999",
+                          "$25,000 to $29,999",
+                          "$30,000 to $39,999",
+                          "$40,000 to $49,999",
+                          "$50,000 to $74,999",
+                          "$75,000 to $99,999",
+                          "$100,000 to $149,999",
+                          "$150,000 to $199,999",
+                          "$200,000 or more"
+                        )),
+                 y = count)) +
+  geom_col() +
+  labs(title = "Count by Income Level", x = "Household Income Level", y = "Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 
 ```
-
-
-
-
-
-
-
 
 
 
