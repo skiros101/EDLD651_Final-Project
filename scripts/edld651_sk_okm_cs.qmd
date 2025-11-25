@@ -46,4 +46,44 @@ wave5_raw <- pwave5 |>
 
 
 
-### 1. 
+### 1. Cleaning Employment variables
+
+```{r}
+#| label: clean-employment
+
+#Job Type
+job_labels <- c(
+  "1" = "Military", 
+  "2" = "Private for-profit", 
+  "3" = "Private nonprofit",
+  "4" = "Local government",
+  "5" = "State government", 
+  "6" = "Federal government", 
+  "7" = "Self-employed (non-inc)",
+  "8" = "Self-employed (inc)",
+  "9" = "Unpaid family worker"
+  )
+
+
+wave5_clean <- wave5_raw |> 
+    mutate(
+    employed = ifelse(h5lm5 == 1, "Employed",
+                      ifelse(h5lm5 %in% c(2, 3), "Not employed", NA)),
+    num_jobs = ifelse(h5lm6 %in% 1:4, h5lm6, NA),
+    hours_work = ifelse(h5lm7 >= 5 & h5lm7 <= 90, h5lm7, NA),
+     job_type = job_labels[as.character(h5lm9)]
+)
+  
+```
+
+### 2. Cleaning Gender Variables
+
+```{r}
+
+wave5_clean <- wave5_clean |> 
+  mutate(
+    gender = ifelse(h5od2a == 1, "Male", 
+                    ifelse(h5od2a == 2, "Female", NA))
+  )
+```
+
