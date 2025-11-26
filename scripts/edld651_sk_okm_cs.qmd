@@ -25,6 +25,7 @@ library(rio)
 library(janitor)
 library(ggplot2)
 library(dplyr)
+library(lubridate)
 
 pwave5 <- import(here("data", "pwave5.xpt")) |>
   characterize() |>
@@ -75,7 +76,9 @@ wave5_clean <- wave5_raw |>
   
 ```
 
+
 ### 2. Cleaning Gender Variables
+
 ```{r}
 
 wave5_clean <- wave5_clean |> 
@@ -85,7 +88,9 @@ wave5_clean <- wave5_clean |>
   )
 ```
 
+
 ### 3. Cleaning Insurance status and reasons variables 
+
 ```{r}
 
 
@@ -125,6 +130,7 @@ wave5_clean <- wave5_raw %>%
 
 
 ### 4. Cleaning Household income variables 
+
 ```{r}
 
 #Household Income in the last calendar year (h5ec2)
@@ -157,12 +163,9 @@ wave5_clean <- wave5_raw %>%
 
 
 ```{r}
-<<<<<<< HEAD
+
 #Renaming Column names 
-=======
 
-
->>>>>>> origin/main
 wave5_clean <- wave5_raw %>%
   rename(
     insurance_status = h5id9,
@@ -173,11 +176,10 @@ wave5_clean <- wave5_raw %>%
     household_income = h5ec2
   )
 
-#colnames(wave5_raw)
 ```
 
 
-<<<<<<< HEAD
+
 **Data Exploratory visualization for Household Income Count**
 ```{r}
 wave5_clean %>%
@@ -208,8 +210,98 @@ wave5_clean %>%
 
 
 ```
-=======
->>>>>>> origin/main
 
 
+### 5. Cleaning Age variables 
+
+```{r}
+#| label: convert-date-variables
+
+survey_date_string <- paste(wave5_clean$iyear5, wave5_clean$imonth5, 1, sep = "-")
+
+wave5_clean <- wave5_clean |>
+  mutate(survey_date = ymd(survey_date_string))
+
+
+birth_date_string <- paste(wave5_clean$h5od1y, wave5_clean$h5od1m, 1, sep = "-")
+
+wave5_clean <- wave5_clean |>
+  mutate(birth_date = ymd(birth_date_string))
+
+```
+
+
+```{r}
+#| label: calculate-age-at-survey
+
+wave5_clean <- wave5_clean |>
+  mutate(age = interval(birth_date, survey_date) |>
+           time_length(unit = "years") |> round(digits = 2))
+
+wave5_clean |>
+  ggplot(aes(x=age)) + geom_histogram(binwidth = 1) + 
+  labs(title = "Distribution of Participant's Age",
+       caption = "Data Source: Wave 5 ADD Health") + 
+  theme_minimal()
+
+
+```
+
+
+
+### 6. Cleaning Race & Ethnicity variables
+
+```{r}
+#| label: convert-race-ethnicity-variables
+
+wave5_clean <- wave5_clean |>
+  mutate(race = case_when(h5od4a == 1 & h5od4b == 0 & h5od4d == 0 & h5od4e == 0 &
+                            h5od4f == 0 & h5od4g == 0 ~ "White", 
+                          h5od4a == 0 & h5od4b == 1 & h5od4d == 0 & h5od4e == 0 &
+                            h5od4f == 0 & h5od4g == 0 ~ "Black", 
+                          h5od4a == 0 & h5od4b == 0 & h5od4d == 1 & h5od4e == 0 &
+                            h5od4f == 0 & h5od4g == 0 ~ "Asian", 
+                          h5od4a == 0 & h5od4b == 0 & h5od4d == 0 & h5od4e == 1 &
+                            h5od4f == 0 & h5od4g == 0 ~ "Pacific Islander", 
+                          h5od4a == 0 & h5od4b == 0 & h5od4d == 0 & h5od4e == 0 &
+                            h5od4f == 1 & h5od4g == 0 ~ "American Indian or Alaska Native",
+                          h5od4a == 0 & h5od4b == 0 & h5od4d == 0 & h5od4e == 0 &
+                            h5od4f == 0 & h5od4g == 1 ~ "Other Race"))
+
+# NA = multiple race selected, recode to multiracial
+wave5_clean <- wave5_clean |>
+  mutate(race = replace_na(race, "Multiracial"))
+
+
+# ethnicity
+wave5_clean <- wave5_clean |>
+  mutate(ethnicity = case_when(h5od4c == 1 ~ "Hispanic",
+                               h5od4c == 0 ~ "Non-Hispanic"))
+
+# NA = Missing for ethnicity
+wave5_clean <- wave5_clean |>
+  mutate(ethnicity = replace_na(ethnicity, "Missing"))
+    
+# re-level variables
+wave5_clean$race <- factor(wave5_clean$race,levels = c("White",
+                                                       "Black",
+                                                       "Asian",
+                                                       "Pacific Islander",
+                                                       "American Indian or Alaska Native",
+                                                       "Multiracial",
+                                                       "Other Race"))
+
+wave5_clean$ethnicity <- factor(wave5_clean$ethnicity,
+                                levels = c("Non-Hispanic",
+                                           "Hispanic",
+                                           "Missing"))
+
+
+wave5_clean |>
+  ggplot(aes(race)) + geom_bar() + 
+  labs(title = "Distribution of Participant's Race and Ethnicity",
+       caption = "Data Source: Wave 5 ADD Health") + 
+  theme_minimal() + facet_wrap(~ethnicity) + coord_flip()
+
+```
 
