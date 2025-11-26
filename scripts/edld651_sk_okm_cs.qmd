@@ -73,6 +73,14 @@ wave5_clean <- wave5_raw |>
     hours_work = ifelse(h5lm7 >= 5 & h5lm7 <= 90, h5lm7, NA),
      job_type = job_labels[as.character(h5lm9)]
 )
+
+#Distribution of Job Types - Bar Chart
+ggplot(wave5_clean, aes(x = job_type)) + 
+  geom_bar() +
+  coord_flip() + 
+  labs(title = "Distribution of Job Types Among Participants", 
+       x = "Job Type", 
+       y = "Count")
   
 ```
 
@@ -86,6 +94,19 @@ wave5_clean <- wave5_clean |>
     gender = ifelse(h5od2a == 1, "Male", 
                     ifelse(h5od2a == 2, "Female", NA))
   )
+
+#gender_employment
+gender_employment <- wave5_clean |> 
+  group_by (gender, employed) |>
+  summarize(n = n(), .groups = "drop")
+
+#gender_employment plot
+ggplot(gender_employment, aes(x = gender, y = n, fill = employed)) + 
+  geom_col(position = "dodge", na.rm = TRUE) + 
+  labs(title = "Employment Status by Gender", 
+       x = "Gender",
+       y = "Count",
+       fill = "Employment")
 ```
 
 
@@ -304,4 +325,7 @@ wave5_clean |>
   theme_minimal() + facet_wrap(~ethnicity) + coord_flip()
 
 ```
+
+
+
 
