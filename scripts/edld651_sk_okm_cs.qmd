@@ -3,6 +3,7 @@ title: "EDLD 651 Final Project"
 author: "Sara Kiros, Ohnmar Khine Min, Chen Su"
 format: 
   html:
+# objectively correct choice of highlight style
     highlight-style: espresso
     code-fold: true
 execute: 
@@ -23,9 +24,11 @@ library(tidyverse)
 library(here)
 library(rio)
 library(janitor)
-library(ggplot2)
-library(dplyr)
-library(lubridate)
+
+# I believe the below are all loaded with tidyverse
+#library(ggplot2)
+#library(dplyr)      
+#library(lubridate)
 
 pwave5 <- import(here("data", "pwave5.xpt")) |>
   characterize() |>
@@ -65,14 +68,20 @@ job_labels <- c(
   )
 
 
+# Here, I initially thought that fct_recode would look a little bit cleaner than the ifelse statements, but I learned that fct_recode only works with character vectors or vectors, not numeric vectors. I've added code for a possible use of fct_recode for the "employed" columng!
+
 wave5_clean <- wave5_raw |> 
-    mutate(
-    employed = ifelse(h5lm5 == 1, "Employed",
-                      ifelse(h5lm5 %in% c(2, 3), "Not employed", NA)),
+  mutate(
+#    employed = ifelse(h5lm5 == 1, "Employed",
+#                      ifelse(h5lm5 %in% c(2, 3), "Not employed", NA)),
+    employed = fct_recode(as.character(h5lm5),
+                          "Employed" = "1",
+                          "Not employed" = "2",
+                          "Not employed" = "3"),
     num_jobs = ifelse(h5lm6 %in% 1:4, h5lm6, NA),
     hours_work = ifelse(h5lm7 >= 5 & h5lm7 <= 90, h5lm7, NA),
-     job_type = job_labels[as.character(h5lm9)]
-)
+    job_type = job_labels[as.character(h5lm9)]
+  )
 
 #Distribution of Job Types - Bar Chart
 ggplot(wave5_clean, aes(x = job_type)) + 
@@ -313,16 +322,18 @@ wave5_clean$race <- factor(wave5_clean$race,levels = c("White",
                                                        "Other Race"))
 
 wave5_clean$ethnicity <- factor(wave5_clean$ethnicity,
-                                levels = c("Non-Hispanic",
+                                levels = c("Missing",
                                            "Hispanic",
-                                           "Missing"))
+                                           "Non-Hispanic"
+                                           ))
 
 
+# I'd recommend making ethnicity a fill rather than facet wrap. To me, that would be a bit easier to read when rendered. I also changed order of the ethnicity levels above to make the graphs a bit easier to read (in my opinion)
 wave5_clean |>
-  ggplot(aes(race)) + geom_bar() + 
-  labs(title = "Distribution of Participant's Race and Ethnicity",
+  ggplot(aes(race)) + geom_bar(aes(fill = ethnicity), position = "dodge") + 
+  labs(title = "Distribution of Participants' Race and Ethnicity",
        caption = "Data Source: Wave 5 ADD Health") + 
-  theme_minimal() + facet_wrap(~ethnicity) + coord_flip()
+  theme_minimal() + coord_flip()
 
 ```
 
