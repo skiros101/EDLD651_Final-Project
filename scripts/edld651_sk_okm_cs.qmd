@@ -68,7 +68,7 @@ job_labels <- c(
   )
 
 
-# Here, I initially thought that fct_recode would look a little bit cleaner than the ifelse statements, but I learned that fct_recode only works with character vectors or vectors, not numeric vectors. I've added code for a possible use of fct_recode for the "employed" columng!
+# Here, I initially thought that fct_recode would look a little bit cleaner than the ifelse statements, but I learned that fct_recode only works with character vectors or vectors, not numeric vectors. I've added code for a possible use of fct_recode for the "employed" column--the as.character call makes the recoding possible!
 
 wave5_clean <- wave5_raw |> 
   mutate(

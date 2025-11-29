@@ -156,7 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Here, I initially thought that fct_recode would look a little bit cleaner than the ifelse statements, but I learned that fct_recode only works with character vectors or vectors, not numeric vectors. I've added code for a possible use of fct_recode for the "employed" columng!</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Here, I initially thought that fct_recode would look a little bit cleaner than the ifelse statements, but I learned that fct_recode only works with character vectors or vectors, not numeric vectors. I've added code for a possible use of fct_recode for the "employed" column--the as.character call makes the recoding possible!</span></span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>wave5_clean <span class="ot">&lt;-</span> wave5_raw <span class="sc">|&gt;</span> </span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
