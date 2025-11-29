@@ -34,6 +34,7 @@ pwave5 <- import(here("data", "pwave5.xpt")) |>
   characterize() |>
   clean_names() 
 
+# across the board, the code is clean to read and I never had trouble discerning what you intended. That's so helpful for folks unfamiliar with your dataset in understanding what you're doing!
 ```
 
 
@@ -54,6 +55,7 @@ wave5_raw <- pwave5 |>
 ```{r}
 #| label: clean-employment
 
+# I really appreciate the use of a vector here to recode the job labels later. It makes the later code clean and easy to follow, and folks are able to refer back to here if they need to know the dictionary. I also learned a bit more about how making a vector with levels can be done!
 #Job Type
 job_labels <- c(
   "1" = "Military", 
@@ -109,6 +111,7 @@ gender_employment <- wave5_clean |>
   group_by (gender, employed) |>
   summarize(n = n(), .groups = "drop")
 
+#this particular graph is effective in telling a story of the gender and employment status demographics of survey participants!
 #gender_employment plot
 ggplot(gender_employment, aes(x = gender, y = n, fill = employed)) + 
   geom_col(position = "dodge", na.rm = TRUE) + 
@@ -263,6 +266,7 @@ wave5_clean <- wave5_clean |>
 
 ```{r}
 #| label: calculate-age-at-survey
+# great use of a histogram for visualizing these data!
 
 wave5_clean <- wave5_clean |>
   mutate(age = interval(birth_date, survey_date) |>
