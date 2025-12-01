@@ -71,17 +71,21 @@ wave5_clean <- wave5_raw |>
                       ifelse(h5lm5 %in% c(2, 3), "Not employed", NA)),
     num_jobs = ifelse(h5lm6 %in% 1:4, h5lm6, NA),
     hours_work = ifelse(h5lm7 >= 5 & h5lm7 <= 90, h5lm7, NA),
-     job_type = job_labels[as.character(h5lm9)]
-)
+     job_type = job_labels[as.character(h5lm9)])
+# I really like the way that all used ifelse to relabel employment status codes and also how you converted h5lm9 to create clean and usable data!
 
 #Distribution of Job Types - Bar Chart
-ggplot(wave5_clean, aes(x = job_type)) + 
-  geom_bar() +
+ggplot(wave5_clean, aes(x = fct_infreq(job_type))) + 
+  geom_bar(aes(fill=job_type)) +
   coord_flip() + 
   labs(title = "Distribution of Job Types Among Participants", 
        x = "Job Type", 
-       y = "Count")
+       y = "Count"
+       )+
+    guides(fill="none")+
+    theme_minimal(base_size = 14)
   
+# I though that this table could use a little more color, I added the code chunk here!
 ```
 
 
@@ -107,6 +111,7 @@ ggplot(gender_employment, aes(x = gender, y = n, fill = employed)) +
        x = "Gender",
        y = "Count",
        fill = "Employment")
+# I love the way that you grouped by gender and employment and your code is perfectly clean!
 ```
 
 
@@ -114,10 +119,9 @@ ggplot(gender_employment, aes(x = gender, y = n, fill = employed)) +
 
 ```{r}
 
-
-#Health insurance status (h5id9 & h5id10a,b,c,d)
 wave5_clean <- wave5_raw %>%
   mutate(
+    # Health insurance status
     h5id9 = factor(
       h5id9,
       levels = c(1, 2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15),
@@ -137,16 +141,18 @@ wave5_clean <- wave5_raw %>%
         "I have no health insurance"
       )
     )
+  ) %>%
+  mutate(
+    # Q10 reasons for lacking insurance
+    across(
+      c(h5id10a, h5id10b, h5id10c, h5id10d),
+      ~ factor(.,
+               levels = c(0, 1, 97),
+               labels = c("no", "yes", "legitimate skip"))
+    )
   )
 
-# Factor: Q10 reasons (0 = no, 1 = yes, 97 = legitimate skip)
-wave5_clean <- wave5_raw %>%
-  mutate(across(
-    c(h5id10a, h5id10b, h5id10c, h5id10d),
-    ~ factor(.,
-             levels = c(0, 1, 97),
-             labels = c("no", "yes", "legitimate skip"))
-  ))
+# This looks clean but I think it could be more concise. I was not sure how to do this so I asked AI...they gave me this code! 
 ```
 
 
@@ -228,7 +234,7 @@ wave5_clean %>%
   geom_col() +
   labs(title = "Count by Income Level", x = "Household Income Level", y = "Count") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
+# I really like the way you ordered the income levels with meaningful levels. I think it makes it much easier to read!
 
 ```
 
@@ -248,7 +254,7 @@ birth_date_string <- paste(wave5_clean$h5od1y, wave5_clean$h5od1m, 1, sep = "-")
 
 wave5_clean <- wave5_clean |>
   mutate(birth_date = ymd(birth_date_string))
-
+# I did not know how to utilize ymd and now know that you can turn years and months into usable dates!
 ```
 
 
@@ -260,11 +266,15 @@ wave5_clean <- wave5_clean |>
            time_length(unit = "years") |> round(digits = 2))
 
 wave5_clean |>
-  ggplot(aes(x=age)) + geom_histogram(binwidth = 1) + 
+  ggplot(aes(x=age)) + geom_histogram(binwidth = 1, fill="skyblue", color="white", alpha=0.8)+
+geom_density(aes(y=..count..),
+             linewidth = 1,
+             alpha=0.6)+ 
   labs(title = "Distribution of Participant's Age",
        caption = "Data Source: Wave 5 ADD Health") + 
   theme_minimal()
 
+#I added some color to the graph!
 
 ```
 
@@ -323,7 +333,7 @@ wave5_clean |>
   labs(title = "Distribution of Participant's Race and Ethnicity",
        caption = "Data Source: Wave 5 ADD Health") + 
   theme_minimal() + facet_wrap(~ethnicity) + coord_flip()
-
+# This shows such great attention to detail! The whole code looked great and showed a strong understadning of cleaning and data visualization. The only thing I noticed was the small over complication of code in chunk 3. But like I shared I would not have known how to make that more consice either! I added some more colorful graphs but no need to take those options but thought I would put them in as an example. Great job!
 ```
 
 
