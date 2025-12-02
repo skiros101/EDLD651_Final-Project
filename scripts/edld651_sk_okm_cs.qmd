@@ -23,9 +23,7 @@ library(tidyverse)
 library(here)
 library(rio)
 library(janitor)
-library(ggplot2)
-library(dplyr)
-library(lubridate)
+library(gt)
 
 pwave5 <- import(here("data", "pwave5.xpt")) |>
   characterize() |>
@@ -260,11 +258,17 @@ wave5_clean <- wave5_clean |>
            time_length(unit = "years") |> round(digits = 2))
 
 wave5_clean |>
-  ggplot(aes(x=age)) + geom_histogram(binwidth = 1) + 
-  labs(title = "Distribution of Participant's Age",
+  ggplot(aes(x=age)) + geom_histogram(binwidth = 1,
+                                      fill="skyblue", color="white", alpha=0.8) + 
+  labs(x = "Age at Wave 5",
+       y = "Number of Participants",
+    title = "Distribution of Participant's Age",
        caption = "Data Source: Wave 5 ADD Health") + 
   theme_minimal()
 
+# table
+
+summary(wave5_clean$age) 
 
 ```
 
@@ -317,15 +321,45 @@ wave5_clean$ethnicity <- factor(wave5_clean$ethnicity,
                                            "Hispanic",
                                            "Missing"))
 
+```
+
+
+```{r}
+#| label: visual-race-ethnicity
 
 wave5_clean |>
-  ggplot(aes(race)) + geom_bar() + 
+  ggplot(aes(race)) + geom_bar(fill = "darkgreen") + 
   labs(title = "Distribution of Participant's Race and Ethnicity",
        caption = "Data Source: Wave 5 ADD Health") + 
   theme_minimal() + facet_wrap(~ethnicity) + coord_flip()
 
-```
+# just race
+wave5_clean |>
+  ggplot(aes(race)) + geom_bar(fill = "darkgreen") + 
+  labs(title = "Distribution of Participant's Race",
+       caption = "Data Source: Wave 5 ADD Health") + 
+  theme_minimal() + coord_flip()
 
+# just ethnicity
+wave5_clean |>
+  ggplot(aes(ethnicity)) + geom_bar(fill = "darkorange") + 
+  labs(title = "Distribution of Participant's Ethnicity",
+       caption = "Data Source: Wave 5 ADD Health") + 
+  theme_minimal() + coord_flip()
+
+# table
+
+wave5_clean |>
+  count(race, ethnicity) |>
+  group_by(ethnicity) |>
+  gt() |>
+  tab_header(title = "Descriptive Statistics: Race and Ethnicity") |>
+  cols_label(
+    race = "Race",
+    ethnicity = "Ethnicity"
+    )
+
+```
 
 
 
