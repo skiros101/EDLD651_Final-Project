@@ -349,7 +349,7 @@ wave5_clean |>
 
 # table
 
-wave5_clean |>
+race_ethnicity_table <- wave5_clean |>
   count(race, ethnicity) |>
   group_by(ethnicity) |>
   gt() |>
@@ -358,6 +358,8 @@ wave5_clean |>
     race = "Race",
     ethnicity = "Ethnicity"
     )
+
+gtsave(race_ethnicity_table, filename = "race_ethnicity_table.png")
 
 ```
 
