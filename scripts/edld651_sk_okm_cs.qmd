@@ -13,7 +13,6 @@ fig-width: 6.5
 fig-height: 8
 ---
 
-
 ### 0. Loading Packages and Data
 
 ```{r}
@@ -29,8 +28,13 @@ pwave5 <- import(here("data", "pwave5.xpt")) |>
   characterize() |>
   clean_names() 
 
+# Code chunks are clearly labeled and beautifully organized! - EJL
+# Code is clearly written; it is clear to read and understand, neat and tidy (no pun intended) - EJL
+# I like how you visualized race and ethnicity separately. - EJL
+# I learned how to clean and collapse multiple race-check-box variables into one labeled categorical race variable. - EJL
+# There could be more consistency with capitalization across section headers - EJL
+# I could not get the code to render. - EJL
 ```
-
 
 ```{r}
 #| label: select-variables
@@ -44,8 +48,8 @@ wave5_raw <- pwave5 |>
 
 ```
 
-
 ### 1. Cleaning Employment variables
+
 ```{r}
 #| label: clean-employment
 
@@ -61,7 +65,6 @@ job_labels <- c(
   "8" = "Self-employed (inc)",
   "9" = "Unpaid family worker"
   )
-
 
 wave5_clean <- wave5_raw |> 
     mutate(
@@ -81,7 +84,6 @@ ggplot(wave5_clean, aes(x = job_type)) +
        y = "Count")
   
 ```
-
 
 ### 2. Cleaning Gender Variables
 
@@ -107,8 +109,7 @@ ggplot(gender_employment, aes(x = gender, y = n, fill = employed)) +
        fill = "Employment")
 ```
 
-
-### 3. Cleaning Insurance status and reasons variables 
+### 3. Cleaning Insurance status and reasons variables
 
 ```{r}
 
@@ -147,8 +148,7 @@ wave5_clean <- wave5_raw %>%
   ))
 ```
 
-
-### 4. Cleaning Household income variables 
+### 4. Cleaning Household income variables
 
 ```{r}
 
@@ -180,7 +180,6 @@ wave5_clean <- wave5_raw %>%
 
 ```
 
-
 ```{r}
 
 #Renaming Column names 
@@ -197,9 +196,8 @@ wave5_clean <- wave5_raw %>%
 
 ```
 
-
-
 **Data Exploratory visualization for Household Income Count**
+
 ```{r}
 wave5_clean %>%
   filter(!is.na(household_income)) %>%
@@ -230,8 +228,7 @@ wave5_clean %>%
 
 ```
 
-
-### 5. Cleaning Age variables 
+### 5. Cleaning Age variables
 
 ```{r}
 #| label: convert-date-variables
@@ -248,7 +245,6 @@ wave5_clean <- wave5_clean |>
   mutate(birth_date = ymd(birth_date_string))
 
 ```
-
 
 ```{r}
 #| label: calculate-age-at-survey
@@ -271,8 +267,6 @@ wave5_clean |>
 summary(wave5_clean$age) 
 
 ```
-
-
 
 ### 6. Cleaning Race & Ethnicity variables
 
@@ -323,7 +317,6 @@ wave5_clean$ethnicity <- factor(wave5_clean$ethnicity,
 
 ```
 
-
 ```{r}
 #| label: visual-race-ethnicity
 
@@ -362,6 +355,3 @@ race_ethnicity_table <- wave5_clean |>
 gtsave(race_ethnicity_table, filename = "race_ethnicity_table.png")
 
 ```
-
-
-
