@@ -1,20 +1,19 @@
 ---
-title: "EDLD 651 Final Project"
+title: "Understanding demographic variations in health insurance coverage in the United States: evidence from wave 5 of ADD Health survey"
+subtitle: "EDLD 651 Final Paper"
 author: "Sara Kiros, Ohnmar Khine Min, Chen Su"
 format: 
   html:
-    highlight-style: espresso
-    code-fold: true
+    toc: true
 execute: 
   eval: true
-  echo: true
+  echo: false
   warning: false
 fig-width: 6.5
 fig-height: 8
 ---
 
 
-### 0. Loading Packages and Data
 
 ```{r}
 #| label: load-packages-raw-data
@@ -36,6 +35,7 @@ pwave5 <- import(here("data", "pwave5.xpt")) |>
 ```
 
 
+
 ```{r}
 #| label: select-variables
 
@@ -49,7 +49,7 @@ wave5_raw <- pwave5 |>
 ```
 
 
-### 1. Cleaning Employment variables
+
 ```{r}
 #| label: clean-employment
 
@@ -87,7 +87,6 @@ ggplot(wave5_clean, aes(x = job_type)) +
 ```
 
 
-### 2. Cleaning Gender Variables
 
 ```{r}
 
@@ -112,7 +111,6 @@ ggplot(gender_employment, aes(x = gender, y = n, fill = employed)) +
 ```
 
 
-### 3. Cleaning Insurance status and reasons variables 
 
 ```{r}
 
@@ -152,7 +150,6 @@ wave5_clean <- wave5_raw %>%
 ```
 
 
-### 4. Cleaning Household income variables 
 
 ```{r}
 #Renaming Column names 
@@ -265,7 +262,6 @@ wave5_clean %>%
 ```
 
 
-### 5. Cleaning Age variables 
 
 ```{r}
 #| label: convert-date-variables
@@ -284,6 +280,7 @@ wave5_clean <- wave5_clean |>
 ```
 
 
+
 ```{r}
 #| label: calculate-age-at-survey
 
@@ -300,15 +297,10 @@ wave5_clean |>
        caption = "Data Source: Wave 5 ADD Health") + 
   theme_minimal()
 
-# table
-
-summary(wave5_clean$age) 
 
 ```
 
 
-
-### 6. Cleaning Race & Ethnicity variables
 
 ```{r}
 #| label: convert-race-ethnicity-variables
@@ -393,7 +385,6 @@ race_ethnicity_table <- wave5_clean |>
     ethnicity = "Ethnicity"
     )
 
-gtsave(race_ethnicity_table, filename = "race_ethnicity_table.png")
 
 ```
 
@@ -479,6 +470,8 @@ insurance_table <- wave5_clean %>%
 gtsave(insurance_table, filename = "insurance_table_1.png")
 
 ```
+
+
 ```{r}
 
 #| label: exploratory-insurance-income
@@ -521,5 +514,42 @@ ggplot(no_insurance_income, aes(x = household_income, y = n)) +
 
 
 
+## Abstract
+[1-2 Sentences about study rationale.] The current study examines the variations of health insurance status across demographic characteristics including race, ethnicity, age, sex, employment, income using Wave V of ADD Health survey data. [summarize finding here: We found that....]. It is critical to address disparities in health insurance status as improved access to care for diverse population is crucial for the successful prevention and management of chronic health conditions for all.
+
+## Introduction
+(1-2 paragraphs) Describe here why we are examining these demographic variables and health insurance outcome.
+
+## Methods
+
+The current study uses the public use version of the ADD Health Wave 5 survey data, which was collected from 2016 through 2018. The sample includes `r nrow(wave5_clean)` adult participants.
+
+```{r}
+#| label: paper-table-1
+
+# descriptive table of race, ethnicity, income, employment, gender, health insurance status?
+
+
+```
+
+
+```{r}
+#| label: paper-figure-1
+
+
+```
+
+
+```{r}
+#| label: paper-figure-2
+
+
+```
+
+## Results
+
+## Discussion
+
+## Reference
 
 
