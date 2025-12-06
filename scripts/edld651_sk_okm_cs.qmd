@@ -113,13 +113,29 @@ ggplot(gender_employment, aes(x = gender, y = n, fill = employed)) +
 
 
 ```{r}
+#Renaming Column names 
 
+wave5_clean <- wave5_raw %>%
+  rename(
+    insurance_status = h5id9,
+    reason_a_not_offered_thru_work_or_school = h5id10a,
+    reason_b_too_expensive = h5id10b,
+    reason_c_no_need_or_want = h5id10c,
+    reason_d_denied_insurance = h5id10d,
+    household_income = h5ec2
+  )
+var_label(wave5_clean$household_income)<-"Household Income h5sec2"
+var_label(wave5_clean$insurance_status)<-"Insurance Status (h5id9)"
+var_label(wave5_clean$reason_a_not_offered_thru_work_or_school)<-"Reason A: Not Offered thru work/ school (h5id10a)"
+var_label(wave5_clean$reason_b_too_expensive)<-"Reason B: Too Expensive (h5id10b)"
+var_label(wave5_clean$reason_c_no_need_or_want)<-"Reason C: No Need or Want (h5id10c)"
+var_label(wave5_clean$reason_d_denied_insurance)<-"Reason D: Denied Insurance (h5id10d)"
 
 #Health insurance status (h5id9 & h5id10a,b,c,d)
-wave5_clean <- wave5_raw %>%
+wave5_clean <- wave5_clean %>%
   mutate(
-    h5id9 = factor(
-      h5id9,
+    insurance_status = factor(
+      insurance_status,
       levels = c(1, 2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15),
       labels = c(
         "I get insurance through work",
@@ -140,31 +156,27 @@ wave5_clean <- wave5_raw %>%
   )
 
 # Factor: Q10 reasons (0 = no, 1 = yes, 97 = legitimate skip)
-wave5_clean <- wave5_raw %>%
+wave5_clean <- wave5_clean %>%
   mutate(across(
-    c(h5id10a, h5id10b, h5id10c, h5id10d),
-    ~ factor(.,
-             levels = c(0, 1, 97),
-             labels = c("no", "yes", "legitimate skip"))
+    c(
+      reason_a_not_offered_thru_work_or_school,
+      reason_b_too_expensive ,
+      reason_c_no_need_or_want,
+      reason_d_denied_insurance
+    ),
+    ~ factor(
+      .,
+      levels = c(0, 1, 97),
+      labels = c("no", "yes", "legitimate skip")
+    )
   ))
+view(wave5_clean)
+
 ```
 
 
 
 ```{r}
-#Renaming Column names 
-
-wave5_clean <- wave5_raw %>%
-  rename(
-    insurance_status = h5id9,
-    reason_a_not_offered_thru_work_or_school = h5id10a,
-    reason_b_too_expensive = h5id10b,
-    reason_c_no_need_or_want = h5id10c,
-    reason_d_denied_insurance = h5id10d,
-    household_income = h5ec2
-  )
-var_label(wave5_clean$household_income)<-"Household Income h5sec2"
-
 
 
 
@@ -193,18 +205,18 @@ wave5_clean <- wave5_clean %>%
     )
   )
 
-#WORK IN PROGRESS_Collapsing Insurance variable
+#WORK IN PROGRESS_Collapsing Income variable
 
 wave5_clean<- wave5_clean %>%
   mutate(
     household_income2 = fct_collapse(household_income,
-      low_income = c("Less than $5,000", "$5,000 to $9,999", "$10,000 to $14,999"),
-      middle_income = c("$15,000 to $19,999",
+      zero_to_twenty_k = c("Less than $5,000", "$5,000 to $9,999", "$10,000 to $14,999", "$15,000 to $19,999"),
+      twenty_k_to_fifty_k = c(,
       "$20,000 to $24,999",
       "$25,000 to $29,999",
       "$30,000 to $39,999",
       "$40,000 to $49,999"), 
-      high_income=  c("$50,000 to $74,999",
+      fifty_k_to_200_and_more=  c("$50,000 to $74,999",
         "$75,000 to $99,999",
         "$100,000 to $149,999",
         "$150,000 to $199,999",
