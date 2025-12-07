@@ -41,9 +41,9 @@ pwave5 <- import(here("data", "pwave5.xpt")) |>
 
 wave5_raw <- pwave5 |>
      select(aid, imonth5, iyear5, h5od1m, h5od1y,
-            h5od2a, h5od3, h5od4a, h5od4b, h5od4c,
+            h5od2a, h5od4a, h5od4b, h5od4c,
             h5od4d, h5od4e, h5od4f, h5od4g, h5od8,
-            h5lm5, h5lm6, h5lm7, h5lm9, h5ec1, h5ec2,
+            h5lm5, h5lm6, h5lm7, h5lm9, h5ec2,
             h5id9, h5id10a, h5id10b, h5id10c, h5id10d)
 
 ```
@@ -76,116 +76,79 @@ wave5_clean <- wave5_raw |>
      job_type = job_labels[as.character(h5lm9)]
 )
 
-#Distribution of Job Types - Bar Chart
-ggplot(wave5_clean, aes(x = job_type)) + 
-  geom_bar() +
-  coord_flip() + 
-  labs(title = "Distribution of Job Types Among Participants", 
-       x = "Job Type", 
-       y = "Count")
-  
+wave5_clean$job_type <- as.factor(wave5_clean$job_type)
+wave5_clean$employed <- as.factor(wave5_clean$employed)
+
 ```
 
 
 
 ```{r}
+#| label: clean-sex
 
 wave5_clean <- wave5_clean |> 
   mutate(
-    gender = ifelse(h5od2a == 1, "Male", 
+    sex = ifelse(h5od2a == 1, "Male", 
                     ifelse(h5od2a == 2, "Female", NA))
   )
 
-#gender_employment
-gender_employment <- wave5_clean |> 
-  group_by (gender, employed) |>
+#sex_employment
+sex_employment <- wave5_clean |> 
+  group_by (sex, employed) |>
   summarize(n = n(), .groups = "drop")
 
-#gender_employment plot
-ggplot(gender_employment, aes(x = gender, y = n, fill = employed)) + 
-  geom_col(position = "dodge", na.rm = TRUE) + 
-  labs(title = "Employment Status by Gender", 
-       x = "Gender",
-       y = "Count",
-       fill = "Employment")
-```
+# removing missing
 
-
-
-```{r}
-#Renaming Column names 
-
-wave5_clean <- wave5_raw %>%
-  rename(
-    insurance_status = h5id9,
-    reason_a_not_offered_thru_work_or_school = h5id10a,
-    reason_b_too_expensive = h5id10b,
-    reason_c_no_need_or_want = h5id10c,
-    reason_d_denied_insurance = h5id10d,
-    household_income = h5ec2
-  )
-var_label(wave5_clean$household_income)<-"Household Income h5sec2"
-var_label(wave5_clean$insurance_status)<-"Insurance Status (h5id9)"
-var_label(wave5_clean$reason_a_not_offered_thru_work_or_school)<-"Reason A: Not Offered thru work/ school (h5id10a)"
-var_label(wave5_clean$reason_b_too_expensive)<-"Reason B: Too Expensive (h5id10b)"
-var_label(wave5_clean$reason_c_no_need_or_want)<-"Reason C: No Need or Want (h5id10c)"
-var_label(wave5_clean$reason_d_denied_insurance)<-"Reason D: Denied Insurance (h5id10d)"
-
-#Health insurance status (h5id9 & h5id10a,b,c,d)
-wave5_clean <- wave5_clean %>%
-  mutate(
-    insurance_status = factor(
-      insurance_status,
-      levels = c(1, 2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15),
-      labels = c(
-        "I get insurance through work",
-        "I get insurance through a union",
-        "I am covered by my spouse’s or partner’s insurance",
-        "I am covered because I am active duty military",
-        "I buy private insurance myself",
-        "I buy insurance through a Health Insurance Marketplace or Exchange (ACA)",
-        "I am on Medicaid",
-        "I am on Medicare",
-        "I get care through the Department of Veterans Affairs",
-        "I am covered through TRI-CARE, CHAMPUS, CHAMP-VA, or other military plan",
-        "I am covered through the Indian Health Service",
-        "I do not know what my health insurance is",
-        "I have no health insurance"
-      )
-    )
-  )
-
-# Factor: Q10 reasons (0 = no, 1 = yes, 97 = legitimate skip)
-wave5_clean <- wave5_clean %>%
-  mutate(across(
-    c(
-      reason_a_not_offered_thru_work_or_school,
-      reason_b_too_expensive ,
-      reason_c_no_need_or_want,
-      reason_d_denied_insurance
-    ),
-    ~ factor(
-      .,
-      levels = c(0, 1, 97),
-      labels = c("no", "yes", "legitimate skip")
-    )
-  ))
-view(wave5_clean)
+sex_employment <- na.omit(sex_employment)
 
 ```
 
 
 
 ```{r}
+#| label: clean-insurance-status
+
+wave5_clean <- wave5_clean %>%
+ mutate(insurance_status = case_when(h5id9 == 1 ~ "Insurance Through Work",
+                                     h5id9 == 2 ~ "Insurance Through Union",
+                                     h5id9 == 4 ~ "Partner's Insurance",
+                                     h5id9 == 6 ~ "Active Duty Military Insurance",
+                                     h5id9 == 7 ~ "Self Private Insurance",
+                                     h5id9 == 8 ~ "Self Marketplace or ACA Insurance",
+                                     h5id9 == 9 ~ "Medicaid",
+                                     h5id9 == 10 ~ "Medicare",
+                                     h5id9 == 11 ~ "Department of Veterans Affairs",
+                                     h5id9 == 12 ~ "Military Healthcare Plans",
+                                     h5id9 == 13 ~ "Indian Health Service",
+                                     h5id9 == 14 ~ "Unknown Health Insurance",
+                                     h5id9 == 15 ~ "No Health Insurance"
+                                     ))
+  
+wave5_clean$insurance_status <- as.factor(wave5_clean$insurance_status)
+
+# no insurance reason 
+wave5_clean <- wave5_clean %>%
+ mutate(notinsured_reason = case_when(h5id10a == 1 ~ "Not offered via work or school",
+                                     h5id10b == 1 ~ "Too expensive",
+                                     h5id10c == 1 ~ "Do not need or want insurance",
+                                     h5id10d == 1 ~ "Denied insurance"))
 
 
+wave5_clean$notinsured_reason <- as.factor(wave5_clean$notinsured_reason)
+
+```
+
+
+
+```{r}
+#| label: clean-income
 
 #Household Income in the last calendar year (h5ec2)
 
 wave5_clean <- wave5_clean %>%
   mutate(
-    household_income = factor(
-      household_income,
+    household_income_raw = factor(
+      h5ec2,
       levels = 1:13,
       labels = c(
         "Less than $5,000",
@@ -205,70 +168,21 @@ wave5_clean <- wave5_clean %>%
     )
   )
 
-#WORK IN PROGRESS_Collapsing Income variable
+
+# collapsing income 
 
 wave5_clean<- wave5_clean %>%
   mutate(
-    household_income2 = fct_collapse(household_income,
-      zero_to_twenty_k = c("Less than $5,000", "$5,000 to $9,999", "$10,000 to $14,999", "$15,000 to $19,999"),
-      twenty_k_to_fifty_k = c(,
-      "$20,000 to $24,999",
+    household_income = fct_collapse(household_income_raw,
+       `Below 50k` = c("Less than $5,000", "$5,000 to $9,999", "$10,000 to $14,999", "$15,000 to $19,999","$20,000 to $24,999",
       "$25,000 to $29,999",
       "$30,000 to $39,999",
-      "$40,000 to $49,999"), 
-      fifty_k_to_200_and_more=  c("$50,000 to $74,999",
-        "$75,000 to $99,999",
-        "$100,000 to $149,999",
-        "$150,000 to $199,999",
-        "$200,000 or more")))
-
-
-#fct_count(df$household_income2)
-
-
-
-```
-
-
-```{r}
-#TEST pivoting
-#wave5_pivot <- wave5_clean %>% pivot_longer(cols = reason_a_not_offered_thru_work_or_school:reason_d_denied_insurance, 
-                                            #names_to = "count_uninsure")
-
-
-
-
-```
-
-
-
-**Data Exploratory visualization for Household Income Count**
-```{r}
-wave5_clean %>%
-  filter(!is.na(household_income)) %>%
-  group_by(household_income) %>%
-  summarise(count = n()) %>%
-  ggplot(aes(x = factor(household_income,
-                        levels = 1:13,
-                        labels = c(
-                          "Less than $5,000",
-                          "$5,000 to $9,999",
-                          "$10,000 to $14,999",
-                          "$15,000 to $19,999",
-                          "$20,000 to $24,999",
-                          "$25,000 to $29,999",
-                          "$30,000 to $39,999",
-                          "$40,000 to $49,999",
-                          "$50,000 to $74,999",
-                          "$75,000 to $99,999",
-                          "$100,000 to $149,999",
-                          "$150,000 to $199,999",
-                          "$200,000 or more"
-                        )),
-                 y = count)) +
-  geom_col() +
-  labs(title = "Count by Income Level", x = "Household Income Level", y = "Count") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+      "$40,000 to $49,999"),
+      `50k-100k` = c("$50,000 to $74,999",
+        "$75,000 to $99,999"),
+      `100k-200k` = c("$100,000 to $149,999",
+        "$150,000 to $199,999"),
+      `Above 200k` = c("$200,000 or more")))
 
 
 ```
@@ -362,6 +276,7 @@ wave5_clean$ethnicity <- factor(wave5_clean$ethnicity,
 ```
 
 
+**remove at the end before submitting**
 ```{r}
 #| label: visual-race-ethnicity
 
@@ -386,8 +301,7 @@ wave5_clean |>
   theme_minimal() + coord_flip()
 
 # table
-
-race_ethnicity_table <- wave5_clean |>
+ wave5_clean |>
   count(race, ethnicity) |>
   group_by(ethnicity) |>
   gt() |>
@@ -397,129 +311,6 @@ race_ethnicity_table <- wave5_clean |>
     ethnicity = "Ethnicity"
     )
 
-
-```
-
-
-```{r}
-#| label: table-income
-
-income_labels <- c(
-  "Less than $5,000",
-  "$5,000 to $9,999",
-  "$10,000 to $14,999",
-  "$15,000 to $19,999",
-  "$20,000 to $24,999",
-  "$25,000 to $29,999",
-  "$30,000 to $39,999",
-  "$40,000 to $49,999",
-  "$50,000 to $74,999",
-  "$75,000 to $99,999",
-  "$100,000 to $149,999",
-  "$150,000 to $199,999",
-  "$200,000 or more"
-)
-
-incometable <- wave5_clean %>%
-  filter(!is.na(household_income)) %>%
-  mutate(household_income = factor(household_income, levels = 1:13, labels = income_labels)) %>%
-  count(household_income, name = "count") %>%
-  mutate(percent = count / sum(count)) %>%
-  gt() %>%
-  tab_header(title = "Descriptive Statistics: Household Income") %>%
-  cols_label(
-    household_income = "Household Income Level",
-    count = "Count",
-    percent = "Percent"
-  ) %>%
-  fmt_percent(columns = percent, decimals = 1) %>%
-  cols_align(align = "left", columns = household_income) %>%
-  cols_align(align = "right", columns = c(count, percent))
-  
-gtsave(incometable, filename = "incometable.png")
-
-```
-```{r}
-#| label: table-health-insurance
-
-insurance_labels <- c(
-  "I get insurance through work",
-  "I get insurance through a union",
-  "I am covered by my spouse’s or partner’s insurance",
-  "I am covered because I am active duty military",
-  "I buy private insurance myself",
-  "I buy insurance through a Health Insurance Marketplace or Exchange (ACA)",
-  "I am on Medicaid",
-  "I am on Medicare",
-  "I get care through the Department of Veterans Affairs",
-  "I am covered through TRI-CARE, CHAMPUS, CHAMP-VA, or other military plan",
-  "I am covered through the Indian Health Service",
-  "I do not know what my health insurance is",
-  "I have no health insurance"
-)
-
-insurance_table <- wave5_clean %>%
-  filter(!is.na(insurance_status)) %>%
-  mutate(insurance_status = factor(insurance_status,
-                                   levels = c(1, 2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15),
-                                   labels = insurance_labels)) %>%
-  count(insurance_status, name = "count") %>%
-  mutate(percent = count / sum(count)) %>%
-  gt() %>%
-  tab_header(title = "Descriptive Statistics: Health Insurance Status") %>%
-  cols_label(
-    insurance_status = "Insurance Status",
-    count = "Count",
-    percent = "Percent"
-  ) %>%
-  fmt_percent(columns = percent, decimals = 1) %>%
-  cols_align(align = "left", columns = insurance_status) %>%
-  cols_align(align = "right", columns = c(count, percent))
-
-
-#insurance_table
-
-gtsave(insurance_table, filename = "insurance_table_1.png")
-
-```
-
-
-```{r}
-
-#| label: exploratory-insurance-income
-
-
-income_labels <- c(
-  "Less than $5,000",
-  "$5,000 to $9,999",
-  "$10,000 to $14,999",
-  "$15,000 to $19,999",
-  "$20,000 to $24,999",
-  "$25,000 to $29,999",
-  "$30,000 to $39,999",
-  "$40,000 to $49,999",
-  "$50,000 to $74,999",
-  "$75,000 to $99,999",
-  "$100,000 to $149,999",
-  "$150,000 to $199,999",
-  "$200,000 or more"
-)
-
-no_insurance_income <- wave5_clean %>%
-  filter(insurance_status == 15, !is.na(household_income)) %>%
-  mutate(household_income = factor(household_income,
-                                   levels = 1:13,
-                                   labels = income_labels)) %>%
-  count(household_income)
-
-
-ggplot(no_insurance_income, aes(x = household_income, y = n)) +
-  geom_col(fill = "#2C7BB6") +
-  labs(title = "Counts of Respondents with No Health Insurance by Income Level",
-       x = "Household Income Level",
-       y = "Count") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ```
 
@@ -544,6 +335,14 @@ The current study uses the public use version of the ADD Health Wave 5 survey da
 
 ```
 
+```{r}
+#| label: paper-table-2
+
+# descriptive table of race, ethnicity, income, employment, gender, health insurance status?
+
+
+```
+
 
 ```{r}
 #| label: paper-figure-1
@@ -555,6 +354,78 @@ The current study uses the public use version of the ADD Health Wave 5 survey da
 ```{r}
 #| label: paper-figure-2
 
+
+```
+
+```{r}
+#| label: paper-figure-3
+
+
+```
+
+```{r}
+#| label: paper-figure-4
+
+
+```
+
+```{r}
+#| label: paper-figure-5
+
+
+```
+
+**code copied from data script draft that we can build off of for final paper, Delete at the end**
+
+```{r}
+
+# Data Exploratory visualization for Household Income Count
+
+wave5_clean %>%
+  filter(!is.na(household_income)) %>%
+  group_by(household_income) %>%
+  summarise(count = n()) %>%
+  ggplot(aes(household_income, count)) +
+  geom_col() +
+  labs(title = "Count by Income Level", x = "Household Income Level", y = "Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+#Distribution of Job Types - Bar Chart
+ggplot(wave5_clean, aes(x = job_type)) + 
+  geom_bar() +
+  coord_flip() + 
+  labs(title = "Distribution of Job Types Among Participants", 
+       x = "Job Type", 
+       y = "Count")
+
+#sex_employment plot
+ggplot(sex_employment, aes(x = sex, y = n, fill = employed)) + 
+  geom_col(position = "dodge", na.rm = TRUE) + 
+  labs(title = "Employment Status by Sex", 
+       x = "Sex",
+       y = "Count",
+       fill = "Employment")
+
+# example of creating a subset of our data or a new data frame first then making tables or graphs
+sex_employment <- wave5_clean |> 
+  group_by (sex, employed) |>
+  summarize(n = n(), .groups = "drop")
+
+
+# table formatting
+gt() %>%
+  tab_header(title = "") %>%
+  cols_label(
+    household_income = "",
+    count = "",
+    percent = ""
+  ) %>%
+  fmt_percent(columns = percent, decimals = 1) %>%
+  cols_align(align = "left", columns = household_income) %>%
+  cols_align(align = "right", columns = c(count, percent))
+  
+  
 
 ```
 
