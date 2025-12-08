@@ -338,29 +338,138 @@ The current study uses the public available version of the ADD Health Wave 5 sur
 ```{r}
 #| label: paper-table-1
 
-# descriptive table of race, ethnicity, income, employment, gender, health insurance status?
+# descriptive table of gender and employment
+gender_employment_table <- sex_employment|> 
+  group_by(sex) |> 
+  mutate(
+    percent = n / sum(n) 
+  ) |> 
+  ungroup() |> 
+  rename(count = n)
+  
 
+gender_employment_table |> 
+  gt() |> 
+  tab_header(title = "Employment Status by Gender") |> 
+  cols_label(
+    sex = "Gender", 
+    employed = "Employment Status",
+    count = "Count", 
+    percent = "Percent"
+  ) |> 
+  fmt_percent(columns = percent, decimals = 1)
 
 ```
+
+```{r}
+#| label: paper-figure-1
+#Employment Status by Gender
+ggplot(gender_employment_table, aes(x = sex, y = count, fill = employed)) +
+  geom_col(position = "dodge") + 
+  labs(
+    title = "Employment Status by Gender", 
+    x = "Gender", 
+    y = "Count", 
+    fill = "Employment Status"
+  ) + 
+  theme_minimal()
+```
+
+```{r}
+#| label: paper-figure-2
+#Insurance and Employment visualization
+
+insurance_by_employment <- wave5_clean |> 
+  filter(!is.na(employed), !is.na(insurance_status)) |> 
+  group_by(employed, insurance_status) |> 
+  summarise(count = n(), .groups = "drop")
+
+ggplot(insurance_by_employment, aes(
+  y = fct_reorder(insurance_status, count), 
+  x = count, 
+  fill = employed)) +
+  geom_col(position = "dodge") +
+  labs(
+    title = "Health Insurance Coverage by Employment Status", 
+    x = "Count", 
+    y = "Insurance Type", 
+    fill = "Employment"
+  ) + 
+  theme_minimal()
+```
+
 
 ```{r}
 #| label: paper-table-2
 
-# descriptive table of race, ethnicity, income, employment, gender, health insurance status?
+# descriptive table of job type.
 
+jobtype_table <- wave5_clean |> 
+  filter(!is.na(job_type)) |> 
+  count(job_type, name = "count") |> 
+  mutate(percent = count/ sum(count))
 
+jobtype_table |> 
+  gt() |> 
+  tab_header(title = "Distribution of Job Types Among Participants ") |> 
+  cols_label(
+    job_type = "Job Type", 
+    count = "Count", 
+    percent = "Percent"
+  ) |> 
+  fmt_percent(columns = percent, decimals = 1)
 ```
 
 
+
 ```{r}
-#| label: paper-figure-1
+#| label: paper-figure-3
 
+#Health Insurance Status by Job TYpe
 
+jobtype_insurance <- wave5_clean |> 
+  filter(!is.na(job_type), !is.na(insurance_status)) |> 
+  count(job_type, insurance_status) |> 
+  group_by(job_type) |> 
+  mutate(percent = n / sum(n)) |> 
+  ungroup()
+
+jobtype_insurance |> 
+  gt() |> 
+  tab_header(title = "Health Insurance Status by Job Type") |> 
+  cols_label(
+    job_type = "Job Type", 
+    insurance_status = "Health Insurance", 
+    n = "Count", 
+    percent = "Percent"
+  ) |> 
+  fmt_percent(columns = percent, decimals = 1)
 ```
 
 
 ```{r}
 #| label: paper-figure-2
+#Figure: Health Insurance Coverage by Job Type 
+
+
+jobtype_insurance |>  ggplot(aes(
+  x = fct_reorder(job_type, percent, .fun = max), 
+  y = percent, 
+  fill = insurance_status
+)) + 
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = "Health Insurance Distribution by Job Type", 
+    x = "Job Type", 
+    y = "Percent Within Job Type", 
+    fill = "Insurance Type"
+  ) + 
+  theme_minimal() + 
+ scale_y_continuous(
+   breaks = seq(0, 1, 0.2),
+   labels = c("0%", "20%", "40%", "60%", "80%", "100%")
+ )
 
 
 ```
