@@ -2,6 +2,8 @@
 title: "Understanding demographic variations in health insurance coverage in the United States: evidence from wave 5 of ADD Health survey"
 subtitle: "EDLD 651 Final Paper"
 author: "Sara Kiros, Ohnmar Khine Min, Chen Su"
+bibliography: references.bib
+link-citations: true
 format: 
   html:
     toc: true
@@ -18,13 +20,13 @@ fig-height: 8
 ```{r}
 #| label: load-packages-raw-data
 
+#install.packages("webshot2")
+#install.packages("labeled")
 library(tidyverse)
 library(here)
 library(rio)
 library(janitor)
 library(gt)
-#install.packages("webshot2")
-#install.packages("labeled")
 library(labelled)
 library(webshot2)
 
@@ -318,14 +320,20 @@ wave5_clean |>
 
 
 ## Abstract
-[1-2 Sentences about study rationale.] The current study examines the variations of health insurance status across demographic characteristics including race, ethnicity, age, sex, employment, income using Wave V of ADD Health survey data. [summarize finding here: We found that....]. It is critical to address disparities in health insurance status as improved access to care for diverse population is crucial for the successful prevention and management of chronic health conditions for all.
+[1-2 Sentences about study rationale --> Access to health services has been identified as a social determinant of health by the Office of Disease Prevention and Health Promotion [@HealthyPeople2030]. Status on health insurance coverage is a factor that largely contributes to accessing healthcare services, for both treatment and preventative services. 
+
+
+The current study examines the variations of health insurance status across demographic characteristics including race, ethnicity, age, sex, employment, income using Wave V of ADD Health survey data. [summarize finding here: We found that....]. It is critical to address disparities in health insurance status as improved access to care for diverse population is crucial for the successful prevention and management of chronic health conditions for all.
 
 ## Introduction
 (1-2 paragraphs) Describe here why we are examining these demographic variables and health insurance outcome.
 
+Many adverse outcomes can result from a lack of health insurance coverage. Uninsured adults are less likely to receive preventative screenings for chronic conditions, such as cancer, cardiovascular disease, and diabetes, resulting in higher mortality among uninsured groups due to untimely diagnoses and treatments [@IOM2009]. In addition, there’s a higher likelihood of medical debt among uninsured groups due to accrued out-of-pocket expenses [@Herman2011]. Access to health insurance coverage is unequally distributed across people with lower incomes, racial/ethnic minorities,gender minorities, and young adults [@Hadley2003]. Particularly, disparities across health insurance coverage primarily affect people in lower-income classes or in minority groups, as about half of the uninsured population in the U.S. are also in lower-income classes or in a minority group [@Majerol2015].
+
+
 ## Methods
 
-The current study uses the public use version of the ADD Health Wave 5 survey data, which was collected from 2016 through 2018. The sample includes `r nrow(wave5_clean)` adult participants.
+The current study uses the public available version of the ADD Health Wave 5 survey data, which was collected from 2016 through 2018. The sample includes `r nrow(wave5_clean)` adult participants.
 
 ```{r}
 #| label: paper-table-1
@@ -413,26 +421,33 @@ sex_employment <- wave5_clean |>
   summarize(n = n(), .groups = "drop")
 
 
+
+#hashtagged out for now to check rendering and citations
+
 # table formatting
-gt() %>%
-  tab_header(title = "") %>%
-  cols_label(
-    household_income = "",
-    count = "",
-    percent = ""
-  ) %>%
-  fmt_percent(columns = percent, decimals = 1) %>%
-  cols_align(align = "left", columns = household_income) %>%
-  cols_align(align = "right", columns = c(count, percent))
+#gt() %>%
+  #tab_header(title = "") %>%
+  #cols_label(
+    #household_income = "",
+    #count = "",
+    #percent = ""
+  #) %>%
+  #fmt_percent(columns = percent, decimals = 1) %>%
+  #cols_align(align = "left", columns = household_income) %>%
+  #cols_align(align = "right", columns = c(count, percent))
   
   
+
 
 ```
 
 ## Results
 
+We used the following packages [@R; @here;@tidyverse;@rio;@janitor;@gt;@labelled;@webshot2] to assist our coding. 
+
 ## Discussion
 
-## Reference
+## References
+
 
 
