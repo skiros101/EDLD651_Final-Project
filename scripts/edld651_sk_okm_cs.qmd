@@ -425,6 +425,7 @@ jobtype_table |>
 ```{r}
 #| label: paper-figure-3
 
+<<<<<<< HEAD
 #Health Insurance Status by Job Type
 jobtype_insurance <- wave5_clean |> 
   filter(!is.na(job_type), !is.na(insurance_status)) |> 
@@ -433,6 +434,17 @@ jobtype_insurance <- wave5_clean |>
   mutate(percent = n / sum(n)) |> 
   ungroup()
 
+=======
+#Health Insurance Status by Job TYpe
+
+jobtype_insurance <- wave5_clean |> 
+  filter(!is.na(job_type), !is.na(insurance_status)) |> 
+  count(job_type, insurance_status) |> 
+  group_by(job_type) |> 
+  mutate(percent = n / sum(n)) |> 
+  ungroup()
+
+>>>>>>> origin/main
 jobtype_insurance |> 
   gt() |> 
   tab_header(title = "Health Insurance Status by Job Type") |> 
