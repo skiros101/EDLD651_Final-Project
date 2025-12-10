@@ -1,0 +1,6 @@
+.table-scroll {
+  overflow-x: auto;
+}
+.table-scroll table {
+  width: max-content; /* ensures the table can exceed the container width */
+}

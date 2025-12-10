@@ -7,6 +7,8 @@ link-citations: true
 format: 
   html:
     toc: true
+    code-overflow: scroll
+    css: styles.css
 execute: 
   eval: true
   echo: false
@@ -25,11 +27,16 @@ library(here)
 library(rio)
 library(janitor)
 library(gt)
+library(dplyr)
+library(ggplot2)
+library(scales)
+library(forcats)
 
 
 pwave5 <- import(here("data", "pwave5.xpt")) |>
   characterize() |>
   clean_names() 
+
 
 ```
 
@@ -340,7 +347,7 @@ household_income =
 
 
 ## Abstract
-Health insurance coverage is an important factor for individuals residing in the United States to access a variety of preventative and treatment services in medical setting [@HealthyPeople2030]. The current study examines the variations of health insurance status across demographic characteristics including race, ethnicity, age, sex, employment, income using Wave V of ADD Health survey data. [summarize finding here: We found that....delete me once this is done]. These findings highlights the importance of addressing disparities in health insurance coverage to improve access to care for diverse population, which is crucial for the successful prevention and management of chronic health conditions for all.
+Health insurance coverage is an important factor for individuals residing in the United States to access a variety of preventative and treatment services in medical settings [@HealthyPeople2030]. The current study examines the variations of health insurance status across demographic characteristics including race, ethnicity, age, sex, employment, income using Wave V of ADD Health survey data. [summarize finding here: We found that....delete me once this is done] --> We found that lower-income classes had higher rated of being uninsured and the primary provider of health insurance was throught the workplace across all income levels. These findings highlights the importance of addressing disparities in health insurance coverage to improve access to care for diverse population, which is crucial for the successful prevention and management of chronic health conditions for all.
 
 
 ## Introduction
@@ -353,10 +360,12 @@ Access to health insurance coverage is unequally distributed across people with 
 ## Methods
 
 The current study uses the public available version of the ADD Health Wave 5 survey data, which was collected from 2016 through 2018. As the full dataset contains variables on many social, environmental, behavior and biological measures beyond the scope of the current study, we only selected variables that are relevant to our aim as a first step of our data cleaning process. 
-We used the following R packages [@R; @here;@tidyverse;@rio;@janitor;@gt] to assist our data cleaning, as well as table and visualization creations of our results. 
+We used the following R packages [@R; @here;@tidyverse;@rio;@janitor;@gt] to assist our data cleaning, as well as [@ggplot2;@scales;@forcats;@dplyr] for table and visualization creations of our results. We used [@addhealth] to download the raw data.
 
 As we are interested in examining the potential differences in health insurance coverage by comparing monoracial and multiracial individuals that either identifies as Hispanic or Non-Hispanic rather than across each racial and ethnic group, we decided to exclude participants who have missing data on race and ethnicity. Therefore, our final sample includes `r nrow(wave5_clean)` adult participants (Mean age =`r round(mean(wave5_clean$age), 2)` years, Range = `r round(min(wave5_clean$age), 0) ` - `r round(max(wave5_clean$age), 0)` years).
 
+
+Additionally, we are interested in examining differences in status of health insurance and types of health insurance across income levels. The original raw data had thirteen income levels, starting at `"Less than $5,000"`, increasing in increments of `$5,000` up to `"$200,000 or more"`. Therefore, we decided to collapse some of these levels to aid clarity of visualizations with less levels. We reorganized the original income levels to`Below 50k`,`50k-100k`,`100k-200k`, and`Above 200k`.
 
 ```{r}
 #| label: race-health-table
@@ -403,7 +412,8 @@ race_ethnicity |>
   ggplot(aes(x = insurance_status, y = n, fill = race_ethnicity)) +
   geom_col(position = "dodge") + 
   labs(
-    title = "Distribution of Health Insurance Coverage by Racial Ethnic Group", 
+    title = "Figure 1: Distribution of Health Insurance Coverage by Racial Ethnic Group", 
+    subtitle = "Data Source: Wave 5 of ADD Health",
     caption = "Data Source: Wave 5 of ADD Health",
     x = "Insurance Coverage Type", 
     y = "Number of Participants", 
@@ -430,7 +440,8 @@ sex_employment_table <- sex_employment|>
 
 sex_employment_table |> 
   gt() |> 
-  tab_header(title = "Table 1: Employment Status by Sex") |> 
+  tab_header(title = "Table 2: Employment Status by Sex",
+             subtitle = "Data Source: Wave 5 of ADD Health") |> 
   cols_label(
     sex = "Sex", 
     employed = "Employment Status",
@@ -449,7 +460,8 @@ sex_employment_table |>
 ggplot(sex_employment_table, aes(x = sex, y = count, fill = employed)) +
   geom_col(position = "dodge") + 
   labs(
-    title = "Employment Status by Sex", 
+    title = "Figure 2: Employment Status by Sex",
+    subtitle = "Data Source: Wave 5 of ADD Health",
     x = "Sex", 
     y = "Count", 
     fill = "Employment Status"
@@ -474,7 +486,8 @@ ggplot(insurance_by_employment, aes(
   fill = employed)) +
   geom_col(position = "dodge") +
   labs(
-    title = "Health Insurance Coverage by Employment Status", 
+    title = "Figure 3: Health Insurance Coverage by Employment Status",
+    subtitle = "Data Source: Wave 5 of ADD Health",
     x = "Count", 
     y = "Insurance Type", 
     fill = "Employment"
@@ -495,7 +508,8 @@ jobtype_table <- wave5_clean |>
 
 jobtype_table |> 
   gt() |> 
-  tab_header(title = "Distribution of Job Types Among Participants ") |> 
+  tab_header(title = "Table 3: Distribution of Job Types Among Participants", 
+             subtitle = "Data Source: Wave 5 of ADD Health") |> 
   cols_label(
     job_type = "Job Type", 
     count = "Count", 
@@ -517,7 +531,7 @@ jobtype_insurance <- wave5_clean |>
   mutate(percent = n / sum(n)) |> 
   ungroup()
 
-#Health Insurance Status by Job TYpe
+#Health Insurance Status by Job Type
 
 jobtype_insurance <- wave5_clean |> 
   filter(!is.na(job_type), !is.na(insurance_status)) |> 
@@ -528,7 +542,8 @@ jobtype_insurance <- wave5_clean |>
 
 jobtype_insurance |> 
   gt() |> 
-  tab_header(title = "Health Insurance Status by Job Type") |> 
+  tab_header(title = "Table 4:Health Insurance Status by Job Type", 
+             subtitle = "Data Source: Wave 5 of ADD Health") |> 
   cols_label(
     job_type = "Job Type", 
     insurance_status = "Health Insurance", 
@@ -553,7 +568,8 @@ jobtype_insurance |>  ggplot(aes(
   geom_col() +
   coord_flip() +
   labs(
-    title = "Health Insurance Distribution by Job Type", 
+    title = "Figure 4: Health Insurance Distribution by Job Type", 
+    subtitle = "Data Source: Wave 5 of ADD Health",
     x = "Job Type", 
     y = "Percent Within Job Type", 
     fill = "Insurance Type"
@@ -570,15 +586,119 @@ jobtype_insurance |>  ggplot(aes(
 
 ```{r}
 #| label: paper-figure-5
+#Figure: Proportions of Insurance Types for each Income Level
+
+wave5_clean <- wave5_clean %>%
+  mutate(
+    household_income = fct_relevel(household_income,
+                                   "Below 50k", "50k-100k", "100k-200k", "Above 200k"),
+    insurance_status = fct_relevel(insurance_status,
+      "Insurance Through Work",
+      "Insurance Through Union",
+      "Partner's Insurance",
+      "Active Duty Military Insurance",
+      "Self Private Insurance",
+      "Self Marketplace or ACA Insurance",
+      "Medicaid",
+      "Medicare",
+      "Department of Veterans Affairs",
+      "Military Healthcare Plans",
+      "Indian Health Service",
+      "Unknown Health Insurance",
+      "No Health Insurance"
+    )
+  )
+
+pal <- c(
+  "Insurance Through Work" = "#1b9e77",
+  "Insurance Through Union" = "#66a61e",
+  "Partner's Insurance" = "#7570b3",
+  "Active Duty Military Insurance" = "#e6ab02",
+  "Self Private Insurance" = "#a6761d",
+  "Self Marketplace or ACA Insurance" = "#666666",
+  "Medicaid" = "#e7298a",
+  "Medicare" = "#d95f02",
+  "Department of Veterans Affairs" = "#3288bd",
+  "Military Healthcare Plans" = "#5e3c99",
+  "Indian Health Service" = "#4daf4a",
+  "Unknown Health Insurance" = "#b2abd2",
+  "No Health Insurance" = "#d73027"
+)
+
+stack_df <- wave5_clean %>%
+  filter(!is.na(household_income), !is.na(insurance_status)) %>%
+  count(household_income, insurance_status, name = "n") %>%
+  group_by(household_income) %>%
+  mutate(pct = n / sum(n)) %>%
+  ungroup()
+
+ggplot(stack_df,
+       aes(x = household_income, y = pct, fill = insurance_status)) +
+  geom_col(width = 0.8) +
+  scale_y_continuous(labels = percent_format(accuracy = 1)) +
+  scale_fill_manual(values = pal, name = "Insurance Status") +
+  labs(
+    title = "Figure 5: Insurance Status Distribution by Income Level",
+    subtitle = "Data Source: Wave 5 of ADD Health",
+    x = "Household Income Levels",
+    y = "Types of Insurance & Corresponding Proportions"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position = "right",
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(size = 15),
+    axis.title = element_text()
+  ) 
+
+
+#citation("dplyr")
+#@ggplot2,@scales,@forcats,@dplyr
+# Make citation for library(dplyr)
+# library(ggplot2)
+# library(scales)
+# library(forcats)
+# and Add Health Data 
+#@addhealth
+```
+
+
+
+
+```{r}
+#| label: paper-table-
+# descriptive table of No Health Insurance and reasons why.
+
+noinsure_table <- wave5_clean |> 
+  filter(!is.na(notinsured_reason)) |> 
+  count(notinsured_reason, name = "count") |> 
+  mutate(percent = count/ sum(count))
+
+noinsure_table |> 
+  gt() |> 
+  tab_header(title = "Table 5: Distribution of Reasons behind No Health Insurance",
+             subtitle = "Data Source: Wave 5 of ADD Health") |> 
+  cols_label(
+    notinsured_reason = "Job Type", 
+    count = "Count", 
+    percent = "Percent"
+  ) |> 
+  fmt_percent(columns = percent, decimals = 1)
 
 
 ```
 
+
+
 ## Results
 
-We presented descriptive statistics of our demographic variables of interest in Table 1 below. The majority of our participants are employed, reported their household income as above 50k and their sex assigned at birth as female, and identified as Non-Hispanic Monoracial (Table 1).
+We presented descriptive statistics of our demographic variables of interest in Table 1 below. The majority of our participants are employed, reported their household income as above 50k and their sex assigned at birth as female, and identified as Non-Hispanic Monoracial (see Table 1).The primary reason behind not having health insurance was it being too expensive at 55.1% (see Table 5). The largest proportion of insurance types across the four income levels was receiving health insurance through the workplace (see Figure 5). However, the proportions of receiving insurance through the workplace was lower at both the lowest and highest end of income levels, `Below 50k` and `Above 200k`. The second leading insurance type was "Medicaid" for those in the `Below 50k` category, and "Partner's Insurance" in the rest of the categories. 
 
 [sara ohnmar please summarize the finding of your table/visualizations here and have the interpretation in discussion]
+
+
+
+
 
 ## Discussion
 
@@ -587,17 +707,24 @@ The descriptive table 1 and figures 1 highlight differences in employment status
 
 The figure 1: Employment Status by Gender visualizes the same pattern that both genders are mostly employed. The bar chart visually shows larger absolute employment counts for women. However, proportionally, men are more likely to be employed when sample size is considered. It indicates gender differences in labor market participation in this sample. This analysis highlights the importance of distingushing between absolute counts and percentage. Employment is tightly linked to employer-sponsored insurance, so even small gender differences can influence coverage patterns. 
 
+### Findings about Income levels 
+Figure 5 revealed that receiving health insurance through the workplace remains the primary reason across all income levels. In addition, the largest proportion of "No Health Insurance" responses was in the lowest income level, however was partially mitigated by Medicaid. These figure findings highlight the importance in altering employer reliant healthcare insurance models, as federally provided health insurance, such as Medicaid, can clearly aid in drastically reducing uninsured statuses. 
+
+
+### Findings about Reasons for No Health Insurance 
+Table 5 revealed that the primary reason behind not having health insurance was due to it being too expensive or costly (55.1%). These results shed light on how cost/affordability continues to be major barrier to health insurance status and accessing health services. The second leading reason of not having health insurance, "Not offered via work or school"(38.5%), convey the risks from relying heavily on workplaces to provide health insurance, which is the gap of leaving unemployed persons at a higher risk of being uninsured, based on their employment status. These results can be used to support universal healthcare policies by highlighting existing health care disparities stemming from these flawed healthcare systems.
+
 ### Implications for Health Insurance
 Higher male employment rates explain why men may have greater access to employer-based health insurance. Since women have relatively lower employment rate, it may increase reliance on non-employer insurance options such as Medicaid and partner insurance. This is because U.S. insurance is heavily employment-dependent, gendered labor-market patterns can translate directly into coverage disparities. These findings align with broader literature on women's higher likelihood of part-time work or employment interruptions which may limit access to employer benefits.
 
-###Findings about Job Type
+### Findings about Job Type
 Job types vary significantly across participants and private for-profit employment is the most common one. Government jobs such as local, state and federal also represent meaningful shares of the sample. Self-employed and unpaid family workers represents smaller but important groups.
 
-###Insurance Access Patterns
+### Insurance Access Patterns
 Private for-profit and government job types show the highest rates of employer-sponsored insurance while self-employed individuals have much lower access to employer insurance and rely more on individual market plans or remin uninsured. Unpaid or informal job types show very low employer-insurance coverage and higher Medicaid and uninsured rates. Therefore, job type is a strong structural determinant of insurance access even among people who are technically "employed". 
 
 ### Implications
-Employer-provided insurance is unequally distributed across job sectors. Workers in traditional and stable employment sectors such as governments or for-profit benefit from higher coverage. Workers in self-employment or informal roles face systemic disadvantages in getting decent insurance. This support the argument that the structure of the labor market creates disparities in health insurance acess beyond employment status alone. 
+Employer-provided insurance is unequally distributed across job sectors. Workers in traditional and stable employment sectors such as governments or for-profit benefit from higher coverage. Workers in self-employment or informal roles face systemic disadvantages in getting decent insurance. Unemployed persons face higher risks of having no health insurance coverage due to systemic reliance on employer-sponsored health insurance models. Those with lower incomes also face higher risks for having no health insurance coverage, thus, leading to higher risks of delaying health services or prioritizing preventative care. This support the argument that the structure of the labor market creates disparities in health insurance access beyond employment status alone. 
 
 # References
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -45,21 +45,21 @@ div.csl-indent {
 
 
 <script src="edld651_sk_okm_cs_files/libs/clipboard/clipboard.min.js"></script>
-<script src="edld651_sk_okm_cs_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="edld651_sk_okm_cs_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="edld651_sk_okm_cs_files/libs/quarto-html/quarto.js"></script>
 <script src="edld651_sk_okm_cs_files/libs/quarto-html/popper.min.js"></script>
 <script src="edld651_sk_okm_cs_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="edld651_sk_okm_cs_files/libs/quarto-html/anchor.min.js"></script>
 <link href="edld651_sk_okm_cs_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="edld651_sk_okm_cs_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="edld651_sk_okm_cs_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="edld651_sk_okm_cs_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="edld651_sk_okm_cs_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="edld651_sk_okm_cs_files/libs/bootstrap/bootstrap-bb462d781dde1847d9e3ccf7736099dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="edld651_sk_okm_cs_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="quarto-light">
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -74,7 +74,11 @@ div.csl-indent {
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a>
   <ul class="collapse">
   <li><a href="#findings-about-gender-and-employment" id="toc-findings-about-gender-and-employment" class="nav-link" data-scroll-target="#findings-about-gender-and-employment">Findings about Gender and Employment</a></li>
+  <li><a href="#findings-about-income-levels" id="toc-findings-about-income-levels" class="nav-link" data-scroll-target="#findings-about-income-levels">Findings about Income levels</a></li>
+  <li><a href="#findings-about-reasons-for-no-health-insurance" id="toc-findings-about-reasons-for-no-health-insurance" class="nav-link" data-scroll-target="#findings-about-reasons-for-no-health-insurance">Findings about Reasons for No Health Insurance</a></li>
   <li><a href="#implications-for-health-insurance" id="toc-implications-for-health-insurance" class="nav-link" data-scroll-target="#implications-for-health-insurance">Implications for Health Insurance</a></li>
+  <li><a href="#findings-about-job-type" id="toc-findings-about-job-type" class="nav-link" data-scroll-target="#findings-about-job-type">Findings about Job Type</a></li>
+  <li><a href="#insurance-access-patterns" id="toc-insurance-access-patterns" class="nav-link" data-scroll-target="#insurance-access-patterns">Insurance Access Patterns</a></li>
   <li><a href="#implications" id="toc-implications" class="nav-link" data-scroll-target="#implications">Implications</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
@@ -116,7 +120,7 @@ div.csl-indent {
 <p><span class="citation" data-cites="ohnmar">(<a href="#ref-ohnmar" role="doc-biblioref"><strong>ohnmar?</strong></a>)</span> - I don’t think we need both a table and a graph for job type and health insurance status (i think we should stick with your graph cuz it’s cool). For all the other tables/figures without health insurance status as a variable, i think you can add an inline code and description just saying we found that majority of participants work for private for-profit etc. see an example of the in-line code I have for age and number of participants), same with employment and sex, can describe it in written sentences with in-line code.</p>
 <section id="abstract" class="level2">
 <h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>Health insurance coverage is an important factor for individuals residing in the United States to access a variety of preventative and treatment services in medical setting <span class="citation" data-cites="HealthyPeople2030">(<a href="#ref-HealthyPeople2030" role="doc-biblioref">Office of Disease Prevention and Promotion 2025</a>)</span>. The current study examines the variations of health insurance status across demographic characteristics including race, ethnicity, age, sex, employment, income using Wave V of ADD Health survey data. [summarize finding here: We found that….delete me once this is done]. These findings highlights the importance of addressing disparities in health insurance coverage to improve access to care for diverse population, which is crucial for the successful prevention and management of chronic health conditions for all.</p>
+<p>Health insurance coverage is an important factor for individuals residing in the United States to access a variety of preventative and treatment services in medical settings <span class="citation" data-cites="HealthyPeople2030">(<a href="#ref-HealthyPeople2030" role="doc-biblioref">Office of Disease Prevention and Promotion 2025</a>)</span>. The current study examines the variations of health insurance status across demographic characteristics including race, ethnicity, age, sex, employment, income using Wave V of ADD Health survey data. [summarize finding here: We found that….delete me once this is done] –&gt; We found that lower-income classes had higher rated of being uninsured and the primary provider of health insurance was throught the workplace across all income levels. These findings highlights the importance of addressing disparities in health insurance coverage to improve access to care for diverse population, which is crucial for the successful prevention and management of chronic health conditions for all.</p>
 </section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
@@ -125,27 +129,28 @@ div.csl-indent {
 </section>
 <section id="methods" class="level2">
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
-<p>The current study uses the public available version of the ADD Health Wave 5 survey data, which was collected from 2016 through 2018. As the full dataset contains variables on many social, environmental, behavior and biological measures beyond the scope of the current study, we only selected variables that are relevant to our aim as a first step of our data cleaning process. We used the following R packages <span class="citation" data-cites="R here tidyverse rio janitor gt">(<a href="#ref-R" role="doc-biblioref">R Core Team 2025</a>; <a href="#ref-here" role="doc-biblioref">Müller 2020</a>; <a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>; <a href="#ref-rio" role="doc-biblioref">Chan et al. 2023</a>; <a href="#ref-janitor" role="doc-biblioref">Firke 2024</a>; <a href="#ref-gt" role="doc-biblioref">Iannone et al. 2025</a>)</span> to assist our data cleaning, as well as table and visualization creations of our results.</p>
+<p>The current study uses the public available version of the ADD Health Wave 5 survey data, which was collected from 2016 through 2018. As the full dataset contains variables on many social, environmental, behavior and biological measures beyond the scope of the current study, we only selected variables that are relevant to our aim as a first step of our data cleaning process. We used the following R packages <span class="citation" data-cites="R here tidyverse rio janitor gt">(<a href="#ref-R" role="doc-biblioref">R Core Team 2025</a>; <a href="#ref-here" role="doc-biblioref">Müller 2020</a>; <a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>; <a href="#ref-rio" role="doc-biblioref">Chan et al. 2023</a>; <a href="#ref-janitor" role="doc-biblioref">Firke 2024</a>; <a href="#ref-gt" role="doc-biblioref">Iannone et al. 2025</a>)</span> to assist our data cleaning, as well as <span class="citation" data-cites="ggplot2 scales forcats dplyr">(<a href="#ref-ggplot2" role="doc-biblioref">Wickham 2016</a>, <a href="#ref-forcats" role="doc-biblioref">2023</a>; <a href="#ref-scales" role="doc-biblioref">Wickham, Pedersen, and Seidel 2023</a>; <a href="#ref-dplyr" role="doc-biblioref">Wickham et al. 2023</a>)</span> for table and visualization creations of our results. We used <span class="citation" data-cites="addhealth">(<a href="#ref-addhealth" role="doc-biblioref">Harris and Udry 2022</a>)</span> to download the raw data.</p>
 <p>As we are interested in examining the potential differences in health insurance coverage by comparing monoracial and multiracial individuals that either identifies as Hispanic or Non-Hispanic rather than across each racial and ethnic group, we decided to exclude participants who have missing data on race and ethnicity. Therefore, our final sample includes 4184 adult participants (Mean age =37.35 years, Range = 32 - 43 years).</p>
+<p>Additionally, we are interested in examining differences in status of health insurance and types of health insurance across income levels. The original raw data had thirteen income levels, starting at <code>"Less than $5,000"</code>, increasing in increments of <code>$5,000</code> up to <code>"$200,000 or more"</code>. Therefore, we decided to collapse some of these levels to aid clarity of visualizations with less levels. We reorganized the original income levels to<code>Below 50k</code>,<code>50k-100k</code>,<code>100k-200k</code>, and<code>Above 200k</code>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="qmaspuwkda" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qmaspuwkda table {
+<div id="lsnmenhovu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lsnmenhovu table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qmaspuwkda thead, #qmaspuwkda tbody, #qmaspuwkda tfoot, #qmaspuwkda tr, #qmaspuwkda td, #qmaspuwkda th {
+#lsnmenhovu thead, #lsnmenhovu tbody, #lsnmenhovu tfoot, #lsnmenhovu tr, #lsnmenhovu td, #lsnmenhovu th {
   border-style: none;
 }
 
-#qmaspuwkda p {
+#lsnmenhovu p {
   margin: 0;
   padding: 0;
 }
 
-#qmaspuwkda .gt_table {
+#lsnmenhovu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -171,12 +176,12 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-#qmaspuwkda .gt_caption {
+#lsnmenhovu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qmaspuwkda .gt_title {
+#lsnmenhovu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -188,7 +193,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-#qmaspuwkda .gt_subtitle {
+#lsnmenhovu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -200,7 +205,7 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-#qmaspuwkda .gt_heading {
+#lsnmenhovu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -212,13 +217,13 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#qmaspuwkda .gt_bottom_border {
+#lsnmenhovu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qmaspuwkda .gt_col_headings {
+#lsnmenhovu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -233,7 +238,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#qmaspuwkda .gt_col_heading {
+#lsnmenhovu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -253,7 +258,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#qmaspuwkda .gt_column_spanner_outer {
+#lsnmenhovu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -265,15 +270,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-#qmaspuwkda .gt_column_spanner_outer:first-child {
+#lsnmenhovu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qmaspuwkda .gt_column_spanner_outer:last-child {
+#lsnmenhovu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qmaspuwkda .gt_column_spanner {
+#lsnmenhovu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -285,11 +290,11 @@ div.csl-indent {
   width: 100%;
 }
 
-#qmaspuwkda .gt_spanner_row {
+#lsnmenhovu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qmaspuwkda .gt_group_heading {
+#lsnmenhovu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -315,7 +320,7 @@ div.csl-indent {
   text-align: left;
 }
 
-#qmaspuwkda .gt_empty_group_heading {
+#lsnmenhovu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -330,15 +335,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-#qmaspuwkda .gt_from_md > :first-child {
+#lsnmenhovu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qmaspuwkda .gt_from_md > :last-child {
+#lsnmenhovu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qmaspuwkda .gt_row {
+#lsnmenhovu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -357,7 +362,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#qmaspuwkda .gt_stub {
+#lsnmenhovu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -370,7 +375,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#qmaspuwkda .gt_stub_row_group {
+#lsnmenhovu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -384,15 +389,15 @@ div.csl-indent {
   vertical-align: top;
 }
 
-#qmaspuwkda .gt_row_group_first td {
+#lsnmenhovu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qmaspuwkda .gt_row_group_first th {
+#lsnmenhovu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qmaspuwkda .gt_summary_row {
+#lsnmenhovu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -402,16 +407,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#qmaspuwkda .gt_first_summary_row {
+#lsnmenhovu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qmaspuwkda .gt_first_summary_row.thick {
+#lsnmenhovu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qmaspuwkda .gt_last_summary_row {
+#lsnmenhovu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -421,7 +426,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#qmaspuwkda .gt_grand_summary_row {
+#lsnmenhovu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -431,7 +436,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#qmaspuwkda .gt_first_grand_summary_row {
+#lsnmenhovu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -441,7 +446,7 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-#qmaspuwkda .gt_last_grand_summary_row_top {
+#lsnmenhovu .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -451,11 +456,11 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#qmaspuwkda .gt_striped {
+#lsnmenhovu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qmaspuwkda .gt_table_body {
+#lsnmenhovu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -464,7 +469,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#qmaspuwkda .gt_footnotes {
+#lsnmenhovu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -478,7 +483,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#qmaspuwkda .gt_footnote {
+#lsnmenhovu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -487,7 +492,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#qmaspuwkda .gt_sourcenotes {
+#lsnmenhovu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -501,7 +506,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#qmaspuwkda .gt_sourcenote {
+#lsnmenhovu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -509,85 +514,85 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#qmaspuwkda .gt_left {
+#lsnmenhovu .gt_left {
   text-align: left;
 }
 
-#qmaspuwkda .gt_center {
+#lsnmenhovu .gt_center {
   text-align: center;
 }
 
-#qmaspuwkda .gt_right {
+#lsnmenhovu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qmaspuwkda .gt_font_normal {
+#lsnmenhovu .gt_font_normal {
   font-weight: normal;
 }
 
-#qmaspuwkda .gt_font_bold {
+#lsnmenhovu .gt_font_bold {
   font-weight: bold;
 }
 
-#qmaspuwkda .gt_font_italic {
+#lsnmenhovu .gt_font_italic {
   font-style: italic;
 }
 
-#qmaspuwkda .gt_super {
+#lsnmenhovu .gt_super {
   font-size: 65%;
 }
 
-#qmaspuwkda .gt_footnote_marks {
+#lsnmenhovu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qmaspuwkda .gt_asterisk {
+#lsnmenhovu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qmaspuwkda .gt_indent_1 {
+#lsnmenhovu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qmaspuwkda .gt_indent_2 {
+#lsnmenhovu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qmaspuwkda .gt_indent_3 {
+#lsnmenhovu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qmaspuwkda .gt_indent_4 {
+#lsnmenhovu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qmaspuwkda .gt_indent_5 {
+#lsnmenhovu .gt_indent_5 {
   text-indent: 25px;
 }
 
-#qmaspuwkda .katex-display {
+#lsnmenhovu .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#qmaspuwkda div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#lsnmenhovu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
-<tr class="gt_heading header">
+<tr class="header gt_heading">
 <th colspan="6" class="gt_heading gt_title gt_font_normal">Table 1: Descriptive Statistics of Sex, Racial Ethnic Group, Employment, Household Income</th>
 </tr>
-<tr class="gt_heading even">
+<tr class="odd gt_heading">
 <th colspan="6" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Data Source: Wave 5 of ADD Health</th>
 </tr>
-<tr class="gt_col_headings header">
+<tr class="header gt_col_headings">
 <th id="sex" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Sex</th>
 <th id="race_ethnicity" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Racial Ethnic Group</th>
 <th id="employed" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Employment Status</th>
@@ -1078,23 +1083,23 @@ div.csl-indent {
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="sueqblbhnk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#sueqblbhnk table {
+<div id="ipfuavkdcd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ipfuavkdcd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#sueqblbhnk thead, #sueqblbhnk tbody, #sueqblbhnk tfoot, #sueqblbhnk tr, #sueqblbhnk td, #sueqblbhnk th {
+#ipfuavkdcd thead, #ipfuavkdcd tbody, #ipfuavkdcd tfoot, #ipfuavkdcd tr, #ipfuavkdcd td, #ipfuavkdcd th {
   border-style: none;
 }
 
-#sueqblbhnk p {
+#ipfuavkdcd p {
   margin: 0;
   padding: 0;
 }
 
-#sueqblbhnk .gt_table {
+#ipfuavkdcd .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1120,12 +1125,12 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-#sueqblbhnk .gt_caption {
+#ipfuavkdcd .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#sueqblbhnk .gt_title {
+#ipfuavkdcd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1137,7 +1142,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-#sueqblbhnk .gt_subtitle {
+#ipfuavkdcd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1149,7 +1154,7 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-#sueqblbhnk .gt_heading {
+#ipfuavkdcd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1161,13 +1166,13 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#sueqblbhnk .gt_bottom_border {
+#ipfuavkdcd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#sueqblbhnk .gt_col_headings {
+#ipfuavkdcd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1182,7 +1187,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#sueqblbhnk .gt_col_heading {
+#ipfuavkdcd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1202,7 +1207,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#sueqblbhnk .gt_column_spanner_outer {
+#ipfuavkdcd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1214,15 +1219,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-#sueqblbhnk .gt_column_spanner_outer:first-child {
+#ipfuavkdcd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#sueqblbhnk .gt_column_spanner_outer:last-child {
+#ipfuavkdcd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#sueqblbhnk .gt_column_spanner {
+#ipfuavkdcd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1234,11 +1239,11 @@ div.csl-indent {
   width: 100%;
 }
 
-#sueqblbhnk .gt_spanner_row {
+#ipfuavkdcd .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#sueqblbhnk .gt_group_heading {
+#ipfuavkdcd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1264,7 +1269,7 @@ div.csl-indent {
   text-align: left;
 }
 
-#sueqblbhnk .gt_empty_group_heading {
+#ipfuavkdcd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1279,15 +1284,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-#sueqblbhnk .gt_from_md > :first-child {
+#ipfuavkdcd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#sueqblbhnk .gt_from_md > :last-child {
+#ipfuavkdcd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#sueqblbhnk .gt_row {
+#ipfuavkdcd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1306,7 +1311,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#sueqblbhnk .gt_stub {
+#ipfuavkdcd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1319,7 +1324,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#sueqblbhnk .gt_stub_row_group {
+#ipfuavkdcd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1333,15 +1338,15 @@ div.csl-indent {
   vertical-align: top;
 }
 
-#sueqblbhnk .gt_row_group_first td {
+#ipfuavkdcd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#sueqblbhnk .gt_row_group_first th {
+#ipfuavkdcd .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#sueqblbhnk .gt_summary_row {
+#ipfuavkdcd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1351,16 +1356,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#sueqblbhnk .gt_first_summary_row {
+#ipfuavkdcd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#sueqblbhnk .gt_first_summary_row.thick {
+#ipfuavkdcd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#sueqblbhnk .gt_last_summary_row {
+#ipfuavkdcd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1370,7 +1375,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#sueqblbhnk .gt_grand_summary_row {
+#ipfuavkdcd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1380,7 +1385,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#sueqblbhnk .gt_first_grand_summary_row {
+#ipfuavkdcd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1390,7 +1395,7 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-#sueqblbhnk .gt_last_grand_summary_row_top {
+#ipfuavkdcd .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1400,11 +1405,11 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#sueqblbhnk .gt_striped {
+#ipfuavkdcd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#sueqblbhnk .gt_table_body {
+#ipfuavkdcd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1413,7 +1418,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#sueqblbhnk .gt_footnotes {
+#ipfuavkdcd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1427,7 +1432,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#sueqblbhnk .gt_footnote {
+#ipfuavkdcd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1436,7 +1441,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#sueqblbhnk .gt_sourcenotes {
+#ipfuavkdcd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1450,7 +1455,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#sueqblbhnk .gt_sourcenote {
+#ipfuavkdcd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1458,82 +1463,85 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#sueqblbhnk .gt_left {
+#ipfuavkdcd .gt_left {
   text-align: left;
 }
 
-#sueqblbhnk .gt_center {
+#ipfuavkdcd .gt_center {
   text-align: center;
 }
 
-#sueqblbhnk .gt_right {
+#ipfuavkdcd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#sueqblbhnk .gt_font_normal {
+#ipfuavkdcd .gt_font_normal {
   font-weight: normal;
 }
 
-#sueqblbhnk .gt_font_bold {
+#ipfuavkdcd .gt_font_bold {
   font-weight: bold;
 }
 
-#sueqblbhnk .gt_font_italic {
+#ipfuavkdcd .gt_font_italic {
   font-style: italic;
 }
 
-#sueqblbhnk .gt_super {
+#ipfuavkdcd .gt_super {
   font-size: 65%;
 }
 
-#sueqblbhnk .gt_footnote_marks {
+#ipfuavkdcd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#sueqblbhnk .gt_asterisk {
+#ipfuavkdcd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#sueqblbhnk .gt_indent_1 {
+#ipfuavkdcd .gt_indent_1 {
   text-indent: 5px;
 }
 
-#sueqblbhnk .gt_indent_2 {
+#ipfuavkdcd .gt_indent_2 {
   text-indent: 10px;
 }
 
-#sueqblbhnk .gt_indent_3 {
+#ipfuavkdcd .gt_indent_3 {
   text-indent: 15px;
 }
 
-#sueqblbhnk .gt_indent_4 {
+#ipfuavkdcd .gt_indent_4 {
   text-indent: 20px;
 }
 
-#sueqblbhnk .gt_indent_5 {
+#ipfuavkdcd .gt_indent_5 {
   text-indent: 25px;
 }
 
-#sueqblbhnk .katex-display {
+#ipfuavkdcd .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#sueqblbhnk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ipfuavkdcd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
-<tr class="gt_heading header">
-<th colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border">Table 1: Employment Status by Sex</th>
+<tr class="header gt_heading">
+<th colspan="4" class="gt_heading gt_title gt_font_normal">Table 2: Employment Status by Sex</th>
 </tr>
-<tr class="gt_col_headings even">
+<tr class="odd gt_heading">
+<th colspan="4" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Data Source: Wave 5 of ADD Health</th>
+</tr>
+<tr class="header gt_col_headings">
 <th id="sex" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Sex</th>
 <th id="employed" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Employment Status</th>
 <th id="count" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Count</th>
@@ -1591,23 +1599,23 @@ div.csl-indent {
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="oouxhcprps" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#oouxhcprps table {
+<div id="ytvnvcdynk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ytvnvcdynk table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#oouxhcprps thead, #oouxhcprps tbody, #oouxhcprps tfoot, #oouxhcprps tr, #oouxhcprps td, #oouxhcprps th {
+#ytvnvcdynk thead, #ytvnvcdynk tbody, #ytvnvcdynk tfoot, #ytvnvcdynk tr, #ytvnvcdynk td, #ytvnvcdynk th {
   border-style: none;
 }
 
-#oouxhcprps p {
+#ytvnvcdynk p {
   margin: 0;
   padding: 0;
 }
 
-#oouxhcprps .gt_table {
+#ytvnvcdynk .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1633,12 +1641,12 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-#oouxhcprps .gt_caption {
+#ytvnvcdynk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#oouxhcprps .gt_title {
+#ytvnvcdynk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1650,7 +1658,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-#oouxhcprps .gt_subtitle {
+#ytvnvcdynk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1662,7 +1670,7 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-#oouxhcprps .gt_heading {
+#ytvnvcdynk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1674,13 +1682,13 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#oouxhcprps .gt_bottom_border {
+#ytvnvcdynk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#oouxhcprps .gt_col_headings {
+#ytvnvcdynk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1695,7 +1703,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#oouxhcprps .gt_col_heading {
+#ytvnvcdynk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1715,7 +1723,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#oouxhcprps .gt_column_spanner_outer {
+#ytvnvcdynk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1727,15 +1735,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-#oouxhcprps .gt_column_spanner_outer:first-child {
+#ytvnvcdynk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#oouxhcprps .gt_column_spanner_outer:last-child {
+#ytvnvcdynk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#oouxhcprps .gt_column_spanner {
+#ytvnvcdynk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1747,11 +1755,11 @@ div.csl-indent {
   width: 100%;
 }
 
-#oouxhcprps .gt_spanner_row {
+#ytvnvcdynk .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#oouxhcprps .gt_group_heading {
+#ytvnvcdynk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1777,7 +1785,7 @@ div.csl-indent {
   text-align: left;
 }
 
-#oouxhcprps .gt_empty_group_heading {
+#ytvnvcdynk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1792,15 +1800,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-#oouxhcprps .gt_from_md > :first-child {
+#ytvnvcdynk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#oouxhcprps .gt_from_md > :last-child {
+#ytvnvcdynk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#oouxhcprps .gt_row {
+#ytvnvcdynk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1819,7 +1827,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#oouxhcprps .gt_stub {
+#ytvnvcdynk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1832,7 +1840,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#oouxhcprps .gt_stub_row_group {
+#ytvnvcdynk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1846,15 +1854,15 @@ div.csl-indent {
   vertical-align: top;
 }
 
-#oouxhcprps .gt_row_group_first td {
+#ytvnvcdynk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#oouxhcprps .gt_row_group_first th {
+#ytvnvcdynk .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#oouxhcprps .gt_summary_row {
+#ytvnvcdynk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1864,16 +1872,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#oouxhcprps .gt_first_summary_row {
+#ytvnvcdynk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#oouxhcprps .gt_first_summary_row.thick {
+#ytvnvcdynk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#oouxhcprps .gt_last_summary_row {
+#ytvnvcdynk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1883,7 +1891,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#oouxhcprps .gt_grand_summary_row {
+#ytvnvcdynk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1893,7 +1901,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#oouxhcprps .gt_first_grand_summary_row {
+#ytvnvcdynk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1903,7 +1911,7 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-#oouxhcprps .gt_last_grand_summary_row_top {
+#ytvnvcdynk .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1913,11 +1921,11 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#oouxhcprps .gt_striped {
+#ytvnvcdynk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#oouxhcprps .gt_table_body {
+#ytvnvcdynk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1926,7 +1934,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#oouxhcprps .gt_footnotes {
+#ytvnvcdynk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1940,7 +1948,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#oouxhcprps .gt_footnote {
+#ytvnvcdynk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1949,7 +1957,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#oouxhcprps .gt_sourcenotes {
+#ytvnvcdynk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1963,7 +1971,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#oouxhcprps .gt_sourcenote {
+#ytvnvcdynk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1971,82 +1979,85 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#oouxhcprps .gt_left {
+#ytvnvcdynk .gt_left {
   text-align: left;
 }
 
-#oouxhcprps .gt_center {
+#ytvnvcdynk .gt_center {
   text-align: center;
 }
 
-#oouxhcprps .gt_right {
+#ytvnvcdynk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#oouxhcprps .gt_font_normal {
+#ytvnvcdynk .gt_font_normal {
   font-weight: normal;
 }
 
-#oouxhcprps .gt_font_bold {
+#ytvnvcdynk .gt_font_bold {
   font-weight: bold;
 }
 
-#oouxhcprps .gt_font_italic {
+#ytvnvcdynk .gt_font_italic {
   font-style: italic;
 }
 
-#oouxhcprps .gt_super {
+#ytvnvcdynk .gt_super {
   font-size: 65%;
 }
 
-#oouxhcprps .gt_footnote_marks {
+#ytvnvcdynk .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#oouxhcprps .gt_asterisk {
+#ytvnvcdynk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#oouxhcprps .gt_indent_1 {
+#ytvnvcdynk .gt_indent_1 {
   text-indent: 5px;
 }
 
-#oouxhcprps .gt_indent_2 {
+#ytvnvcdynk .gt_indent_2 {
   text-indent: 10px;
 }
 
-#oouxhcprps .gt_indent_3 {
+#ytvnvcdynk .gt_indent_3 {
   text-indent: 15px;
 }
 
-#oouxhcprps .gt_indent_4 {
+#ytvnvcdynk .gt_indent_4 {
   text-indent: 20px;
 }
 
-#oouxhcprps .gt_indent_5 {
+#ytvnvcdynk .gt_indent_5 {
   text-indent: 25px;
 }
 
-#oouxhcprps .katex-display {
+#ytvnvcdynk .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#oouxhcprps div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ytvnvcdynk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
-<tr class="gt_heading header">
-<th colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border">Distribution of Job Types Among Participants</th>
+<tr class="header gt_heading">
+<th colspan="3" class="gt_heading gt_title gt_font_normal">Table 3: Distribution of Job Types Among Participants</th>
 </tr>
-<tr class="gt_col_headings even">
+<tr class="odd gt_heading">
+<th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Data Source: Wave 5 of ADD Health</th>
+</tr>
+<tr class="header gt_col_headings">
 <th id="job_type" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Job Type</th>
 <th id="count" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Count</th>
 <th id="percent" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Percent</th>
@@ -2106,23 +2117,23 @@ div.csl-indent {
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="bsyzuxgtdf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bsyzuxgtdf table {
+<div id="efmkapkjsp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#efmkapkjsp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bsyzuxgtdf thead, #bsyzuxgtdf tbody, #bsyzuxgtdf tfoot, #bsyzuxgtdf tr, #bsyzuxgtdf td, #bsyzuxgtdf th {
+#efmkapkjsp thead, #efmkapkjsp tbody, #efmkapkjsp tfoot, #efmkapkjsp tr, #efmkapkjsp td, #efmkapkjsp th {
   border-style: none;
 }
 
-#bsyzuxgtdf p {
+#efmkapkjsp p {
   margin: 0;
   padding: 0;
 }
 
-#bsyzuxgtdf .gt_table {
+#efmkapkjsp .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2148,12 +2159,12 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-#bsyzuxgtdf .gt_caption {
+#efmkapkjsp .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bsyzuxgtdf .gt_title {
+#efmkapkjsp .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2165,7 +2176,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-#bsyzuxgtdf .gt_subtitle {
+#efmkapkjsp .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2177,7 +2188,7 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-#bsyzuxgtdf .gt_heading {
+#efmkapkjsp .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2189,13 +2200,13 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#bsyzuxgtdf .gt_bottom_border {
+#efmkapkjsp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bsyzuxgtdf .gt_col_headings {
+#efmkapkjsp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2210,7 +2221,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#bsyzuxgtdf .gt_col_heading {
+#efmkapkjsp .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2230,7 +2241,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#bsyzuxgtdf .gt_column_spanner_outer {
+#efmkapkjsp .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2242,15 +2253,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-#bsyzuxgtdf .gt_column_spanner_outer:first-child {
+#efmkapkjsp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bsyzuxgtdf .gt_column_spanner_outer:last-child {
+#efmkapkjsp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bsyzuxgtdf .gt_column_spanner {
+#efmkapkjsp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2262,11 +2273,11 @@ div.csl-indent {
   width: 100%;
 }
 
-#bsyzuxgtdf .gt_spanner_row {
+#efmkapkjsp .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bsyzuxgtdf .gt_group_heading {
+#efmkapkjsp .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2292,7 +2303,7 @@ div.csl-indent {
   text-align: left;
 }
 
-#bsyzuxgtdf .gt_empty_group_heading {
+#efmkapkjsp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2307,15 +2318,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-#bsyzuxgtdf .gt_from_md > :first-child {
+#efmkapkjsp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bsyzuxgtdf .gt_from_md > :last-child {
+#efmkapkjsp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bsyzuxgtdf .gt_row {
+#efmkapkjsp .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2334,7 +2345,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#bsyzuxgtdf .gt_stub {
+#efmkapkjsp .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2347,7 +2358,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#bsyzuxgtdf .gt_stub_row_group {
+#efmkapkjsp .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2361,15 +2372,15 @@ div.csl-indent {
   vertical-align: top;
 }
 
-#bsyzuxgtdf .gt_row_group_first td {
+#efmkapkjsp .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bsyzuxgtdf .gt_row_group_first th {
+#efmkapkjsp .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bsyzuxgtdf .gt_summary_row {
+#efmkapkjsp .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2379,16 +2390,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#bsyzuxgtdf .gt_first_summary_row {
+#efmkapkjsp .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bsyzuxgtdf .gt_first_summary_row.thick {
+#efmkapkjsp .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bsyzuxgtdf .gt_last_summary_row {
+#efmkapkjsp .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2398,7 +2409,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#bsyzuxgtdf .gt_grand_summary_row {
+#efmkapkjsp .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2408,7 +2419,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#bsyzuxgtdf .gt_first_grand_summary_row {
+#efmkapkjsp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2418,7 +2429,7 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-#bsyzuxgtdf .gt_last_grand_summary_row_top {
+#efmkapkjsp .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2428,11 +2439,11 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#bsyzuxgtdf .gt_striped {
+#efmkapkjsp .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bsyzuxgtdf .gt_table_body {
+#efmkapkjsp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2441,7 +2452,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#bsyzuxgtdf .gt_footnotes {
+#efmkapkjsp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2455,7 +2466,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#bsyzuxgtdf .gt_footnote {
+#efmkapkjsp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2464,7 +2475,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#bsyzuxgtdf .gt_sourcenotes {
+#efmkapkjsp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2478,7 +2489,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#bsyzuxgtdf .gt_sourcenote {
+#efmkapkjsp .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2486,82 +2497,85 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#bsyzuxgtdf .gt_left {
+#efmkapkjsp .gt_left {
   text-align: left;
 }
 
-#bsyzuxgtdf .gt_center {
+#efmkapkjsp .gt_center {
   text-align: center;
 }
 
-#bsyzuxgtdf .gt_right {
+#efmkapkjsp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bsyzuxgtdf .gt_font_normal {
+#efmkapkjsp .gt_font_normal {
   font-weight: normal;
 }
 
-#bsyzuxgtdf .gt_font_bold {
+#efmkapkjsp .gt_font_bold {
   font-weight: bold;
 }
 
-#bsyzuxgtdf .gt_font_italic {
+#efmkapkjsp .gt_font_italic {
   font-style: italic;
 }
 
-#bsyzuxgtdf .gt_super {
+#efmkapkjsp .gt_super {
   font-size: 65%;
 }
 
-#bsyzuxgtdf .gt_footnote_marks {
+#efmkapkjsp .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bsyzuxgtdf .gt_asterisk {
+#efmkapkjsp .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bsyzuxgtdf .gt_indent_1 {
+#efmkapkjsp .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bsyzuxgtdf .gt_indent_2 {
+#efmkapkjsp .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bsyzuxgtdf .gt_indent_3 {
+#efmkapkjsp .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bsyzuxgtdf .gt_indent_4 {
+#efmkapkjsp .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bsyzuxgtdf .gt_indent_5 {
+#efmkapkjsp .gt_indent_5 {
   text-indent: 25px;
 }
 
-#bsyzuxgtdf .katex-display {
+#efmkapkjsp .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#bsyzuxgtdf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#efmkapkjsp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
-<tr class="gt_heading header">
-<th colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border">Health Insurance Status by Job Type</th>
+<tr class="header gt_heading">
+<th colspan="4" class="gt_heading gt_title gt_font_normal">Table 4:Health Insurance Status by Job Type</th>
 </tr>
-<tr class="gt_col_headings even">
+<tr class="odd gt_heading">
+<th colspan="4" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Data Source: Wave 5 of ADD Health</th>
+</tr>
+<tr class="header gt_col_headings">
 <th id="job_type" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Job Type</th>
 <th id="insurance_status" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Health Insurance</th>
 <th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Count</th>
@@ -3022,10 +3036,512 @@ div.csl-indent {
 </div>
 </div>
 </div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="edld651_sk_okm_cs_files/figure-html/paper-figure-5-1.png" class="img-fluid figure-img" width="624"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="bbrxdgnjki" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bbrxdgnjki table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bbrxdgnjki thead, #bbrxdgnjki tbody, #bbrxdgnjki tfoot, #bbrxdgnjki tr, #bbrxdgnjki td, #bbrxdgnjki th {
+  border-style: none;
+}
+
+#bbrxdgnjki p {
+  margin: 0;
+  padding: 0;
+}
+
+#bbrxdgnjki .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bbrxdgnjki .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bbrxdgnjki .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bbrxdgnjki .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bbrxdgnjki .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bbrxdgnjki .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bbrxdgnjki .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bbrxdgnjki .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bbrxdgnjki .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bbrxdgnjki .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bbrxdgnjki .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bbrxdgnjki .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bbrxdgnjki .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bbrxdgnjki .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bbrxdgnjki .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bbrxdgnjki .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bbrxdgnjki .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bbrxdgnjki .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bbrxdgnjki .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bbrxdgnjki .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bbrxdgnjki .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bbrxdgnjki .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bbrxdgnjki .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bbrxdgnjki .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bbrxdgnjki .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bbrxdgnjki .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bbrxdgnjki .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bbrxdgnjki .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bbrxdgnjki .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bbrxdgnjki .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bbrxdgnjki .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bbrxdgnjki .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bbrxdgnjki .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bbrxdgnjki .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bbrxdgnjki .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bbrxdgnjki .gt_left {
+  text-align: left;
+}
+
+#bbrxdgnjki .gt_center {
+  text-align: center;
+}
+
+#bbrxdgnjki .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bbrxdgnjki .gt_font_normal {
+  font-weight: normal;
+}
+
+#bbrxdgnjki .gt_font_bold {
+  font-weight: bold;
+}
+
+#bbrxdgnjki .gt_font_italic {
+  font-style: italic;
+}
+
+#bbrxdgnjki .gt_super {
+  font-size: 65%;
+}
+
+#bbrxdgnjki .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bbrxdgnjki .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bbrxdgnjki .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bbrxdgnjki .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bbrxdgnjki .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bbrxdgnjki .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bbrxdgnjki .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#bbrxdgnjki .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#bbrxdgnjki div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="3" class="gt_heading gt_title gt_font_normal">Table 5: Distribution of Reasons behind No Health Insurance</th>
+</tr>
+<tr class="odd gt_heading">
+<th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Data Source: Wave 5 of ADD Health</th>
+</tr>
+<tr class="header gt_col_headings">
+<th id="notinsured_reason" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Job Type</th>
+<th id="count" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Count</th>
+<th id="percent" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Percent</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="notinsured_reason">Denied insurance</td>
+<td class="gt_row gt_right" headers="count">4</td>
+<td class="gt_row gt_right" headers="percent">1.2%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="notinsured_reason">Do not need or want insurance</td>
+<td class="gt_row gt_right" headers="count">17</td>
+<td class="gt_row gt_right" headers="percent">5.2%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="notinsured_reason">Not offered via work or school</td>
+<td class="gt_row gt_right" headers="count">125</td>
+<td class="gt_row gt_right" headers="percent">38.5%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="notinsured_reason">Too expensive</td>
+<td class="gt_row gt_right" headers="count">179</td>
+<td class="gt_row gt_right" headers="percent">55.1%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
-<p>We presented descriptive statistics of our demographic variables of interest in Table 1 below. The majority of our participants are employed, reported their household income as above 50k and their sex assigned at birth as female, and identified as Non-Hispanic Monoracial (Table 1).</p>
+<p>We presented descriptive statistics of our demographic variables of interest in Table 1 below. The majority of our participants are employed, reported their household income as above 50k and their sex assigned at birth as female, and identified as Non-Hispanic Monoracial (see Table 1).The primary reason behind not having health insurance was it being too expensive at 55.1% (see Table 5). The largest proportion of insurance types across the four income levels was receiving health insurance through the workplace (see Figure 5). However, the proportions of receiving insurance through the workplace was lower at both the lowest and highest end of income levels, <code>Below 50k</code> and <code>Above 200k</code>. The second leading insurance type was “Medicaid” for those in the <code>Below 50k</code> category, and “Partner’s Insurance” in the rest of the categories.</p>
 <p>[sara ohnmar please summarize the finding of your table/visualizations here and have the interpretation in discussion]</p>
 </section>
 <section id="discussion" class="level2">
@@ -3035,15 +3551,29 @@ div.csl-indent {
 <p>The descriptive table 1 and figures 1 highlight differences in employment status by gender and how it is linked to health insurance coverage. In this sample and analysis of Gender and Employment table, women have higher raw counts of employment because the female sample is larger.However, men shows the higher employment rate (87.3%) compared to women (79.6%). Women also have a higher count of “not employed” but proportionally still lower than men. Since there are small NA counts, it suggests that there will be minimal missing data and do not affect the patterns that much. This table of Gender and Employment status reflects labor-force disparities in U.S. It suggests slight gender differences in employment stability or participation rates.</p>
 <p>The figure 1: Employment Status by Gender visualizes the same pattern that both genders are mostly employed. The bar chart visually shows larger absolute employment counts for women. However, proportionally, men are more likely to be employed when sample size is considered. It indicates gender differences in labor market participation in this sample. This analysis highlights the importance of distingushing between absolute counts and percentage. Employment is tightly linked to employer-sponsored insurance, so even small gender differences can influence coverage patterns.</p>
 </section>
+<section id="findings-about-income-levels" class="level3">
+<h3 class="anchored" data-anchor-id="findings-about-income-levels">Findings about Income levels</h3>
+<p>Figure 5 revealed that receiving health insurance through the workplace remains the primary reason across all income levels. In addition, the largest proportion of “No Health Insurance” responses was in the lowest income level, however was partially mitigated by Medicaid. These figure findings highlight the importance in altering employer reliant healthcare insurance models, as federally provided health insurance, such as Medicaid, can clearly aid in drastically reducing uninsured statuses.</p>
+</section>
+<section id="findings-about-reasons-for-no-health-insurance" class="level3">
+<h3 class="anchored" data-anchor-id="findings-about-reasons-for-no-health-insurance">Findings about Reasons for No Health Insurance</h3>
+<p>Table 5 revealed that the primary reason behind not having health insurance was due to it being too expensive or costly (55.1%). These results shed light on how cost/affordability continues to be major barrier to health insurance status and accessing health services. The second leading reason of not having health insurance, “Not offered via work or school”(38.5%), convey the risks from relying heavily on workplaces to provide health insurance, which is the gap of leaving unemployed persons at a higher risk of being uninsured, based on their employment status. These results can be used to support universal healthcare policies by highlighting existing health care disparities stemming from these flawed healthcare systems.</p>
+</section>
 <section id="implications-for-health-insurance" class="level3">
 <h3 class="anchored" data-anchor-id="implications-for-health-insurance">Implications for Health Insurance</h3>
 <p>Higher male employment rates explain why men may have greater access to employer-based health insurance. Since women have relatively lower employment rate, it may increase reliance on non-employer insurance options such as Medicaid and partner insurance. This is because U.S. insurance is heavily employment-dependent, gendered labor-market patterns can translate directly into coverage disparities. These findings align with broader literature on women’s higher likelihood of part-time work or employment interruptions which may limit access to employer benefits.</p>
-<p>###Findings about Job Type Job types vary significantly across participants and private for-profit employment is the most common one. Government jobs such as local, state and federal also represent meaningful shares of the sample. Self-employed and unpaid family workers represents smaller but important groups.</p>
-<p>###Insurance Access Patterns Private for-profit and government job types show the highest rates of employer-sponsored insurance while self-employed individuals have much lower access to employer insurance and rely more on individual market plans or remin uninsured. Unpaid or informal job types show very low employer-insurance coverage and higher Medicaid and uninsured rates. Therefore, job type is a strong structural determinant of insurance access even among people who are technically “employed”.</p>
+</section>
+<section id="findings-about-job-type" class="level3">
+<h3 class="anchored" data-anchor-id="findings-about-job-type">Findings about Job Type</h3>
+<p>Job types vary significantly across participants and private for-profit employment is the most common one. Government jobs such as local, state and federal also represent meaningful shares of the sample. Self-employed and unpaid family workers represents smaller but important groups.</p>
+</section>
+<section id="insurance-access-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="insurance-access-patterns">Insurance Access Patterns</h3>
+<p>Private for-profit and government job types show the highest rates of employer-sponsored insurance while self-employed individuals have much lower access to employer insurance and rely more on individual market plans or remin uninsured. Unpaid or informal job types show very low employer-insurance coverage and higher Medicaid and uninsured rates. Therefore, job type is a strong structural determinant of insurance access even among people who are technically “employed”.</p>
 </section>
 <section id="implications" class="level3">
 <h3 class="anchored" data-anchor-id="implications">Implications</h3>
-<p>Employer-provided insurance is unequally distributed across job sectors. Workers in traditional and stable employment sectors such as governments or for-profit benefit from higher coverage. Workers in self-employment or informal roles face systemic disadvantages in getting decent insurance. This support the argument that the structure of the labor market creates disparities in health insurance acess beyond employment status alone.</p>
+<p>Employer-provided insurance is unequally distributed across job sectors. Workers in traditional and stable employment sectors such as governments or for-profit benefit from higher coverage. Workers in self-employment or informal roles face systemic disadvantages in getting decent insurance. This support the argument that the structure of the labor market creates disparities in health insurance access beyond employment status alone.</p>
 </section>
 </section>
 <section id="references" class="level1 unnumbered">
@@ -3060,6 +3590,9 @@ Firke, Sam. 2024. <em>Janitor: Simple Tools for Examining and Cleaning Dirty Dat
 </div>
 <div id="ref-Hadley2003" class="csl-entry" role="listitem">
 Hadley, Jack. 2003. <span>“Sicker and Poorer—the Consequences of Being Uninsured: A Review of the Research on the Relationship Between Health Insurance, Medical Care Use, Health, Work, and Income.”</span> <em>Medical Care Research and Review</em> 60 (2_suppl): 3S–75S. <a href="https://doi.org/10.1177/1077558703254101">https://doi.org/10.1177/1077558703254101</a>.
+</div>
+<div id="ref-addhealth" class="csl-entry" role="listitem">
+Harris, Kathleen Mullan, and J. Richard Udry. 2022. <span>“Wave v: National Longitudinal Study of Adolescent to Adult Health (Add Health), 1994–2018 [Public Use].”</span> Carolina Population Center &amp; Inter-university Consortium for Political; Social Research. <a href="https://doi.org/10.3886/ICPSR21600.v25">https://doi.org/10.3886/ICPSR21600.v25</a>.
 </div>
 <div id="ref-Herman2011" class="csl-entry" role="listitem">
 Herman, Patricia M., James J. Rissi, and Michael E. Walsh. 2011. <span>“Health Insurance Status, Medical Debt, and Their Impact on Access to Care in Arizona.”</span> <em>American Journal of Public Health</em> 101 (8): 1437–43. <a href="https://doi.org/10.2105/AJPH.2010.300080">https://doi.org/10.2105/AJPH.2010.300080</a>.
@@ -3085,248 +3618,257 @@ Office of Disease Prevention, (ODPHP), and Health Promotion. 2025. <span>“Heal
 <div id="ref-R" class="csl-entry" role="listitem">
 R Core Team. 2025. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
+<div id="ref-ggplot2" class="csl-entry" role="listitem">
+Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+</div>
+<div id="ref-forcats" class="csl-entry" role="listitem">
+———. 2023. <em>Forcats: Tools for Working with Categorical Variables (Factors)</em>. <a href="https://doi.org/10.32614/CRAN.package.forcats">https://doi.org/10.32614/CRAN.package.forcats</a>.
+</div>
 <div id="ref-tidyverse" class="csl-entry" role="listitem">
 Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-dplyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://doi.org/10.32614/CRAN.package.dplyr">https://doi.org/10.32614/CRAN.package.dplyr</a>.
+</div>
+<div id="ref-scales" class="csl-entry" role="listitem">
+Wickham, Hadley, Thomas Lin Pedersen, and Dana Seidel. 2023. <em>Scales: Scale Functions for Visualization</em>. <a href="https://doi.org/10.32614/CRAN.package.scales">https://doi.org/10.32614/CRAN.package.scales</a>.
 </div>
 </div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
       }
-      return false;
-    }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
-    }
-    const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
-        }
-        return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
         }
       }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
     }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -3334,161 +3876,185 @@ Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino 
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 </div> <!-- /content -->
 
 
