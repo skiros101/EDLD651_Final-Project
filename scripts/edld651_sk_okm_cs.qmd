@@ -7,7 +7,6 @@ link-citations: true
 format: 
   html:
     toc: true
-    code-overflow: scroll
     css: styles.css
 execute: 
   eval: true
@@ -28,9 +27,7 @@ library(rio)
 library(janitor)
 library(gt)
 library(dplyr)
-library(ggplot2)
 library(scales)
-library(forcats)
 
 
 pwave5 <- import(here("data", "pwave5.xpt")) |>
@@ -190,7 +187,6 @@ wave5_clean<- wave5_clean %>%
         "$150,000 to $199,999"),
       `Above 200k` = c("$200,000 or more")))
 
-
 ```
 
 
@@ -219,8 +215,6 @@ wave5_clean <- wave5_clean |>
 wave5_clean <- wave5_clean |>
   mutate(age = interval(birth_date, survey_date) |>
            time_length(unit = "years") |> round(digits = 2))
-
-
 
 ```
 
@@ -333,39 +327,32 @@ Delete all of our notes for communicating with each other in this doc before sub
 NOTE: MAKE SURE THE NUMBER OF CODE CHUNK LABELS ARE NOT REPEATS, otherwise it will not render.
 ALSO - model after the format of the first table to make sure we have subtitles of data source, and not using count but rather n of participants (n, or participants(n) or number of participants depending on the context/aesthetics)
 
-@sara - could you make one table or graph on income -> health insurance? and also write up the description of the finding and reference the table/figure.
-
-Here's the factor variable for income now:
-household_income = 
-       `Below 50k` ,
-      `50k-100k`,
-      `100k-200k`,
-      `Above 200k`.
       
 @ohnmar - I don't think we need both a table and a graph for job type and health insurance status (i think we should stick with your graph cuz it's cool). For all the other tables/figures without health insurance status as a variable, i think you can add an inline code and description just saying we found that majority of participants work for private for-profit etc. see an example of the in-line code I have for age and number of participants), same with employment and sex, can describe it in written sentences with in-line code.
 
 
 
 ## Abstract
-Health insurance coverage is an important factor for individuals residing in the United States to access a variety of preventative and treatment services in medical settings [@HealthyPeople2030]. The current study examines the variations of health insurance status across demographic characteristics including race, ethnicity, age, sex, employment, income using Wave V of ADD Health survey data. [summarize finding here: We found that....delete me once this is done] --> We found that lower-income classes had higher rated of being uninsured and the primary provider of health insurance was throught the workplace across all income levels. These findings highlights the importance of addressing disparities in health insurance coverage to improve access to care for diverse population, which is crucial for the successful prevention and management of chronic health conditions for all.
+
+Health insurance coverage is an important factor for individuals residing in the United States to access a variety of preventative and treatment services in medical settings [@HealthyPeople2030]. The current study examines the variations of health insurance status across demographic characteristics including race, ethnicity, age, sex, employment, income using Wave V of ADD Health survey data [@addhealth]. We found that lower-income classes had higher rated of being uninsured and the primary provider of health insurance was through the workplace across all income levels. These findings highlights the importance of addressing disparities in health insurance coverage to improve access to care for diverse population, which is crucial for the successful prevention and management of chronic health conditions for all.
 
 
 ## Introduction
 
 Access to health services has been identified as a social determinant of health by the Office of Disease Prevention and Health Promotion [@HealthyPeople2030]. Status on health insurance coverage is a factor that largely contributes to accessing healthcare services, for both treatment and preventative services. Many adverse outcomes can result from a lack of health insurance coverage. Uninsured adults are less likely to receive preventative screenings for chronic conditions, such as cancer, cardiovascular disease, and diabetes, resulting in higher mortality among uninsured groups due to untimely diagnoses and treatments [@IOM2009]. In addition, there’s a higher likelihood of medical debt among uninsured groups due to accrued out-of-pocket expenses [@Herman2011]. 
 
-Access to health insurance coverage is unequally distributed across people with lower incomes, racial/ethnic minorities,gender minorities, and young adults in the United States [@Hadley2003]. Particularly, disparities across health insurance coverage primarily affect people in lower-income classes or minoritized racial and ethnic groups, as about half of the uninsured population in the U.S. are also in lower-income classes or identified as belonging to a minoritized racial and ethnic group [@Majerol2015]. As the U.S. population has become more racially and ethnically diverse and more individuals identified as multiracial [@Jones2021], it is crucial to understand whether there are any variations in monoracial and multiracial individuals' access to health insurance and services. The current study aims to examine the distribution of health insurance coverage and how this may differ by race (monoracial, multiracial), ethnicity, age, sex, income and employment using ADD Health Wave 5 survey data.
+Access to health insurance coverage is unequally distributed across people with lower incomes, racial/ethnic minorities,gender minorities, and young adults in the United States [@Hadley2003]. Particularly, disparities across health insurance coverage primarily affect people in lower-income classes or minoritized racial and ethnic groups, as about half of the uninsured population in the U.S. are also in lower-income classes or identified as belonging to a minoritized racial and ethnic group [@Majerol2015]. As the U.S. population has become more racially and ethnically diverse and more individuals identified as multiracial [@Jones2021], it is crucial to understand whether there are any variations in monoracial and multiracial individuals' access to health insurance and services. The current study aims to examine the distribution of health insurance coverage and how this may differ by race (monoracial, multiracial), ethnicity, age, sex, income and employment using ADD Health Wave 5 survey data [@addhealth].
 
 
 ## Methods
 
-The current study uses the public available version of the ADD Health Wave 5 survey data, which was collected from 2016 through 2018. As the full dataset contains variables on many social, environmental, behavior and biological measures beyond the scope of the current study, we only selected variables that are relevant to our aim as a first step of our data cleaning process. 
-We used the following R packages [@R; @here;@tidyverse;@rio;@janitor;@gt] to assist our data cleaning, as well as [@ggplot2;@scales;@forcats;@dplyr] for table and visualization creations of our results. We used [@addhealth] to download the raw data.
+The current study uses the public available version of the ADD Health Wave 5 survey data [@addhealth], which was collected from 2016 through 2018. As the full dataset contains variables on many social, environmental, behavior and biological measures beyond the scope of the current study, we only selected variables that are relevant to our aim as a first step of our data cleaning process. We used the following R packages [@R; @here;@tidyverse;@rio;@janitor;@gt] to assist our data cleaning, as well as [@ggplot2;@scales;@forcats;@dplyr] for table and visualization creations of our results.
 
 As we are interested in examining the potential differences in health insurance coverage by comparing monoracial and multiracial individuals that either identifies as Hispanic or Non-Hispanic rather than across each racial and ethnic group, we decided to exclude participants who have missing data on race and ethnicity. Therefore, our final sample includes `r nrow(wave5_clean)` adult participants (Mean age =`r round(mean(wave5_clean$age), 2)` years, Range = `r round(min(wave5_clean$age), 0) ` - `r round(max(wave5_clean$age), 0)` years).
 
 
-Additionally, we are interested in examining differences in status of health insurance and types of health insurance across income levels. The original raw data had thirteen income levels, starting at `"Less than $5,000"`, increasing in increments of `$5,000` up to `"$200,000 or more"`. Therefore, we decided to collapse some of these levels to aid clarity of visualizations with less levels. We reorganized the original income levels to`Below 50k`,`50k-100k`,`100k-200k`, and`Above 200k`.
+Additionally, we are interested in examining differences in status of health insurance and types of health insurance across income levels. The original raw data had thirteen income levels, starting at `"Less than $5,000"`, increasing in increments of `$5,000` up to `"$200,000 or more"`. These income levels from the raw data were collapsed to create better visualizations that are more clear and interpretable. For our final income levels, participants were grouped into earning:`Below 50k`,`50k-100k`,`100k-200k`, and`Above 200k`.
+
 
 ```{r}
 #| label: race-health-table
@@ -379,9 +366,9 @@ desc_table_demo <- wave5_clean |>
   summarize(n = n(), .groups = "drop")
 
 desc_table_demo |>
-    mutate(percent = n / sum(n)) |>
-    arrange(desc(n)) |>
-    gt() |> 
+  mutate(percent = n / sum(n)) |>
+  arrange(desc(n)) |>
+  gt() |> 
     tab_header(title = "Table 1: Descriptive Statistics of Sex, Racial Ethnic Group, Employment, Household Income",
                subtitle = "Data Source: Wave 5 of ADD Health") |> 
     cols_label(
@@ -393,7 +380,6 @@ desc_table_demo |>
       percent = "Percentage"
     ) |> 
     fmt_percent(columns = percent, decimals = 1)
-
 
 ```
 
@@ -408,18 +394,20 @@ race_ethnicity <- wave5_clean |>
   summarize(n = n(), .groups = "drop") |>
   mutate(insurance_status = reorder(insurance_status, n))
 
+race_ethnicity <- race_ethnicity |>
+  group_by(race_ethnicity) |>
+  mutate(percent = n / sum(n)) 
+
 race_ethnicity |>
-  ggplot(aes(x = insurance_status, y = n, fill = race_ethnicity)) +
+  ggplot(aes(x = insurance_status, y = percent)) +
   geom_col(position = "dodge") + 
   labs(
-    title = "Figure 1: Distribution of Health Insurance Coverage by Racial Ethnic Group", 
-    subtitle = "Data Source: Wave 5 of ADD Health",
+    title = "Figure 1: Distribution of Health Insurance Coverage by Racial Ethnic Group",
     caption = "Data Source: Wave 5 of ADD Health",
     x = "Insurance Coverage Type", 
-    y = "Number of Participants", 
-    fill = "Racial Ethnic Group"
+    y = "Proportion of Participants"
   ) +
-  theme_minimal() + coord_flip()
+  theme_minimal() + facet_wrap(~race_ethnicity) + coord_flip()
 
 ```
 
@@ -496,30 +484,6 @@ ggplot(insurance_by_employment, aes(
 ```
 
 
-```{r}
-#| label: paper-table-3
-#| include: false
-
-# descriptive table of job type.
-
-jobtype_table <- wave5_clean |> 
-  filter(!is.na(job_type)) |> 
-  count(job_type, name = "count") |> 
-  mutate(percent = count/ sum(count))
-
-jobtype_table |> 
-  gt() |> 
-  tab_header(title = "Table 3: Distribution of Job Types Among Participants", 
-             subtitle = "Data Source: Wave 5 of ADD Health") |> 
-  cols_label(
-    job_type = "Job Type", 
-    count = "Count", 
-    percent = "Percent"
-  ) |> 
-  fmt_percent(columns = percent, decimals = 1)
-```
-
-
 
 ```{r}
 #| label: paper-table-4
@@ -587,7 +551,7 @@ jobtype_insurance |>  ggplot(aes(
 
 
 ```{r}
-#| label: paper-figure-5
+#| label: paper-figure-income
 #Figure: Proportions of Insurance Types for each Income Level
 
 wave5_clean <- wave5_clean %>%
@@ -654,21 +618,13 @@ ggplot(stack_df,
   ) 
 
 
-#citation("dplyr")
-#@ggplot2,@scales,@forcats,@dplyr
-# Make citation for library(dplyr)
-# library(ggplot2)
-# library(scales)
-# library(forcats)
-# and Add Health Data 
-#@addhealth
 ```
 
 
 
 
 ```{r}
-#| label: paper-table-5
+#| label: paper-table-no-health
 # descriptive table of No Health Insurance and reasons why.
 
 noinsure_table <- wave5_clean |> 
@@ -696,8 +652,9 @@ noinsure_table |>
 
 We presented descriptive statistics of our demographic variables of interest in Table 1 below. The majority of our participants are employed, reported their household income as above 50k and their sex assigned at birth as female, and identified as Non-Hispanic Monoracial (see Table 1).The primary reason behind not having health insurance was it being too expensive at 55.1% (see Table 5). The largest proportion of insurance types across the four income levels was receiving health insurance through the workplace (see Figure 5). However, the proportions of receiving insurance through the workplace was lower at both the lowest and highest end of income levels, `Below 50k` and `Above 200k`. The second leading insurance type was "Medicaid" for those in the `Below 50k` category, and "Partner's Insurance" in the rest of the categories. 
 
-[sara ohnmar please summarize the finding of your table/visualizations here and have the interpretation in discussion]
+For each racial ethnic group, we found that the majority of people receive health insurance coverage through work. However, a larger proportion of Multiracial individuals across ethnicity are more likely to have no health insurance when compared to Monoracial individuals. Interestingly, while a larger proportion of Hispanic Monoracial individuals have no health insurance when compared to Non-Hispanic Monoracial individuals, we found this to be in the opposite direction for Multiracial individuals. 
 
+[sara ohnmar please summarize the finding of your table/visualizations here and have the interpretation in discussion]
 
 
 
@@ -725,7 +682,9 @@ Figure 5 revealed that receiving health insurance through the workplace remains 
 ### Findings about Reasons for No Health Insurance 
 Table 5 revealed that the primary reason behind not having health insurance was due to it being too expensive or costly (55.1%). These results shed light on how cost/affordability continues to be major barrier to health insurance status and accessing health services. The second leading reason of not having health insurance, "Not offered via work or school"(38.5%), convey the risks from relying heavily on workplaces to provide health insurance, which is the gap of leaving unemployed persons at a higher risk of being uninsured, based on their employment status. These results can be used to support universal healthcare policies by highlighting existing health care disparities stemming from these flawed healthcare systems.
 
-### Implications for Health Insurance
+### Implications for Health Insurance Coverage
+In the current study, we examined the distribution of health insurance coverage within each racial and ethnic group of interest (Non-Hispanic Monoracial, Hispanic Monoracial, Non-Hispanic Multiracial, Hispanic Multiracial). We found variations in health insurance coverage types for individuals of each racial and ethnic group. While Multiracial individuals make up a small proportion of the current study sample, there's emerging evidence that they are the most vulnerable population in terms of having health insurance coverage. Future studies should examine health insurance and coverage for Multiracial individuals in the United States. 
+
 Higher male employment rates explain why men may have greater access to employer-based health insurance. Since women have relatively lower employment rate, it may increase reliance on non-employer insurance options such as Medicaid and partner insurance. This is because U.S. insurance is heavily employment-dependent, gendered labor-market patterns can translate directly into coverage disparities. These findings align with broader literature on women's higher likelihood of part-time work or employment interruptions which may limit access to employer benefits.
 
  
