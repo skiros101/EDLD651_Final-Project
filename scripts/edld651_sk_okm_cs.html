@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -45,22 +45,21 @@ div.csl-indent {
 
 
 <script src="edld651_sk_okm_cs_files/libs/clipboard/clipboard.min.js"></script>
-<script src="edld651_sk_okm_cs_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="edld651_sk_okm_cs_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="edld651_sk_okm_cs_files/libs/quarto-html/quarto.js"></script>
 <script src="edld651_sk_okm_cs_files/libs/quarto-html/popper.min.js"></script>
 <script src="edld651_sk_okm_cs_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="edld651_sk_okm_cs_files/libs/quarto-html/anchor.min.js"></script>
 <link href="edld651_sk_okm_cs_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="edld651_sk_okm_cs_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="edld651_sk_okm_cs_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="edld651_sk_okm_cs_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="edld651_sk_okm_cs_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="edld651_sk_okm_cs_files/libs/bootstrap/bootstrap-bb462d781dde1847d9e3ccf7736099dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="edld651_sk_okm_cs_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="quarto-light">
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -114,12 +113,9 @@ div.csl-indent {
 </header>
 
 
-<p><strong>to dos</strong> Add in methods section how you cleaned the data for each variable you cleaned. Add ADD Health citation (make sure it renders and shows) throughout the write-up where ADD Health is referenced. Add in the summary or key takeaways of finding (doesn’t have to include everything in our results/discussion) in abstract. Double check citation lists and making sure everything renders properly (make sure we are using “sex” and not gender since the question ask for biological sex assigned at birth, no code showing, all graphs displaying, in-line code working and citation working in-text and at the end) Check structure of paper (does the table and graph referenced come right after the write-up description? are the table and figures numbered correctly?). Proofread for typos, sentences that don’t make sense; check we hit all the requirement of rubric. Delete all of our notes for communicating with each other in this doc before submitting (including this to-do).</p>
-<p>NOTE: MAKE SURE THE NUMBER OF CODE CHUNK LABELS ARE NOT REPEATS, otherwise it will not render. ALSO - model after the format of the first table to make sure we have subtitles of data source, and not using count but rather n of participants (n, or participants(n) or number of participants depending on the context/aesthetics)</p>
-<p><span class="citation" data-cites="ohnmar">(<a href="#ref-ohnmar" role="doc-biblioref"><strong>ohnmar?</strong></a>)</span> - I don’t think we need both a table and a graph for job type and health insurance status (i think we should stick with your graph cuz it’s cool). For all the other tables/figures without health insurance status as a variable, i think you can add an inline code and description just saying we found that majority of participants work for private for-profit etc. see an example of the in-line code I have for age and number of participants), same with employment and sex, can describe it in written sentences with in-line code.</p>
 <section id="abstract" class="level2">
 <h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>Health insurance coverage is an important factor for individuals residing in the United States to access a variety of preventative and treatment services in medical settings <span class="citation" data-cites="HealthyPeople2030">(<a href="#ref-HealthyPeople2030" role="doc-biblioref">Office of Disease Prevention and Promotion 2025</a>)</span>. The current study examines the variations of health insurance status across demographic characteristics including race, ethnicity, age, sex, employment, income using Wave V of ADD Health survey data. We found that lower-income classes had higher rated of being uninsured and the primary provider of health insurance was through the workplace across all income levels. These findings highlights the importance of addressing disparities in health insurance coverage to improve access to care for diverse population, which is crucial for the successful prevention and management of chronic health conditions for all.</p>
+<p>Health insurance coverage is an important factor for individuals residing in the United States to access a variety of preventative and treatment services in medical settings <span class="citation" data-cites="HealthyPeople2030">(<a href="#ref-HealthyPeople2030" role="doc-biblioref">Office of Disease Prevention and Promotion 2025</a>)</span>. The current study examines the variations of health insurance status across demographic characteristics including race, ethnicity, age, sex, employment, income using Wave V of ADD Health survey data <span class="citation" data-cites="addhealth">(<a href="#ref-addhealth" role="doc-biblioref">Harris and Udry 2022</a>)</span>. We found that lower-income classes had higher rated of being uninsured and the primary provider of health insurance was through the workplace across all income levels. These findings highlights the importance of addressing disparities in health insurance coverage to improve access to care for diverse population, which is crucial for the successful prevention and management of chronic health conditions for all.</p>
 </section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
@@ -133,23 +129,23 @@ div.csl-indent {
 <p>Additionally, we are interested in examining differences in status of health insurance and types of health insurance across income levels. The original raw data had thirteen income levels, starting at <code>"Less than $5,000"</code>, increasing in increments of <code>$5,000</code> up to <code>"$200,000 or more"</code>. These income levels from the raw data were collapsed to create better visualizations that are more clear and interpretable. For our final income levels, participants were grouped into earning:<code>Below 50k</code>,<code>50k-100k</code>,<code>100k-200k</code>, and<code>Above 200k</code>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="goabvbgofe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#goabvbgofe table {
+<div id="dgaupzowag" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dgaupzowag table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#goabvbgofe thead, #goabvbgofe tbody, #goabvbgofe tfoot, #goabvbgofe tr, #goabvbgofe td, #goabvbgofe th {
+#dgaupzowag thead, #dgaupzowag tbody, #dgaupzowag tfoot, #dgaupzowag tr, #dgaupzowag td, #dgaupzowag th {
   border-style: none;
 }
 
-#goabvbgofe p {
+#dgaupzowag p {
   margin: 0;
   padding: 0;
 }
 
-#goabvbgofe .gt_table {
+#dgaupzowag .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -175,12 +171,12 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-#goabvbgofe .gt_caption {
+#dgaupzowag .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#goabvbgofe .gt_title {
+#dgaupzowag .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -192,7 +188,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-#goabvbgofe .gt_subtitle {
+#dgaupzowag .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -204,7 +200,7 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-#goabvbgofe .gt_heading {
+#dgaupzowag .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -216,13 +212,13 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#goabvbgofe .gt_bottom_border {
+#dgaupzowag .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#goabvbgofe .gt_col_headings {
+#dgaupzowag .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -237,7 +233,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#goabvbgofe .gt_col_heading {
+#dgaupzowag .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -257,7 +253,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#goabvbgofe .gt_column_spanner_outer {
+#dgaupzowag .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -269,15 +265,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-#goabvbgofe .gt_column_spanner_outer:first-child {
+#dgaupzowag .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#goabvbgofe .gt_column_spanner_outer:last-child {
+#dgaupzowag .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#goabvbgofe .gt_column_spanner {
+#dgaupzowag .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -289,11 +285,11 @@ div.csl-indent {
   width: 100%;
 }
 
-#goabvbgofe .gt_spanner_row {
+#dgaupzowag .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#goabvbgofe .gt_group_heading {
+#dgaupzowag .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -319,7 +315,7 @@ div.csl-indent {
   text-align: left;
 }
 
-#goabvbgofe .gt_empty_group_heading {
+#dgaupzowag .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -334,15 +330,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-#goabvbgofe .gt_from_md > :first-child {
+#dgaupzowag .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#goabvbgofe .gt_from_md > :last-child {
+#dgaupzowag .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#goabvbgofe .gt_row {
+#dgaupzowag .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -361,7 +357,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#goabvbgofe .gt_stub {
+#dgaupzowag .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -374,7 +370,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#goabvbgofe .gt_stub_row_group {
+#dgaupzowag .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -388,15 +384,15 @@ div.csl-indent {
   vertical-align: top;
 }
 
-#goabvbgofe .gt_row_group_first td {
+#dgaupzowag .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#goabvbgofe .gt_row_group_first th {
+#dgaupzowag .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#goabvbgofe .gt_summary_row {
+#dgaupzowag .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -406,16 +402,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#goabvbgofe .gt_first_summary_row {
+#dgaupzowag .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#goabvbgofe .gt_first_summary_row.thick {
+#dgaupzowag .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#goabvbgofe .gt_last_summary_row {
+#dgaupzowag .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -425,7 +421,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#goabvbgofe .gt_grand_summary_row {
+#dgaupzowag .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -435,7 +431,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#goabvbgofe .gt_first_grand_summary_row {
+#dgaupzowag .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -445,7 +441,7 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-#goabvbgofe .gt_last_grand_summary_row_top {
+#dgaupzowag .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -455,11 +451,11 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#goabvbgofe .gt_striped {
+#dgaupzowag .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#goabvbgofe .gt_table_body {
+#dgaupzowag .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -468,7 +464,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#goabvbgofe .gt_footnotes {
+#dgaupzowag .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -482,7 +478,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#goabvbgofe .gt_footnote {
+#dgaupzowag .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -491,7 +487,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#goabvbgofe .gt_sourcenotes {
+#dgaupzowag .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -505,7 +501,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#goabvbgofe .gt_sourcenote {
+#dgaupzowag .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -513,85 +509,85 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#goabvbgofe .gt_left {
+#dgaupzowag .gt_left {
   text-align: left;
 }
 
-#goabvbgofe .gt_center {
+#dgaupzowag .gt_center {
   text-align: center;
 }
 
-#goabvbgofe .gt_right {
+#dgaupzowag .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#goabvbgofe .gt_font_normal {
+#dgaupzowag .gt_font_normal {
   font-weight: normal;
 }
 
-#goabvbgofe .gt_font_bold {
+#dgaupzowag .gt_font_bold {
   font-weight: bold;
 }
 
-#goabvbgofe .gt_font_italic {
+#dgaupzowag .gt_font_italic {
   font-style: italic;
 }
 
-#goabvbgofe .gt_super {
+#dgaupzowag .gt_super {
   font-size: 65%;
 }
 
-#goabvbgofe .gt_footnote_marks {
+#dgaupzowag .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#goabvbgofe .gt_asterisk {
+#dgaupzowag .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#goabvbgofe .gt_indent_1 {
+#dgaupzowag .gt_indent_1 {
   text-indent: 5px;
 }
 
-#goabvbgofe .gt_indent_2 {
+#dgaupzowag .gt_indent_2 {
   text-indent: 10px;
 }
 
-#goabvbgofe .gt_indent_3 {
+#dgaupzowag .gt_indent_3 {
   text-indent: 15px;
 }
 
-#goabvbgofe .gt_indent_4 {
+#dgaupzowag .gt_indent_4 {
   text-indent: 20px;
 }
 
-#goabvbgofe .gt_indent_5 {
+#dgaupzowag .gt_indent_5 {
   text-indent: 25px;
 }
 
-#goabvbgofe .katex-display {
+#dgaupzowag .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#goabvbgofe div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#dgaupzowag div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
-<tr class="gt_heading header">
+<tr class="header gt_heading">
 <th colspan="6" class="gt_heading gt_title gt_font_normal">Table 1: Descriptive Statistics of Sex, Racial Ethnic Group, Employment, Household Income</th>
 </tr>
-<tr class="gt_heading even">
+<tr class="odd gt_heading">
 <th colspan="6" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Data Source: Wave 5 of ADD Health</th>
 </tr>
-<tr class="gt_col_headings header">
+<tr class="header gt_col_headings">
 <th id="sex" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Sex</th>
 <th id="race_ethnicity" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Racial Ethnic Group</th>
 <th id="employed" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Employment Status</th>
@@ -1082,507 +1078,9 @@ div.csl-indent {
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="zjhvajfprr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zjhvajfprr table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#zjhvajfprr thead, #zjhvajfprr tbody, #zjhvajfprr tfoot, #zjhvajfprr tr, #zjhvajfprr td, #zjhvajfprr th {
-  border-style: none;
-}
-
-#zjhvajfprr p {
-  margin: 0;
-  padding: 0;
-}
-
-#zjhvajfprr .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#zjhvajfprr .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#zjhvajfprr .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#zjhvajfprr .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#zjhvajfprr .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#zjhvajfprr .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#zjhvajfprr .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#zjhvajfprr .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#zjhvajfprr .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#zjhvajfprr .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#zjhvajfprr .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#zjhvajfprr .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#zjhvajfprr .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#zjhvajfprr .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#zjhvajfprr .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#zjhvajfprr .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#zjhvajfprr .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#zjhvajfprr .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#zjhvajfprr .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#zjhvajfprr .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#zjhvajfprr .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#zjhvajfprr .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#zjhvajfprr .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#zjhvajfprr .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#zjhvajfprr .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#zjhvajfprr .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#zjhvajfprr .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#zjhvajfprr .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#zjhvajfprr .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#zjhvajfprr .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#zjhvajfprr .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#zjhvajfprr .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#zjhvajfprr .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#zjhvajfprr .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#zjhvajfprr .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#zjhvajfprr .gt_left {
-  text-align: left;
-}
-
-#zjhvajfprr .gt_center {
-  text-align: center;
-}
-
-#zjhvajfprr .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#zjhvajfprr .gt_font_normal {
-  font-weight: normal;
-}
-
-#zjhvajfprr .gt_font_bold {
-  font-weight: bold;
-}
-
-#zjhvajfprr .gt_font_italic {
-  font-style: italic;
-}
-
-#zjhvajfprr .gt_super {
-  font-size: 65%;
-}
-
-#zjhvajfprr .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#zjhvajfprr .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#zjhvajfprr .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#zjhvajfprr .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#zjhvajfprr .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#zjhvajfprr .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#zjhvajfprr .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#zjhvajfprr .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#zjhvajfprr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_heading header">
-<th colspan="4" class="gt_heading gt_title gt_font_normal">Table 2: Employment Status by Sex</th>
-</tr>
-<tr class="gt_heading even">
-<th colspan="4" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Data Source: Wave 5 of ADD Health</th>
-</tr>
-<tr class="gt_col_headings header">
-<th id="sex" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Sex</th>
-<th id="employed" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Employment Status</th>
-<th id="count" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Count</th>
-<th id="percent" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Percent</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_left" headers="sex">Female</td>
-<td class="gt_row gt_center" headers="employed">Employed</td>
-<td class="gt_row gt_right" headers="count">1905</td>
-<td class="gt_row gt_right" headers="percent">79.8%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="sex">Female</td>
-<td class="gt_row gt_center" headers="employed">Not employed</td>
-<td class="gt_row gt_right" headers="count">483</td>
-<td class="gt_row gt_right" headers="percent">20.2%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="sex">Male</td>
-<td class="gt_row gt_center" headers="employed">Employed</td>
-<td class="gt_row gt_right" headers="count">1574</td>
-<td class="gt_row gt_right" headers="percent">87.5%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="sex">Male</td>
-<td class="gt_row gt_center" headers="employed">Not employed</td>
-<td class="gt_row gt_right" headers="count">224</td>
-<td class="gt_row gt_right" headers="percent">12.5%</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="edld651_sk_okm_cs_files/figure-html/paper-figure-2-1.png" class="img-fluid figure-img" width="624"></p>
+<p><img src="edld651_sk_okm_cs_files/figure-html/paper-figure-2-1.png" class="img-fluid figure-img" width="768"></p>
 </figure>
 </div>
 </div>
@@ -1598,927 +1096,6 @@ div.csl-indent {
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="hahxogrfxt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hahxogrfxt table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#hahxogrfxt thead, #hahxogrfxt tbody, #hahxogrfxt tfoot, #hahxogrfxt tr, #hahxogrfxt td, #hahxogrfxt th {
-  border-style: none;
-}
-
-#hahxogrfxt p {
-  margin: 0;
-  padding: 0;
-}
-
-#hahxogrfxt .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#hahxogrfxt .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#hahxogrfxt .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#hahxogrfxt .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#hahxogrfxt .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#hahxogrfxt .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#hahxogrfxt .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#hahxogrfxt .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#hahxogrfxt .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#hahxogrfxt .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#hahxogrfxt .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#hahxogrfxt .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#hahxogrfxt .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#hahxogrfxt .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#hahxogrfxt .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#hahxogrfxt .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#hahxogrfxt .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#hahxogrfxt .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#hahxogrfxt .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hahxogrfxt .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#hahxogrfxt .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#hahxogrfxt .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#hahxogrfxt .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hahxogrfxt .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#hahxogrfxt .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#hahxogrfxt .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#hahxogrfxt .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hahxogrfxt .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#hahxogrfxt .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#hahxogrfxt .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#hahxogrfxt .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#hahxogrfxt .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#hahxogrfxt .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hahxogrfxt .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#hahxogrfxt .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hahxogrfxt .gt_left {
-  text-align: left;
-}
-
-#hahxogrfxt .gt_center {
-  text-align: center;
-}
-
-#hahxogrfxt .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#hahxogrfxt .gt_font_normal {
-  font-weight: normal;
-}
-
-#hahxogrfxt .gt_font_bold {
-  font-weight: bold;
-}
-
-#hahxogrfxt .gt_font_italic {
-  font-style: italic;
-}
-
-#hahxogrfxt .gt_super {
-  font-size: 65%;
-}
-
-#hahxogrfxt .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#hahxogrfxt .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#hahxogrfxt .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#hahxogrfxt .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#hahxogrfxt .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#hahxogrfxt .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#hahxogrfxt .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#hahxogrfxt .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#hahxogrfxt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_heading header">
-<th colspan="4" class="gt_heading gt_title gt_font_normal">Table 4:Health Insurance Status by Job Type</th>
-</tr>
-<tr class="gt_heading even">
-<th colspan="4" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Data Source: Wave 5 of ADD Health</th>
-</tr>
-<tr class="gt_col_headings header">
-<th id="job_type" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Job Type</th>
-<th id="insurance_status" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Health Insurance</th>
-<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Count</th>
-<th id="percent" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Percent</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Federal government</td>
-<td class="gt_row gt_center" headers="insurance_status">Department of Veterans Affairs</td>
-<td class="gt_row gt_right" headers="n">4</td>
-<td class="gt_row gt_right" headers="percent">3.5%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Federal government</td>
-<td class="gt_row gt_center" headers="insurance_status">Insurance Through Union</td>
-<td class="gt_row gt_right" headers="n">1</td>
-<td class="gt_row gt_right" headers="percent">0.9%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Federal government</td>
-<td class="gt_row gt_center" headers="insurance_status">Insurance Through Work</td>
-<td class="gt_row gt_right" headers="n">86</td>
-<td class="gt_row gt_right" headers="percent">75.4%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Federal government</td>
-<td class="gt_row gt_center" headers="insurance_status">Military Healthcare Plans</td>
-<td class="gt_row gt_right" headers="n">7</td>
-<td class="gt_row gt_right" headers="percent">6.1%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Federal government</td>
-<td class="gt_row gt_center" headers="insurance_status">No Health Insurance</td>
-<td class="gt_row gt_right" headers="n">1</td>
-<td class="gt_row gt_right" headers="percent">0.9%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Federal government</td>
-<td class="gt_row gt_center" headers="insurance_status">Partner's Insurance</td>
-<td class="gt_row gt_right" headers="n">13</td>
-<td class="gt_row gt_right" headers="percent">11.4%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Federal government</td>
-<td class="gt_row gt_center" headers="insurance_status">Self Private Insurance</td>
-<td class="gt_row gt_right" headers="n">2</td>
-<td class="gt_row gt_right" headers="percent">1.8%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Local government</td>
-<td class="gt_row gt_center" headers="insurance_status">Department of Veterans Affairs</td>
-<td class="gt_row gt_right" headers="n">1</td>
-<td class="gt_row gt_right" headers="percent">0.4%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Local government</td>
-<td class="gt_row gt_center" headers="insurance_status">Insurance Through Union</td>
-<td class="gt_row gt_right" headers="n">5</td>
-<td class="gt_row gt_right" headers="percent">1.8%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Local government</td>
-<td class="gt_row gt_center" headers="insurance_status">Insurance Through Work</td>
-<td class="gt_row gt_right" headers="n">219</td>
-<td class="gt_row gt_right" headers="percent">80.5%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Local government</td>
-<td class="gt_row gt_center" headers="insurance_status">Medicaid</td>
-<td class="gt_row gt_right" headers="n">8</td>
-<td class="gt_row gt_right" headers="percent">2.9%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Local government</td>
-<td class="gt_row gt_center" headers="insurance_status">Medicare</td>
-<td class="gt_row gt_right" headers="n">5</td>
-<td class="gt_row gt_right" headers="percent">1.8%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Local government</td>
-<td class="gt_row gt_center" headers="insurance_status">Military Healthcare Plans</td>
-<td class="gt_row gt_right" headers="n">1</td>
-<td class="gt_row gt_right" headers="percent">0.4%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Local government</td>
-<td class="gt_row gt_center" headers="insurance_status">No Health Insurance</td>
-<td class="gt_row gt_right" headers="n">5</td>
-<td class="gt_row gt_right" headers="percent">1.8%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Local government</td>
-<td class="gt_row gt_center" headers="insurance_status">Partner's Insurance</td>
-<td class="gt_row gt_right" headers="n">23</td>
-<td class="gt_row gt_right" headers="percent">8.5%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Local government</td>
-<td class="gt_row gt_center" headers="insurance_status">Self Marketplace or ACA Insurance</td>
-<td class="gt_row gt_right" headers="n">5</td>
-<td class="gt_row gt_right" headers="percent">1.8%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Military</td>
-<td class="gt_row gt_center" headers="insurance_status">Active Duty Military Insurance</td>
-<td class="gt_row gt_right" headers="n">9</td>
-<td class="gt_row gt_right" headers="percent">22.5%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Military</td>
-<td class="gt_row gt_center" headers="insurance_status">Insurance Through Work</td>
-<td class="gt_row gt_right" headers="n">17</td>
-<td class="gt_row gt_right" headers="percent">42.5%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Military</td>
-<td class="gt_row gt_center" headers="insurance_status">Military Healthcare Plans</td>
-<td class="gt_row gt_right" headers="n">14</td>
-<td class="gt_row gt_right" headers="percent">35.0%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Private for-profit</td>
-<td class="gt_row gt_center" headers="insurance_status">Department of Veterans Affairs</td>
-<td class="gt_row gt_right" headers="n">11</td>
-<td class="gt_row gt_right" headers="percent">0.5%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Private for-profit</td>
-<td class="gt_row gt_center" headers="insurance_status">Indian Health Service</td>
-<td class="gt_row gt_right" headers="n">6</td>
-<td class="gt_row gt_right" headers="percent">0.3%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Private for-profit</td>
-<td class="gt_row gt_center" headers="insurance_status">Insurance Through Union</td>
-<td class="gt_row gt_right" headers="n">30</td>
-<td class="gt_row gt_right" headers="percent">1.5%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Private for-profit</td>
-<td class="gt_row gt_center" headers="insurance_status">Insurance Through Work</td>
-<td class="gt_row gt_right" headers="n">1286</td>
-<td class="gt_row gt_right" headers="percent">62.4%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Private for-profit</td>
-<td class="gt_row gt_center" headers="insurance_status">Medicaid</td>
-<td class="gt_row gt_right" headers="n">131</td>
-<td class="gt_row gt_right" headers="percent">6.4%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Private for-profit</td>
-<td class="gt_row gt_center" headers="insurance_status">Medicare</td>
-<td class="gt_row gt_right" headers="n">19</td>
-<td class="gt_row gt_right" headers="percent">0.9%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Private for-profit</td>
-<td class="gt_row gt_center" headers="insurance_status">Military Healthcare Plans</td>
-<td class="gt_row gt_right" headers="n">21</td>
-<td class="gt_row gt_right" headers="percent">1.0%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Private for-profit</td>
-<td class="gt_row gt_center" headers="insurance_status">No Health Insurance</td>
-<td class="gt_row gt_right" headers="n">146</td>
-<td class="gt_row gt_right" headers="percent">7.1%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Private for-profit</td>
-<td class="gt_row gt_center" headers="insurance_status">Partner's Insurance</td>
-<td class="gt_row gt_right" headers="n">294</td>
-<td class="gt_row gt_right" headers="percent">14.3%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Private for-profit</td>
-<td class="gt_row gt_center" headers="insurance_status">Self Marketplace or ACA Insurance</td>
-<td class="gt_row gt_right" headers="n">57</td>
-<td class="gt_row gt_right" headers="percent">2.8%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Private for-profit</td>
-<td class="gt_row gt_center" headers="insurance_status">Self Private Insurance</td>
-<td class="gt_row gt_right" headers="n">43</td>
-<td class="gt_row gt_right" headers="percent">2.1%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Private for-profit</td>
-<td class="gt_row gt_center" headers="insurance_status">Unknown Health Insurance</td>
-<td class="gt_row gt_right" headers="n">16</td>
-<td class="gt_row gt_right" headers="percent">0.8%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Private nonprofit</td>
-<td class="gt_row gt_center" headers="insurance_status">Indian Health Service</td>
-<td class="gt_row gt_right" headers="n">1</td>
-<td class="gt_row gt_right" headers="percent">0.3%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Private nonprofit</td>
-<td class="gt_row gt_center" headers="insurance_status">Insurance Through Union</td>
-<td class="gt_row gt_right" headers="n">5</td>
-<td class="gt_row gt_right" headers="percent">1.5%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Private nonprofit</td>
-<td class="gt_row gt_center" headers="insurance_status">Insurance Through Work</td>
-<td class="gt_row gt_right" headers="n">233</td>
-<td class="gt_row gt_right" headers="percent">68.5%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Private nonprofit</td>
-<td class="gt_row gt_center" headers="insurance_status">Medicaid</td>
-<td class="gt_row gt_right" headers="n">15</td>
-<td class="gt_row gt_right" headers="percent">4.4%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Private nonprofit</td>
-<td class="gt_row gt_center" headers="insurance_status">Medicare</td>
-<td class="gt_row gt_right" headers="n">1</td>
-<td class="gt_row gt_right" headers="percent">0.3%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Private nonprofit</td>
-<td class="gt_row gt_center" headers="insurance_status">Military Healthcare Plans</td>
-<td class="gt_row gt_right" headers="n">2</td>
-<td class="gt_row gt_right" headers="percent">0.6%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Private nonprofit</td>
-<td class="gt_row gt_center" headers="insurance_status">No Health Insurance</td>
-<td class="gt_row gt_right" headers="n">14</td>
-<td class="gt_row gt_right" headers="percent">4.1%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Private nonprofit</td>
-<td class="gt_row gt_center" headers="insurance_status">Partner's Insurance</td>
-<td class="gt_row gt_right" headers="n">55</td>
-<td class="gt_row gt_right" headers="percent">16.2%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Private nonprofit</td>
-<td class="gt_row gt_center" headers="insurance_status">Self Marketplace or ACA Insurance</td>
-<td class="gt_row gt_right" headers="n">7</td>
-<td class="gt_row gt_right" headers="percent">2.1%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Private nonprofit</td>
-<td class="gt_row gt_center" headers="insurance_status">Self Private Insurance</td>
-<td class="gt_row gt_right" headers="n">7</td>
-<td class="gt_row gt_right" headers="percent">2.1%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Self-employed (inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">Department of Veterans Affairs</td>
-<td class="gt_row gt_right" headers="n">3</td>
-<td class="gt_row gt_right" headers="percent">2.0%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Self-employed (inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">Insurance Through Union</td>
-<td class="gt_row gt_right" headers="n">2</td>
-<td class="gt_row gt_right" headers="percent">1.4%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Self-employed (inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">Insurance Through Work</td>
-<td class="gt_row gt_right" headers="n">34</td>
-<td class="gt_row gt_right" headers="percent">23.1%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Self-employed (inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">Medicaid</td>
-<td class="gt_row gt_right" headers="n">5</td>
-<td class="gt_row gt_right" headers="percent">3.4%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Self-employed (inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">Medicare</td>
-<td class="gt_row gt_right" headers="n">1</td>
-<td class="gt_row gt_right" headers="percent">0.7%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Self-employed (inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">Military Healthcare Plans</td>
-<td class="gt_row gt_right" headers="n">1</td>
-<td class="gt_row gt_right" headers="percent">0.7%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Self-employed (inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">No Health Insurance</td>
-<td class="gt_row gt_right" headers="n">20</td>
-<td class="gt_row gt_right" headers="percent">13.6%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Self-employed (inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">Partner's Insurance</td>
-<td class="gt_row gt_right" headers="n">42</td>
-<td class="gt_row gt_right" headers="percent">28.6%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Self-employed (inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">Self Marketplace or ACA Insurance</td>
-<td class="gt_row gt_right" headers="n">16</td>
-<td class="gt_row gt_right" headers="percent">10.9%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Self-employed (inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">Self Private Insurance</td>
-<td class="gt_row gt_right" headers="n">23</td>
-<td class="gt_row gt_right" headers="percent">15.6%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Self-employed (non-inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">Department of Veterans Affairs</td>
-<td class="gt_row gt_right" headers="n">2</td>
-<td class="gt_row gt_right" headers="percent">1.1%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Self-employed (non-inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">Insurance Through Work</td>
-<td class="gt_row gt_right" headers="n">14</td>
-<td class="gt_row gt_right" headers="percent">7.7%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Self-employed (non-inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">Medicaid</td>
-<td class="gt_row gt_right" headers="n">19</td>
-<td class="gt_row gt_right" headers="percent">10.4%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Self-employed (non-inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">Medicare</td>
-<td class="gt_row gt_right" headers="n">5</td>
-<td class="gt_row gt_right" headers="percent">2.7%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Self-employed (non-inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">No Health Insurance</td>
-<td class="gt_row gt_right" headers="n">47</td>
-<td class="gt_row gt_right" headers="percent">25.7%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Self-employed (non-inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">Partner's Insurance</td>
-<td class="gt_row gt_right" headers="n">46</td>
-<td class="gt_row gt_right" headers="percent">25.1%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Self-employed (non-inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">Self Marketplace or ACA Insurance</td>
-<td class="gt_row gt_right" headers="n">19</td>
-<td class="gt_row gt_right" headers="percent">10.4%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Self-employed (non-inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">Self Private Insurance</td>
-<td class="gt_row gt_right" headers="n">30</td>
-<td class="gt_row gt_right" headers="percent">16.4%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Self-employed (non-inc)</td>
-<td class="gt_row gt_center" headers="insurance_status">Unknown Health Insurance</td>
-<td class="gt_row gt_right" headers="n">1</td>
-<td class="gt_row gt_right" headers="percent">0.5%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">State government</td>
-<td class="gt_row gt_center" headers="insurance_status">Insurance Through Work</td>
-<td class="gt_row gt_right" headers="n">195</td>
-<td class="gt_row gt_right" headers="percent">83.0%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">State government</td>
-<td class="gt_row gt_center" headers="insurance_status">Medicaid</td>
-<td class="gt_row gt_right" headers="n">7</td>
-<td class="gt_row gt_right" headers="percent">3.0%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">State government</td>
-<td class="gt_row gt_center" headers="insurance_status">No Health Insurance</td>
-<td class="gt_row gt_right" headers="n">4</td>
-<td class="gt_row gt_right" headers="percent">1.7%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">State government</td>
-<td class="gt_row gt_center" headers="insurance_status">Partner's Insurance</td>
-<td class="gt_row gt_right" headers="n">26</td>
-<td class="gt_row gt_right" headers="percent">11.1%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">State government</td>
-<td class="gt_row gt_center" headers="insurance_status">Self Marketplace or ACA Insurance</td>
-<td class="gt_row gt_right" headers="n">1</td>
-<td class="gt_row gt_right" headers="percent">0.4%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">State government</td>
-<td class="gt_row gt_center" headers="insurance_status">Self Private Insurance</td>
-<td class="gt_row gt_right" headers="n">1</td>
-<td class="gt_row gt_right" headers="percent">0.4%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">State government</td>
-<td class="gt_row gt_center" headers="insurance_status">Unknown Health Insurance</td>
-<td class="gt_row gt_right" headers="n">1</td>
-<td class="gt_row gt_right" headers="percent">0.4%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Unpaid family worker</td>
-<td class="gt_row gt_center" headers="insurance_status">Insurance Through Work</td>
-<td class="gt_row gt_right" headers="n">2</td>
-<td class="gt_row gt_right" headers="percent">18.2%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Unpaid family worker</td>
-<td class="gt_row gt_center" headers="insurance_status">Medicaid</td>
-<td class="gt_row gt_right" headers="n">1</td>
-<td class="gt_row gt_right" headers="percent">9.1%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Unpaid family worker</td>
-<td class="gt_row gt_center" headers="insurance_status">Medicare</td>
-<td class="gt_row gt_right" headers="n">1</td>
-<td class="gt_row gt_right" headers="percent">9.1%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Unpaid family worker</td>
-<td class="gt_row gt_center" headers="insurance_status">No Health Insurance</td>
-<td class="gt_row gt_right" headers="n">1</td>
-<td class="gt_row gt_right" headers="percent">9.1%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="job_type">Unpaid family worker</td>
-<td class="gt_row gt_center" headers="insurance_status">Partner's Insurance</td>
-<td class="gt_row gt_right" headers="n">4</td>
-<td class="gt_row gt_right" headers="percent">36.4%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="job_type">Unpaid family worker</td>
-<td class="gt_row gt_center" headers="insurance_status">Self Marketplace or ACA Insurance</td>
-<td class="gt_row gt_right" headers="n">2</td>
-<td class="gt_row gt_right" headers="percent">18.2%</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="edld651_sk_okm_cs_files/figure-html/paper-figure-4-1.png" class="img-fluid figure-img" width="624"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="edld651_sk_okm_cs_files/figure-html/paper-figure-income-1.png" class="img-fluid figure-img" width="624"></p>
@@ -2528,23 +1105,23 @@ div.csl-indent {
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="nygtnjlwsj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#nygtnjlwsj table {
+<div id="xzdocdewfl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xzdocdewfl table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#nygtnjlwsj thead, #nygtnjlwsj tbody, #nygtnjlwsj tfoot, #nygtnjlwsj tr, #nygtnjlwsj td, #nygtnjlwsj th {
+#xzdocdewfl thead, #xzdocdewfl tbody, #xzdocdewfl tfoot, #xzdocdewfl tr, #xzdocdewfl td, #xzdocdewfl th {
   border-style: none;
 }
 
-#nygtnjlwsj p {
+#xzdocdewfl p {
   margin: 0;
   padding: 0;
 }
 
-#nygtnjlwsj .gt_table {
+#xzdocdewfl .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2570,12 +1147,12 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-#nygtnjlwsj .gt_caption {
+#xzdocdewfl .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#nygtnjlwsj .gt_title {
+#xzdocdewfl .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2587,7 +1164,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-#nygtnjlwsj .gt_subtitle {
+#xzdocdewfl .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2599,7 +1176,7 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-#nygtnjlwsj .gt_heading {
+#xzdocdewfl .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2611,13 +1188,13 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#nygtnjlwsj .gt_bottom_border {
+#xzdocdewfl .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nygtnjlwsj .gt_col_headings {
+#xzdocdewfl .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2632,7 +1209,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#nygtnjlwsj .gt_col_heading {
+#xzdocdewfl .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2652,7 +1229,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#nygtnjlwsj .gt_column_spanner_outer {
+#xzdocdewfl .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2664,15 +1241,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-#nygtnjlwsj .gt_column_spanner_outer:first-child {
+#xzdocdewfl .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nygtnjlwsj .gt_column_spanner_outer:last-child {
+#xzdocdewfl .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nygtnjlwsj .gt_column_spanner {
+#xzdocdewfl .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2684,11 +1261,11 @@ div.csl-indent {
   width: 100%;
 }
 
-#nygtnjlwsj .gt_spanner_row {
+#xzdocdewfl .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#nygtnjlwsj .gt_group_heading {
+#xzdocdewfl .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2714,7 +1291,7 @@ div.csl-indent {
   text-align: left;
 }
 
-#nygtnjlwsj .gt_empty_group_heading {
+#xzdocdewfl .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2729,15 +1306,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-#nygtnjlwsj .gt_from_md > :first-child {
+#xzdocdewfl .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nygtnjlwsj .gt_from_md > :last-child {
+#xzdocdewfl .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nygtnjlwsj .gt_row {
+#xzdocdewfl .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2756,7 +1333,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#nygtnjlwsj .gt_stub {
+#xzdocdewfl .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2769,7 +1346,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#nygtnjlwsj .gt_stub_row_group {
+#xzdocdewfl .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2783,15 +1360,15 @@ div.csl-indent {
   vertical-align: top;
 }
 
-#nygtnjlwsj .gt_row_group_first td {
+#xzdocdewfl .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#nygtnjlwsj .gt_row_group_first th {
+#xzdocdewfl .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#nygtnjlwsj .gt_summary_row {
+#xzdocdewfl .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2801,16 +1378,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#nygtnjlwsj .gt_first_summary_row {
+#xzdocdewfl .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#nygtnjlwsj .gt_first_summary_row.thick {
+#xzdocdewfl .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#nygtnjlwsj .gt_last_summary_row {
+#xzdocdewfl .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2820,7 +1397,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#nygtnjlwsj .gt_grand_summary_row {
+#xzdocdewfl .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2830,7 +1407,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#nygtnjlwsj .gt_first_grand_summary_row {
+#xzdocdewfl .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2840,7 +1417,7 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-#nygtnjlwsj .gt_last_grand_summary_row_top {
+#xzdocdewfl .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2850,11 +1427,11 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#nygtnjlwsj .gt_striped {
+#xzdocdewfl .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nygtnjlwsj .gt_table_body {
+#xzdocdewfl .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2863,7 +1440,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#nygtnjlwsj .gt_footnotes {
+#xzdocdewfl .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2877,7 +1454,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#nygtnjlwsj .gt_footnote {
+#xzdocdewfl .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2886,7 +1463,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#nygtnjlwsj .gt_sourcenotes {
+#xzdocdewfl .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2900,7 +1477,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#nygtnjlwsj .gt_sourcenote {
+#xzdocdewfl .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2908,85 +1485,85 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#nygtnjlwsj .gt_left {
+#xzdocdewfl .gt_left {
   text-align: left;
 }
 
-#nygtnjlwsj .gt_center {
+#xzdocdewfl .gt_center {
   text-align: center;
 }
 
-#nygtnjlwsj .gt_right {
+#xzdocdewfl .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nygtnjlwsj .gt_font_normal {
+#xzdocdewfl .gt_font_normal {
   font-weight: normal;
 }
 
-#nygtnjlwsj .gt_font_bold {
+#xzdocdewfl .gt_font_bold {
   font-weight: bold;
 }
 
-#nygtnjlwsj .gt_font_italic {
+#xzdocdewfl .gt_font_italic {
   font-style: italic;
 }
 
-#nygtnjlwsj .gt_super {
+#xzdocdewfl .gt_super {
   font-size: 65%;
 }
 
-#nygtnjlwsj .gt_footnote_marks {
+#xzdocdewfl .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#nygtnjlwsj .gt_asterisk {
+#xzdocdewfl .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#nygtnjlwsj .gt_indent_1 {
+#xzdocdewfl .gt_indent_1 {
   text-indent: 5px;
 }
 
-#nygtnjlwsj .gt_indent_2 {
+#xzdocdewfl .gt_indent_2 {
   text-indent: 10px;
 }
 
-#nygtnjlwsj .gt_indent_3 {
+#xzdocdewfl .gt_indent_3 {
   text-indent: 15px;
 }
 
-#nygtnjlwsj .gt_indent_4 {
+#xzdocdewfl .gt_indent_4 {
   text-indent: 20px;
 }
 
-#nygtnjlwsj .gt_indent_5 {
+#xzdocdewfl .gt_indent_5 {
   text-indent: 25px;
 }
 
-#nygtnjlwsj .katex-display {
+#xzdocdewfl .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#nygtnjlwsj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xzdocdewfl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
-<tr class="gt_heading header">
-<th colspan="3" class="gt_heading gt_title gt_font_normal">Table 5: Distribution of Reasons behind No Health Insurance</th>
+<tr class="header gt_heading">
+<th colspan="3" class="gt_heading gt_title gt_font_normal">Table 2: Distribution of Reasons behind No Health Insurance</th>
 </tr>
-<tr class="gt_heading even">
+<tr class="odd gt_heading">
 <th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Data Source: Wave 5 of ADD Health</th>
 </tr>
-<tr class="gt_col_headings header">
+<tr class="header gt_col_headings">
 <th id="notinsured_reason" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Job Type</th>
 <th id="count" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Count</th>
 <th id="percent" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Percent</th>
@@ -3024,14 +1601,13 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="results">Results</h2>
 <p>We presented descriptive statistics of our demographic variables of interest in Table 1 below. The majority of our participants are employed, reported their household income as above 50k and their sex assigned at birth as female, and identified as Non-Hispanic Monoracial (see Table 1).The primary reason behind not having health insurance was it being too expensive at 55.1% (see Table 5). The largest proportion of insurance types across the four income levels was receiving health insurance through the workplace (see Figure 5). However, the proportions of receiving insurance through the workplace was lower at both the lowest and highest end of income levels, <code>Below 50k</code> and <code>Above 200k</code>. The second leading insurance type was “Medicaid” for those in the <code>Below 50k</code> category, and “Partner’s Insurance” in the rest of the categories.</p>
 <p>For each racial ethnic group, we found that the majority of people receive health insurance coverage through work. However, a larger proportion of Multiracial individuals across ethnicity are more likely to have no health insurance when compared to Monoracial individuals. Interestingly, while a larger proportion of Hispanic Monoracial individuals have no health insurance when compared to Non-Hispanic Monoracial individuals, we found this to be in the opposite direction for Multiracial individuals.</p>
-<p>[sara ohnmar please summarize the finding of your table/visualizations here and have the interpretation in discussion]</p>
+<p>In this sample and analysis of Sex and Employment, women have higher raw counts of employment because the female sample is larger. However, men shows the higher employment rate (87.3%) compared to women (79.6%). Women also have a higher count of “not employed” but proportionally still lower than men. Since there are small NA counts, it suggests that there will be minimal missing data but do not affect the patterns that much. This table of Sex and Employment status reflects labor-force disparities in U.S. It suggests slight differences in employment stability or participation rates based on the participants’ sex.</p>
 </section>
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
 <section id="findings-about-sex-and-employment" class="level3">
 <h3 class="anchored" data-anchor-id="findings-about-sex-and-employment">Findings about Sex and Employment</h3>
-<p>The descriptive table 2 and figures 2 highlight differences in employment status by sex and how it is linked to health insurance coverage. In this sample and analysis of Sex and Employment table, women have higher raw counts of employment because the female sample is larger. However, men shows the higher employment rate (87.3%) compared to women (79.6%). Women also have a higher count of “not employed” but proportionally still lower than men. Since there are small NA counts, it suggests that there will be minimal missing data but do not affect the patterns that much. This table of Sex and Employment status reflects labor-force disparities in U.S. It suggests slight differences in employment stability or participation rates based on the participants’ sex.</p>
-<p>The figure 2: Employment Status by sex visualizes the same pattern that both men and women are mostly employed. The bar chart visually shows larger absolute employment counts for women. However, proportionally, men are more likely to be employed when sample size is considered. It indicates sex differences in labor market participation in this sample. This analysis highlights the importance of distinguishing between absolute counts and percentage. Employment is tightly linked to employer-sponsored insurance, so even small differences in participants’ sex can influence coverage patterns.</p>
+<p>Employment Status by sex shows the same pattern that both men and women are mostly employed. It demonstrates larger absolute employment counts for women. However, proportionally, men are more likely to be employed when sample size is considered. It indicates sex differences in labor market participation in this sample. This analysis highlights the importance of distinguishing between absolute counts and percentage. Employment is tightly linked to employer-sponsored insurance, so even small differences in participants’ sex can influence coverage patterns.</p>
 </section>
 <section id="findings-about-job-type" class="level3">
 <h3 class="anchored" data-anchor-id="findings-about-job-type">Findings about Job Type</h3>
@@ -3047,11 +1623,11 @@ div.csl-indent {
 </section>
 <section id="findings-about-income-levels" class="level3">
 <h3 class="anchored" data-anchor-id="findings-about-income-levels">Findings about Income levels</h3>
-<p>Figure 5 revealed that receiving health insurance through the workplace remains the primary reason across all income levels. In addition, the largest proportion of “No Health Insurance” responses was in the lowest income level, however was partially mitigated by Medicaid. These figure findings highlight the importance in altering employer reliant healthcare insurance models, as federally provided health insurance, such as Medicaid, can clearly aid in drastically reducing uninsured statuses.</p>
+<p>Figure 4 revealed that receiving health insurance through the workplace remains the primary reason across all income levels. In addition, the largest proportion of “No Health Insurance” responses was in the lowest income level, however was partially mitigated by Medicaid. These figure findings highlight the importance in altering employer reliant healthcare insurance models, as federally provided health insurance, such as Medicaid, can clearly aid in drastically reducing uninsured statuses.</p>
 </section>
 <section id="findings-about-reasons-for-no-health-insurance" class="level3">
 <h3 class="anchored" data-anchor-id="findings-about-reasons-for-no-health-insurance">Findings about Reasons for No Health Insurance</h3>
-<p>Table 5 revealed that the primary reason behind not having health insurance was due to it being too expensive or costly (55.1%). These results shed light on how cost/affordability continues to be major barrier to health insurance status and accessing health services. The second leading reason of not having health insurance, “Not offered via work or school”(38.5%), convey the risks from relying heavily on workplaces to provide health insurance, which is the gap of leaving unemployed persons at a higher risk of being uninsured, based on their employment status. These results can be used to support universal healthcare policies by highlighting existing health care disparities stemming from these flawed healthcare systems.</p>
+<p>Table 2 revealed that the primary reason behind not having health insurance was due to it being too expensive or costly (55.1%). These results shed light on how cost/affordability continues to be major barrier to health insurance status and accessing health services. The second leading reason of not having health insurance, “Not offered via work or school”(38.5%), convey the risks from relying heavily on workplaces to provide health insurance, which is the gap of leaving unemployed persons at a higher risk of being uninsured, based on their employment status. These results can be used to support universal healthcare policies by highlighting existing health care disparities stemming from these flawed healthcare systems.</p>
 </section>
 <section id="implications-for-health-insurance-coverage" class="level3">
 <h3 class="anchored" data-anchor-id="implications-for-health-insurance-coverage">Implications for Health Insurance Coverage</h3>
@@ -3119,242 +1695,239 @@ Wickham, Hadley, Thomas Lin Pedersen, and Dana Seidel. 2023. <em>Scales: Scale F
 </div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
       }
-      return false;
-    }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
-    }
-    const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
-        }
-        return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
         }
       }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
     }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -3362,161 +1935,185 @@ Wickham, Hadley, Thomas Lin Pedersen, and Dana Seidel. 2023. <em>Scales: Scale F
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 </div> <!-- /content -->
 
 
