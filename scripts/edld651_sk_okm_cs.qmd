@@ -1,5 +1,5 @@
 ---
-title: "Understanding demographic variations in health insurance coverage in the United States: evidence from wave 5 of ADD Health survey"
+title: "Understanding demographic variations in health insurance coverage in the United States: evidence from ADD Health"
 subtitle: "EDLD 651 Final Paper"
 author: "Sara Kiros, Ohnmar Khine Min, Chen Su"
 bibliography: references.bib
@@ -20,15 +20,12 @@ fig-height: 8
 ```{r}
 #| label: load-packages-raw-data
 
-#install.packages("webshot2")
-#install.packages("labeled")
 library(tidyverse)
 library(here)
 library(rio)
 library(janitor)
 library(gt)
-library(labelled)
-library(webshot2)
+
 
 pwave5 <- import(here("data", "pwave5.xpt")) |>
   characterize() |>
@@ -216,14 +213,6 @@ wave5_clean <- wave5_clean |>
   mutate(age = interval(birth_date, survey_date) |>
            time_length(unit = "years") |> round(digits = 2))
 
-wave5_clean |>
-  ggplot(aes(x=age)) + geom_histogram(binwidth = 1,
-                                      fill="skyblue", color="white", alpha=0.8) + 
-  labs(x = "Age at Wave 5",
-       y = "Number of Participants",
-    title = "Distribution of Participant's Age",
-       caption = "Data Source: Wave 5 ADD Health") + 
-  theme_minimal()
 
 
 ```
@@ -278,68 +267,159 @@ wave5_clean$ethnicity <- factor(wave5_clean$ethnicity,
 ```
 
 
-**remove at the end before submitting**
+
 ```{r}
-#| label: visual-race-ethnicity
+#| label: race-ethnicity-recoding
 
-wave5_clean |>
-  ggplot(aes(race)) + geom_bar(fill = "darkgreen") + 
-  labs(title = "Distribution of Participant's Race and Ethnicity",
-       caption = "Data Source: Wave 5 ADD Health") + 
-  theme_minimal() + facet_wrap(~ethnicity) + coord_flip()
+# using pivot_wider to combine race/ethnicity
+wave5_clean <- wave5_clean |> 
+  pivot_wider(names_from = race,
+              values_from = ethnicity)
 
-# just race
-wave5_clean |>
-  ggplot(aes(race)) + geom_bar(fill = "darkgreen") + 
-  labs(title = "Distribution of Participant's Race",
-       caption = "Data Source: Wave 5 ADD Health") + 
-  theme_minimal() + coord_flip()
+# recoding into mono vs multi racial and ethnicity
+wave5_clean <- wave5_clean |>
+  mutate(`Non-Hispanic Multiracial` = case_when(Multiracial == "Non-Hispanic"~ 1),
+         `Hispanic Multiracial` = case_when(Multiracial == "Hispanic"~ 1),
+         `Non-Hispanic Monoracial` = case_when(is.na(Multiracial) & h5od4c == 0  ~ 1),
+         `Hispanic Monoracial` = case_when(is.na(Multiracial) & h5od4c == 1  ~ 1))
 
-# just ethnicity
-wave5_clean |>
-  ggplot(aes(ethnicity)) + geom_bar(fill = "darkorange") + 
-  labs(title = "Distribution of Participant's Ethnicity",
-       caption = "Data Source: Wave 5 ADD Health") + 
-  theme_minimal() + coord_flip()
+# recoding NA to 0 (no)
+wave5_clean <- wave5_clean |>
+  mutate(`Non-Hispanic Multiracial` = replace_na(`Non-Hispanic Multiracial`, 0),
+         `Hispanic Multiracial` = replace_na(`Hispanic Multiracial`, 0),
+         `Non-Hispanic Monoracial` = replace_na(`Non-Hispanic Monoracial`, 0),
+         `Hispanic Monoracial` = replace_na(`Hispanic Monoracial`, 0))
 
-# table
- wave5_clean |>
-  count(race, ethnicity) |>
-  group_by(ethnicity) |>
-  gt() |>
-  tab_header(title = "Descriptive Statistics: Race and Ethnicity") |>
-  cols_label(
-    race = "Race",
-    ethnicity = "Ethnicity"
-    )
+# pivot_longer to one variable on race/ethnicity combined  
+wave5_clean <- wave5_clean |>
+  pivot_longer(cols = `Non-Hispanic Multiracial`:`Hispanic Monoracial`,
+               names_to = "race_ethnicity",
+               values_to = "selected"
+               ) 
 
+# remove extra variables and rows
+wave5_clean <- wave5_clean |> 
+  filter(selected == 1) |> 
+  select(-selected, -Multiracial, -White, -Black, -Asian, -`Pacific Islander`, 
+         -`American Indian or Alaska Native`, -`Other Race`)
+
+# factor level
+wave5_clean$race_ethnicity <- factor(wave5_clean$race_ethnicity,
+                                levels = c("Non-Hispanic Monoracial",
+                                           "Non-Hispanic Multiracial",
+                                           "Hispanic Monoracial",
+                                           "Hispanic Multiracial"))
 
 ```
 
 
 
 
+**to dos**
+Add in methods section how you cleaned the data for each variable you cleaned.
+Add ADD Health citation (make sure it renders and shows) throughout the write-up where ADD Health is referenced.
+Add in the summary or key takeaways of finding (doesn't have to include everything in our results/discussion) in abstract.
+Double check citation lists and making sure everything renders properly (make sure we are using "sex" and not gender since the question ask for biological sex assigned at birth, no code showing, all graphs displaying, in-line code working and citation working in-text and at the end)
+Check structure of paper (does the table and graph referenced come right after the write-up description? are the table and figures numbered correctly?). Proofread for typos, sentences that don't make sense; check we hit all the requirement of rubric.
+Delete all of our notes for communicating with each other in this doc before submitting (including this to-do).
+
+NOTE: MAKE SURE THE NUMBER OF CODE CHUNK LABELS ARE NOT REPEATS, otherwise it will not render.
+ALSO - model after the format of the first table to make sure we have subtitles of data source, and not using count but rather n of participants (n, or participants(n) or number of participants depending on the context/aesthetics)
+
+@sara - could you make one table or graph on income -> health insurance? and also write up the description of the finding and reference the table/figure.
+
+Here's the factor variable for income now:
+household_income = 
+       `Below 50k` ,
+      `50k-100k`,
+      `100k-200k`,
+      `Above 200k`.
+      
+@ohnmar - I don't think we need both a table and a graph for job type and health insurance status (i think we should stick with your graph cuz it's cool). For all the other tables/figures without health insurance status as a variable, i think you can add an inline code and description just saying we found that majority of participants work for private for-profit etc. see an example of the in-line code I have for age and number of participants), same with employment and sex, can describe it in written sentences with in-line code.
+
+
+
 ## Abstract
-[1-2 Sentences about study rationale --> Access to health services has been identified as a social determinant of health by the Office of Disease Prevention and Health Promotion [@HealthyPeople2030]. Status on health insurance coverage is a factor that largely contributes to accessing healthcare services, for both treatment and preventative services. 
+Health insurance coverage is an important factor for individuals residing in the United States to access a variety of preventative and treatment services in medical setting [@HealthyPeople2030]. The current study examines the variations of health insurance status across demographic characteristics including race, ethnicity, age, sex, employment, income using Wave V of ADD Health survey data. [summarize finding here: We found that....delete me once this is done]. These findings highlights the importance of addressing disparities in health insurance coverage to improve access to care for diverse population, which is crucial for the successful prevention and management of chronic health conditions for all.
 
-
-The current study examines the variations of health insurance status across demographic characteristics including race, ethnicity, age, sex, employment, income using Wave V of ADD Health survey data. [summarize finding here: We found that....]. It is critical to address disparities in health insurance status as improved access to care for diverse population is crucial for the successful prevention and management of chronic health conditions for all.
 
 ## Introduction
-(1-2 paragraphs) Describe here why we are examining these demographic variables and health insurance outcome.
 
-Many adverse outcomes can result from a lack of health insurance coverage. Uninsured adults are less likely to receive preventative screenings for chronic conditions, such as cancer, cardiovascular disease, and diabetes, resulting in higher mortality among uninsured groups due to untimely diagnoses and treatments [@IOM2009]. In addition, there’s a higher likelihood of medical debt among uninsured groups due to accrued out-of-pocket expenses [@Herman2011]. Access to health insurance coverage is unequally distributed across people with lower incomes, racial/ethnic minorities,gender minorities, and young adults [@Hadley2003]. Particularly, disparities across health insurance coverage primarily affect people in lower-income classes or in minority groups, as about half of the uninsured population in the U.S. are also in lower-income classes or in a minority group [@Majerol2015].
+Access to health services has been identified as a social determinant of health by the Office of Disease Prevention and Health Promotion [@HealthyPeople2030]. Status on health insurance coverage is a factor that largely contributes to accessing healthcare services, for both treatment and preventative services. Many adverse outcomes can result from a lack of health insurance coverage. Uninsured adults are less likely to receive preventative screenings for chronic conditions, such as cancer, cardiovascular disease, and diabetes, resulting in higher mortality among uninsured groups due to untimely diagnoses and treatments [@IOM2009]. In addition, there’s a higher likelihood of medical debt among uninsured groups due to accrued out-of-pocket expenses [@Herman2011]. 
+
+Access to health insurance coverage is unequally distributed across people with lower incomes, racial/ethnic minorities,gender minorities, and young adults in the United States [@Hadley2003]. Particularly, disparities across health insurance coverage primarily affect people in lower-income classes or minoritized racial and ethnic groups, as about half of the uninsured population in the U.S. are also in lower-income classes or identified as belonging to a minoritized racial and ethnic group [@Majerol2015]. As the U.S. population has become more racially and ethnically diverse and more individuals identified as multiracial [@Jones2021], it is crucial to understand whether there are any variations in monoracial and multiracial individuals' access to health insurance and services. The current study aims to examine the distribution of health insurance coverage and how this may differ by race (monoracial, multiracial), ethnicity, age, sex, income and employment using ADD Health Wave 5 survey data.
 
 
 ## Methods
 
-The current study uses the public available version of the ADD Health Wave 5 survey data, which was collected from 2016 through 2018. The sample includes `r nrow(wave5_clean)` adult participants.
+The current study uses the public available version of the ADD Health Wave 5 survey data, which was collected from 2016 through 2018. As the full dataset contains variables on many social, environmental, behavior and biological measures beyond the scope of the current study, we only selected variables that are relevant to our aim as a first step of our data cleaning process. 
+We used the following R packages [@R; @here;@tidyverse;@rio;@janitor;@gt] to assist our data cleaning, as well as table and visualization creations of our results. 
+
+As we are interested in examining the potential differences in health insurance coverage by comparing monoracial and multiracial individuals that either identifies as Hispanic or Non-Hispanic rather than across each racial and ethnic group, we decided to exclude participants who have missing data on race and ethnicity. Therefore, our final sample includes `r nrow(wave5_clean)` adult participants (Mean age =`r round(mean(wave5_clean$age), 2)` years, Range = `r round(min(wave5_clean$age), 0) ` - `r round(max(wave5_clean$age), 0)` years).
+
+
+```{r}
+#| label: race-health-table
+
+#descriptive table
+
+desc_table_demo <- wave5_clean |> 
+  filter(!is.na(sex), !is.na(employed),
+         !is.na(household_income)) |> 
+  group_by (sex, race_ethnicity, employed, household_income) |>
+  summarize(n = n(), .groups = "drop")
+
+desc_table_demo |>
+    mutate(percent = n / sum(n)) |>
+    arrange(desc(n)) |>
+    gt() |> 
+    tab_header(title = "Table 1: Descriptive Statistics of Sex, Racial Ethnic Group, Employment, Household Income",
+               subtitle = "Data Source: Wave 5 of ADD Health") |> 
+    cols_label(
+      sex = "Sex", 
+      race_ethnicity = "Racial Ethnic Group", 
+      employed = "Employment Status",
+      household_income = "Household Income",
+      n = "Participants (n)", 
+      percent = "Percentage"
+    ) |> 
+    fmt_percent(columns = percent, decimals = 1)
+
+
+```
+
+
+
+```{r}
+#| label: paper-figure-race
+
+race_ethnicity <- wave5_clean |> 
+  filter(!is.na(insurance_status)) |>
+  group_by (race_ethnicity, insurance_status) |>
+  summarize(n = n(), .groups = "drop") |>
+  mutate(insurance_status = reorder(insurance_status, n))
+
+race_ethnicity |>
+  ggplot(aes(x = insurance_status, y = n, fill = race_ethnicity)) +
+  geom_col(position = "dodge") + 
+  labs(
+    title = "Distribution of Health Insurance Coverage by Racial Ethnic Group", 
+    caption = "Data Source: Wave 5 of ADD Health",
+    x = "Insurance Coverage Type", 
+    y = "Number of Participants", 
+    fill = "Racial Ethnic Group"
+  ) +
+  theme_minimal() + coord_flip()
+
+```
+
+
 
 ```{r}
 #| label: paper-table-1
 
 # descriptive table of gender and employment
-gender_employment_table <- sex_employment|> 
+sex_employment_table <- sex_employment|> 
   group_by(sex) |> 
   mutate(
     percent = n / sum(n) 
@@ -348,11 +428,11 @@ gender_employment_table <- sex_employment|>
   rename(count = n)
   
 
-gender_employment_table |> 
+sex_employment_table |> 
   gt() |> 
-  tab_header(title = "Employment Status by Gender") |> 
+  tab_header(title = "Table 1: Employment Status by Sex") |> 
   cols_label(
-    sex = "Gender", 
+    sex = "Sex", 
     employed = "Employment Status",
     count = "Count", 
     percent = "Percent"
@@ -361,19 +441,23 @@ gender_employment_table |>
 
 ```
 
+
+
 ```{r}
 #| label: paper-figure-1
 #Employment Status by Gender
-ggplot(gender_employment_table, aes(x = sex, y = count, fill = employed)) +
+ggplot(sex_employment_table, aes(x = sex, y = count, fill = employed)) +
   geom_col(position = "dodge") + 
   labs(
-    title = "Employment Status by Gender", 
-    x = "Gender", 
+    title = "Employment Status by Sex", 
+    x = "Sex", 
     y = "Count", 
     fill = "Employment Status"
   ) + 
   theme_minimal()
 ```
+
+
 
 ```{r}
 #| label: paper-figure-2
@@ -425,7 +509,6 @@ jobtype_table |>
 ```{r}
 #| label: paper-figure-3
 
-<<<<<<< HEAD
 #Health Insurance Status by Job Type
 jobtype_insurance <- wave5_clean |> 
   filter(!is.na(job_type), !is.na(insurance_status)) |> 
@@ -434,7 +517,6 @@ jobtype_insurance <- wave5_clean |>
   mutate(percent = n / sum(n)) |> 
   ungroup()
 
-=======
 #Health Insurance Status by Job TYpe
 
 jobtype_insurance <- wave5_clean |> 
@@ -444,7 +526,6 @@ jobtype_insurance <- wave5_clean |>
   mutate(percent = n / sum(n)) |> 
   ungroup()
 
->>>>>>> origin/main
 jobtype_insurance |> 
   gt() |> 
   tab_header(title = "Health Insurance Status by Job Type") |> 
@@ -455,11 +536,12 @@ jobtype_insurance |>
     percent = "Percent"
   ) |> 
   fmt_percent(columns = percent, decimals = 1)
+
 ```
 
 
 ```{r}
-#| label: paper-figure-2
+#| label: paper-figure-4
 #Figure: Health Insurance Coverage by Job Type 
 
 
@@ -485,17 +567,6 @@ jobtype_insurance |>  ggplot(aes(
 
 ```
 
-```{r}
-#| label: paper-figure-3
-
-
-```
-
-```{r}
-#| label: paper-figure-4
-
-
-```
 
 ```{r}
 #| label: paper-figure-5
@@ -503,67 +574,11 @@ jobtype_insurance |>  ggplot(aes(
 
 ```
 
-**code copied from data script draft that we can build off of for final paper, Delete at the end**
-
-```{r}
-
-# Data Exploratory visualization for Household Income Count
-
-wave5_clean %>%
-  filter(!is.na(household_income)) %>%
-  group_by(household_income) %>%
-  summarise(count = n()) %>%
-  ggplot(aes(household_income, count)) +
-  geom_col() +
-  labs(title = "Count by Income Level", x = "Household Income Level", y = "Count") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-
-#Distribution of Job Types - Bar Chart
-ggplot(wave5_clean, aes(x = job_type)) + 
-  geom_bar() +
-  coord_flip() + 
-  labs(title = "Distribution of Job Types Among Participants", 
-       x = "Job Type", 
-       y = "Count")
-
-#sex_employment plot
-ggplot(sex_employment, aes(x = sex, y = n, fill = employed)) + 
-  geom_col(position = "dodge", na.rm = TRUE) + 
-  labs(title = "Employment Status by Sex", 
-       x = "Sex",
-       y = "Count",
-       fill = "Employment")
-
-# example of creating a subset of our data or a new data frame first then making tables or graphs
-sex_employment <- wave5_clean |> 
-  group_by (sex, employed) |>
-  summarize(n = n(), .groups = "drop")
-
-
-
-#hashtagged out for now to check rendering and citations
-
-# table formatting
-#gt() %>%
-  #tab_header(title = "") %>%
-  #cols_label(
-    #household_income = "",
-    #count = "",
-    #percent = ""
-  #) %>%
-  #fmt_percent(columns = percent, decimals = 1) %>%
-  #cols_align(align = "left", columns = household_income) %>%
-  #cols_align(align = "right", columns = c(count, percent))
-  
-  
-
-
-```
-
 ## Results
 
-We used the following packages [@R; @here;@tidyverse;@rio;@janitor;@gt;@labelled;@webshot2] to assist our coding. 
+We presented descriptive statistics of our demographic variables of interest in Table 1 below. The majority of our participants are employed, reported their household income as above 50k and their sex assigned at birth as female, and identified as Non-Hispanic Monoracial (Table 1).
+
+[sara ohnmar please summarize the finding of your table/visualizations here and have the interpretation in discussion]
 
 ## Discussion
 
@@ -584,7 +599,7 @@ Private for-profit and government job types show the highest rates of employer-s
 ### Implications
 Employer-provided insurance is unequally distributed across job sectors. Workers in traditional and stable employment sectors such as governments or for-profit benefit from higher coverage. Workers in self-employment or informal roles face systemic disadvantages in getting decent insurance. This support the argument that the structure of the labor market creates disparities in health insurance acess beyond employment status alone. 
 
-## References
+# References
 
 
 
