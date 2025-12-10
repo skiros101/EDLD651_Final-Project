@@ -426,9 +426,9 @@ race_ethnicity |>
 
 
 ```{r}
-#| label: paper-table-1
+#| label: paper-table-2
 
-# descriptive table of gender and employment
+# descriptive table of sex and employment
 sex_employment_table <- sex_employment|> 
   group_by(sex) |> 
   mutate(
@@ -455,8 +455,8 @@ sex_employment_table |>
 
 
 ```{r}
-#| label: paper-figure-1
-#Employment Status by Gender
+#| label: paper-figure-2
+#Employment Status by Sex
 ggplot(sex_employment_table, aes(x = sex, y = count, fill = employed)) +
   geom_col(position = "dodge") + 
   labs(
@@ -472,7 +472,7 @@ ggplot(sex_employment_table, aes(x = sex, y = count, fill = employed)) +
 
 
 ```{r}
-#| label: paper-figure-2
+#| label: paper-figure-3
 #Insurance and Employment visualization
 
 insurance_by_employment <- wave5_clean |> 
@@ -497,7 +497,8 @@ ggplot(insurance_by_employment, aes(
 
 
 ```{r}
-#| label: paper-table-2
+#| label: paper-table-3
+#| include: false
 
 # descriptive table of job type.
 
@@ -521,7 +522,8 @@ jobtype_table |>
 
 
 ```{r}
-#| label: paper-figure-3
+#| label: paper-table-4
+
 
 #Health Insurance Status by Job Type
 jobtype_insurance <- wave5_clean |> 
@@ -666,7 +668,7 @@ ggplot(stack_df,
 
 
 ```{r}
-#| label: paper-table-
+#| label: paper-table-5
 # descriptive table of No Health Insurance and reasons why.
 
 noinsure_table <- wave5_clean |> 
@@ -702,10 +704,19 @@ We presented descriptive statistics of our demographic variables of interest in 
 
 ## Discussion
 
-### Findings about Gender and Employment
-The descriptive table 1 and figures 1 highlight differences in employment status by gender and how it is linked to health insurance coverage. In this sample and analysis of Gender and Employment table, women have higher raw counts of employment because the female sample is larger.However, men shows the higher employment rate (87.3%) compared to women (79.6%). Women also have a higher count of "not employed" but proportionally still lower than men. Since there are small NA counts, it suggests that there will be minimal missing data and do not affect the patterns that much. This table of Gender and Employment status reflects labor-force disparities in U.S. It suggests slight gender differences in employment stability or participation rates.
+### Findings about Sex and Employment
+The descriptive table 2 and figures 2 highlight differences in employment status by sex and how it is linked to health insurance coverage. In this sample and analysis of Sex and Employment table, women have higher raw counts of employment because the female sample is larger. However, men shows the higher employment rate (87.3%) compared to women (79.6%). Women also have a higher count of "not employed" but proportionally still lower than men. Since there are small NA counts, it suggests that there will be minimal missing data but do not affect the patterns that much. This table of Sex and Employment status reflects labor-force disparities in U.S. It suggests slight differences in employment stability or participation rates based on the participants' sex.
 
-The figure 1: Employment Status by Gender visualizes the same pattern that both genders are mostly employed. The bar chart visually shows larger absolute employment counts for women. However, proportionally, men are more likely to be employed when sample size is considered. It indicates gender differences in labor market participation in this sample. This analysis highlights the importance of distingushing between absolute counts and percentage. Employment is tightly linked to employer-sponsored insurance, so even small gender differences can influence coverage patterns. 
+The figure 2: Employment Status by sex visualizes the same pattern that both men and women are mostly employed. The bar chart visually shows larger absolute employment counts for women. However, proportionally, men are more likely to be employed when sample size is considered. It indicates sex differences in labor market participation in this sample. This analysis highlights the importance of distinguishing between absolute counts and percentage. Employment is tightly linked to employer-sponsored insurance, so even small differences in participants' sex can influence coverage patterns. 
+
+### Findings about Job Type
+Job types vary significantly across participants and private for-profit employment is the most common one. Government jobs such as local, state and federal also represent meaningful shares of the sample. Self-employed and unpaid family workers represents smaller but important groups.
+
+### Insurance Access Patterns
+By looking into Figure 4, Private for-profit and government job types show the highest rates of employer-sponsored insurance while self-employed individuals have much lower access to employer insurance and rely more on individual market plans or remain uninsured. Unpaid or informal job types show very low employer-insurance coverage and higher Medicaid and uninsured rates. Therefore, job type is a strong structural determinant of insurance access even among people who are technically "employed". 
+
+### Implications
+Employer-provided insurance is unequally distributed across job sectors. Workers in traditional and stable employment sectors such as governments or for-profit benefit from higher coverage. Workers in self-employment or informal roles face systemic disadvantages in getting decent insurance. Unemployed persons face higher risks of having no health insurance coverage due to systemic reliance on employer-sponsored health insurance models. Those with lower incomes also face higher risks for having no health insurance coverage, thus, leading to higher risks of delaying health services or prioritizing preventative care. This support the argument that the structure of the labor market creates disparities in health insurance access beyond employment status alone. 
 
 ### Findings about Income levels 
 Figure 5 revealed that receiving health insurance through the workplace remains the primary reason across all income levels. In addition, the largest proportion of "No Health Insurance" responses was in the lowest income level, however was partially mitigated by Medicaid. These figure findings highlight the importance in altering employer reliant healthcare insurance models, as federally provided health insurance, such as Medicaid, can clearly aid in drastically reducing uninsured statuses. 
@@ -717,15 +728,7 @@ Table 5 revealed that the primary reason behind not having health insurance was 
 ### Implications for Health Insurance
 Higher male employment rates explain why men may have greater access to employer-based health insurance. Since women have relatively lower employment rate, it may increase reliance on non-employer insurance options such as Medicaid and partner insurance. This is because U.S. insurance is heavily employment-dependent, gendered labor-market patterns can translate directly into coverage disparities. These findings align with broader literature on women's higher likelihood of part-time work or employment interruptions which may limit access to employer benefits.
 
-### Findings about Job Type
-Job types vary significantly across participants and private for-profit employment is the most common one. Government jobs such as local, state and federal also represent meaningful shares of the sample. Self-employed and unpaid family workers represents smaller but important groups.
-
-### Insurance Access Patterns
-Private for-profit and government job types show the highest rates of employer-sponsored insurance while self-employed individuals have much lower access to employer insurance and rely more on individual market plans or remin uninsured. Unpaid or informal job types show very low employer-insurance coverage and higher Medicaid and uninsured rates. Therefore, job type is a strong structural determinant of insurance access even among people who are technically "employed". 
-
-### Implications
-Employer-provided insurance is unequally distributed across job sectors. Workers in traditional and stable employment sectors such as governments or for-profit benefit from higher coverage. Workers in self-employment or informal roles face systemic disadvantages in getting decent insurance. Unemployed persons face higher risks of having no health insurance coverage due to systemic reliance on employer-sponsored health insurance models. Those with lower incomes also face higher risks for having no health insurance coverage, thus, leading to higher risks of delaying health services or prioritizing preventative care. This support the argument that the structure of the labor market creates disparities in health insurance access beyond employment status alone. 
-
+ 
 # References
 
 
