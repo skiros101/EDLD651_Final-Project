@@ -7,7 +7,6 @@ link-citations: true
 format: 
   html:
     toc: true
-    css: styles.css
 execute: 
   eval: true
   echo: false
